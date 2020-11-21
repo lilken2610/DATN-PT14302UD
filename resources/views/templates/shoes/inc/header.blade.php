@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> @yield('title') | Epic Shoes </title>
+    <title> Epic Shoes | @yield('title')</title>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- bootstrap cdn -->
@@ -59,7 +59,12 @@
                         </a>
                     </div>
                     <div class="bar-header" style="text-align: right;">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div>
+                            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                                  aria-label="Search">
+                              </form>
+                        </div>
                         @if( Cart::count() > 0 )
                             @php $title = 'Tổng: '.Cart::total(0).'đ'; @endphp
                         @else

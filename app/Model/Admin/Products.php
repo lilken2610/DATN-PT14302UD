@@ -5,7 +5,7 @@ namespace App\Model\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Http\Request;
 class Products extends Model
 {
     protected $table = "products";
@@ -31,6 +31,16 @@ class Products extends Model
         }
         return $products;
     }
+
+    public function search(Request $request){
+        return DB::table('products as pd')
+        ->where('name_product', 'like', '%' . $request->keyword . '%')
+            ->join('categories as c','pd.id_cat','c.id_cat')
+            ->select('pd.*','c.name_cat')
+            ->orderBy('id_product','DESC')
+            ->paginate(16);
+    }
+
     public function add($arAdd) {
         $product = new Products();
         $product->name_product  =   $arAdd['name_product'];

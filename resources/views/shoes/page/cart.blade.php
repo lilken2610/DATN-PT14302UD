@@ -1,5 +1,7 @@
 @extends('templates.shoes.master')
-@section('title') Giỏ hàng @endsection
+@section('title') 
+Giỏ hàng 
+@endsection
 @section('content')
     <div class="cart">
         @if( Cart::count() != 0 )

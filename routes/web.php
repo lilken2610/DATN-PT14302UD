@@ -316,7 +316,10 @@ Route::group(['namespace'=>'Shoes'],function(){
         ]);
     });
 
-
+    Route::get('/search', [
+        'uses' => 'IndexController@search',
+        'as'   => 'shoes.shopping.search'
+    ]);
 });
 
 /*auth*/

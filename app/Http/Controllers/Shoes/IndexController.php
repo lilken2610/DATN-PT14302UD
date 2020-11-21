@@ -25,7 +25,7 @@ class IndexController extends Controller
 {
     public function __construct(Products $products,ProductSize $productSize,Categories $categories,Slide $slide,User $user,Transaction $transaction,TransactionDetail $transactionDetail,News $news,GiftCode $giftCode,Pay $pay,Rating $rating,Contact $contact)
     {
-        $this->Produtc = $products;
+        $this->Product = $products;
         $this->ProductSize = $productSize;
         $this->Categories = $categories;
         $this->Slide = $slide;
@@ -41,31 +41,43 @@ class IndexController extends Controller
 
     public function index() {
         $arIndex = [
-            'randomPro'   => $this->Produtc->random(),
-            'productNews' => $this->Produtc->getProductNews(),
-            'sale'        => $this->Produtc->getSale(),
-            'accessories' => $this->Produtc->getProD(),
+            'randomPro'   => $this->Product->random(),
+            'productNews' => $this->Product->getProductNews(),
+            'sale'        => $this->Product->getSale(),
+            'accessories' => $this->Product->getProD(),
             'slide'       => $this->Slide->getSlide(),
-            'product_selling'    => $this->Produtc->selling(),
-            'new_produts'  => $this->Produtc->newProduct()
+            'product_selling'    => $this->Product->selling(),
+            'new_produts'  => $this->Product->newProduct()
         ];
     	return view('shoes.index',compact('arIndex'));
     }
+
+    public function search(Request $request){
+        $arProductBar = [
+            'noibat' => $this->Product->getProductNews(),
+            'muanhieu' => $this->Product->selling()
+        ];
+        $resultSearch = $this->Product->search($request);
+        $keyword = $request->keyword;
+
+        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword'));
+    }
+
     public function categories($id) {
         $nameCat = $this->Categories->getId($id);
-        $getProductCat = $this->Produtc->getProductCat($id);
+        $getProductCat = $this->Product->getProductCat($id);
         $arProductBar = [
-            'noibat' => $this->Produtc->getProductNews(),
-            'muanhieu' => $this->Produtc->selling()
+            'noibat' => $this->Product->getProductNews(),
+            'muanhieu' => $this->Product->selling()
         ];
         return view('shoes.page.categories',compact('getProductCat','nameCat','arProductBar'));
     }
     public function product($slug,$id) {
         $arrayId = explode('-',$id);
         $getId = end($arrayId);
-        $object = $this->Produtc->getIdPro($getId);
+        $object = $this->Product->getIdPro($getId);
         $getSize = $this->ProductSize->getProductPb($getId);
-        $proSameType = $this->Produtc->proSameType($object);
+        $proSameType = $this->Product->proSameType($object);
         $rating = $this->Rating->getRating($getId);
         return view('shoes.page.product',compact('object','getSize','proSameType','rating'));
     }
