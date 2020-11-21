@@ -6,15 +6,19 @@ Tìm kiếm: {{$keyword}}
 <div class="container categories margin-res-top" style="margin-top: 150px">
     <div class="col-sm-6 categories-title">
         <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>
+        /
+        <a href="/search?keyword={{$keyword}}">Kết quả tìm kiếm: {{$keyword}} ({{$resultSearch->total()}})</a>
     </div>
     <div class="col-sm-6">
         <div style="width: 50%;float: right;padding-right: 25px">
-            <form action="">
-                <select name="" class="form-control">
-                    <option value="">Mặc định</option>
-                    <option value="">Giá thấp đến cao</option>
-                    <option value="">Giá cao đến thấp</option>
-                    <option value="">Mới nhất</option>
+            <form action="/search">
+                <input type="text" name="keyword" @if (!empty($keyword))
+                    value={{$keyword}}                    
+                @endif hidden>
+                <select name="options" class="form-control" onchange="this.form.submit()">
+                    <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
+                    <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
+                    <option value="3" {{$option == 3 ? 'selected': ''}}>Giá cao đến thấp</option>
                 </select>
             </form>
         </div>

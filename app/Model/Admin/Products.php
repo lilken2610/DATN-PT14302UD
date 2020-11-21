@@ -33,12 +33,34 @@ class Products extends Model
     }
 
     public function search(Request $request){
-        return DB::table('products as pd')
-        ->where('name_product', 'like', '%' . $request->keyword . '%')
+        $products = DB::table('products as pd');
+
+        if($request->keyword){
+            $products->where('name_product', 'like', '%' . $request->keyword . '%');
+        }
+
+        if($request->options == null || $request->options == 1){
+            $products->orderBy('id_product','DESC');
+        }
+
+        if($request->options == 2){
+            $products->orderBy('price', 'ASC');
+        }
+
+        if($request->options == 3){
+            $products->orderBy('price', 'DESC');
+        }
+        
+        return $products
             ->join('categories as c','pd.id_cat','c.id_cat')
             ->select('pd.*','c.name_cat')
-            ->orderBy('id_product','DESC')
             ->paginate(16);
+        // return DB::table('products as pd')
+        // ->where('name_product', 'like', '%' . $request->keyword . '%')
+        //     ->join('categories as c','pd.id_cat','c.id_cat')
+        //     ->select('pd.*','c.name_cat')
+        //     ->orderBy('id_product','DESC')
+        //     ->paginate(16);
     }
 
     public function add($arAdd) {

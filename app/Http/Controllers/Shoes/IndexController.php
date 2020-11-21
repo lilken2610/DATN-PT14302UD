@@ -59,8 +59,9 @@ class IndexController extends Controller
         ];
         $resultSearch = $this->Product->search($request);
         $keyword = $request->keyword;
+        $option = $request->options;
 
-        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword'));
+        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option'));
     }
 
     public function categories($id) {

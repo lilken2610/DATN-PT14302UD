@@ -31,6 +31,7 @@
     {{--ajax--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js" integrity="sha512-8ehqhNuD1bseIPwrxDUkt2VcYdhvHJptB5vmVCWwCqJShQdOq7gnj4FfXEUnNMfRaWN2/q7yXBO4cboaRloP8w==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.min.css" integrity="sha512-zEmgzrofH7rifnTAgSqWXGWF8rux/+gbtEQ1OJYYW57J1eEQDjppSv7oByOdvSJfo0H39LxmCyQTLOYFOa8wig==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
@@ -58,13 +59,19 @@
                             <img id="nav-logo-img" src="{{asset('images/file/logo-mona.png')}}" alt="">
                         </a>
                     </div>
+                    <form action="/search" method="GET">
+                    <div class="bar-header">
+                        <div class="searchbar">
+                            <input class="search_input" type="text" name="keyword" @if (!empty($keyword))
+                                value="{{$keyword}}"
+                            @else
+                                placeholder="Tìm kiếm..."
+                            @endif>
+                            <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+                          </div>
+                    </div>
+                </form>
                     <div class="bar-header" style="text-align: right;">
-                        <div>
-                            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                                  aria-label="Search">
-                              </form>
-                        </div>
                         @if( Cart::count() > 0 )
                             @php $title = 'Tổng: '.Cart::total(0).'đ'; @endphp
                         @else
