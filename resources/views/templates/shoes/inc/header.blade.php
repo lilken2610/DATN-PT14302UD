@@ -59,7 +59,7 @@
                             <img id="nav-logo-img" src="{{asset('images/file/logo-mona.png')}}" alt="">
                         </a>
                     </div>
-                    <form action="/search" method="GET">
+                    <form action="/tim-kiem" method="GET">
                     <div class="bar-header">
                         <div class="searchbar">
                             <input class="search_input" type="text" name="keyword" @if (!empty($keyword))

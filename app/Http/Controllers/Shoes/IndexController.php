@@ -52,6 +52,17 @@ class IndexController extends Controller
     	return view('shoes.index',compact('arIndex'));
     }
 
+    public function list(Request $request){
+        $arProductBar = [
+            'noibat' => $this->Product->getProductNews(),
+            'muanhieu' => $this->Product->selling()
+        ];
+        $listProducts = $this->Product->list($request);
+        $option = $request->options;
+
+        return view('shoes.page.listProducts',compact('listProducts','arProductBar', 'option'));
+    }
+
     public function search(Request $request){
         $arProductBar = [
             'noibat' => $this->Product->getProductNews(),

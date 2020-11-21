@@ -1,20 +1,17 @@
 @extends('templates.shoes.master')
 @section('title') 
-Tìm kiếm: {{$keyword}}
+Danh sách sản phẩm
 @endsection
 @section('content')
 <div class="container categories margin-res-top" style="margin-top: 150px">
     <div class="col-sm-6 categories-title">
         <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>
         /
-        <a href="/tim-kiem?keyword={{$keyword}}">Kết quả tìm kiếm: {{$keyword}} ({{$resultSearch->total()}})</a>
+        <a href="/danh-sach-san-pham">Danh sách sản phẩm ({{$listProducts->total()}})</a>
     </div>
     <div class="col-sm-6">
         <div style="width: 50%;float: right;padding-right: 25px">
-            <form action="/tim-kiem">
-                <input type="text" name="keyword" @if (!empty($keyword))
-                    value={{$keyword}}                    
-                @endif hidden>
+            <form action="/danh-sach-san-pham">
                 <select name="options" class="form-control" onchange="this.form.submit()">
                     <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
                     <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
@@ -99,10 +96,10 @@ Tìm kiếm: {{$keyword}}
     </div>
     @endif
     <div class="col-md-9 col-sm-9">
-        @if(isset($resultSearch))
+        @if(isset($listProducts))
         <div class="row">
             <div class="categories-right">
-                @foreach($resultSearch as $value)
+                @foreach($listProducts as $value)
                 <div class="container-product">
                     <div class="container-product-content">
                         <div class="container-product-content-img">
@@ -131,7 +128,7 @@ Tìm kiếm: {{$keyword}}
         </div>
         @endif
         <div class="text-center">
-            {!!$resultSearch->appends(Request::except('page'))->render() !!}
+            {!!$listProducts->appends(Request::except('page'))->render() !!}
         </div>
     </div>
 </div>

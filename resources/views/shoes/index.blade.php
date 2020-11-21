@@ -158,7 +158,7 @@
                     {{--read more--}}
                 </div>
                 <div class="row button-read-mode">
-                    <a href="" class="btn btn-primary button-hover">Xem tất cả</a>
+                    <a href="/danh-sach-san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
                 </div>
             @endif
         </div>
@@ -198,7 +198,7 @@
                     {{--read more--}}
                 </div>
                 <div class="row button-read-mode">
-                    <a href="" class="btn btn-primary button-hover">Xem tất cả</a>
+                    <a href="/danh-sach-san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
                 </div>
             @endif
         </div>

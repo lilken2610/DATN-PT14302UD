@@ -247,7 +247,17 @@ Route::group(['namespace'=>'Shoes'],function(){
 	Route::get('/',[
 		'uses' => 'IndexController@index',
 		'as'   => 'shoes.shoes.index'
-	]);
+    ]);
+
+    Route::get('/danh-sach-san-pham', [
+        'uses' => 'IndexController@list',
+        'as'   => 'shoes.shopping.list'
+    ]);  
+
+    Route::get('/tim-kiem', [
+        'uses' => 'IndexController@search',
+        'as'   => 'shoes.shopping.search'
+    ]);
     Route::get('/danh-muc/{id}',[
         'uses' => 'IndexController@categories',
         'as'   => 'shoes.shoes.categories'
@@ -315,11 +325,6 @@ Route::group(['namespace'=>'Shoes'],function(){
             'as'   => 'shoes.shopping.update'
         ]);
     });
-
-    Route::get('/search', [
-        'uses' => 'IndexController@search',
-        'as'   => 'shoes.shopping.search'
-    ]);
 });
 
 /*auth*/
