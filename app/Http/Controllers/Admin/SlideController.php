@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddSlideRequest;
 use App\Model\Admin\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class SlideController extends Controller
 {
@@ -21,14 +23,13 @@ class SlideController extends Controller
         return view('admin.slide.add');
     }
     public function postAdd(AddSlideRequest $request) {
-        $filePath = $request->img->store('slide');
-        $arFile = explode("/",$filePath);
-        $img = end($arFile);
+        $file = $request->img;
+        $file->move(public_path('images/app/slide/'),$file->getClientOriginalName());
         $arAdd = [
             'title' => $request->title,
             'position_text' => $request->position,
             'content'   => $request->addcontent,
-            'img'   => $img
+            'img'   => $file->getClientOriginalName()
         ];
         $result = $this->Slide->add($arAdd);
         if ( $result == 1 ) {
@@ -50,18 +51,18 @@ class SlideController extends Controller
         return view('admin.slide.edit',compact('object'));
     }
     public function postEdit($id,Request $request) {
-        $img = $this->Slide->getId($id)->img;
-        if ( $request->hasFile('img') ) {
-            $filePath = $request->img->store('slide');
-            $arFile = explode("/",$filePath);
-            $img = end($arFile);
-            Storage::delete('slide/'.$img);
+        $imgName = $this->Slide->getId($id)->img;
+        if ( $request->hasFile('img') ) {            
+            File::delete(public_path("images/app/slide/$imgName"));
+            $file = $request->img;
+            $file->move(public_path('images/app/slide/'),$file->getClientOriginalName());
+            $imgName = $file->getClientOriginalName();
         }
         $arEdit = [
             'title' => $request->edittitle,
             'position_text' => $request->editposition,
             'content'   => $request->editcontent,
-            'img'   => $img
+            'img'   => $imgName
         ];
         $result = $this->Slide->edit($id,$arEdit);
         if ( $result == 1 ) {
