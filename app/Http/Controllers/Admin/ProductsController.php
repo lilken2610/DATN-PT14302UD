@@ -5,16 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddProRequest;
 use App\Model\Admin\Categories;
+use App\Model\Admin\Brands;
 use App\Model\Admin\Products;
 use App\Model\Admin\ProductSize;
 use App\Model\Admin\Size;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 class ProductsController extends Controller
 {
-    public function __construct(Categories $categories,Products $products,Size $size,ProductSize $productSize) {
+    public function __construct(Categories $categories,Brands $brands, Products $products,Size $size,ProductSize $productSize) {
         $this->Categories = $categories;
+        $this->Brands = $brands;
         $this->Products   = $products;
         $this->Size       = $size;
         $this->ProductSize= $productSize;
@@ -26,33 +29,32 @@ class ProductsController extends Controller
     }
     //add
     public function add() {
-        $optionNameCat = $this->Categories->getCategories();
         $allCat = $this->Categories->getAll();
+        $allBrand = $this->Brands->getAll();
         $size   = $this->Size->getAll();
-        return view('admin.products.add',compact('optionNameCat','allCat','size'));
+        return view('admin.products.add',compact('allCat', 'allBrand','size'));
     }
     public function postAdd(AddProRequest $request) {
         $image  = '';
         if($request->hasFile('img')) {
             $files = $request->img;
             foreach ($files as $key => $value) {
-                $filePath = $value->store('products');
                 $value->move(public_path('images/app/products/'),$value->getClientOriginalName());
-                // $arFile = explode("/",$filePath);
-                // $nameImg = end($arFile);
                 $dataImg[$key] = $value->getClientOriginalName(); 
             }
             $image = json_encode($dataImg);
         }
         $arAdd = [
             'name_product'  => $request->nameproduct,
+            'slug_product'  => Str::slug($request->nameproduct.'-'.time()),
             'qty'           => 0,
             'price'         => $request->price,
             'sale'          => $request->sale,
             'preview'       => $request->preview,
             'description'   => $request->detail,
             'images'        => $image,
-            'id_cat'        => $request->idcat
+            'id_cat'        => $request->idcat,
+            'id_brand'        => $request->idbrand
         ];
         $id_product = $this->Products->add($arAdd);
         //size
@@ -88,11 +90,11 @@ class ProductsController extends Controller
     //edit
     public function edit($id) {
         $object = $this->Products->getId($id);
-        $optionNameCat = $this->Categories->getCategories();
         $allCat = $this->Categories->getAll();
+        $allBrand = $this->Brands->getAll();
         $size   = $this->Size->getAll();
         $activeSize = $this->ProductSize->getSizePro($id);
-        return view('admin.products.edit',compact('object','optionNameCat','allCat','size','activeSize'));
+        return view('admin.products.edit',compact('object','allCat','allBrand','size','activeSize'));
     }
     public function postEdit($id,Request $request) {
         $images = $this->Products->getId($id)->images;
@@ -116,13 +118,15 @@ class ProductsController extends Controller
         }
         $arEdit = [
             'name_product'  => $request->nameproduct,
+            'slug_product'  => Str::slug($request->nameproduct.'-'.time()),
             'qty'           => 0,
             'price'         => $request->price,
             'sale'         => $request->sale,
             'preview'       => $request->preview,
             'description'   => $request->detail,
             'images'           => $images,
-            'id_cat'        => $request->idcat
+            'id_cat'        => $request->idcat,
+            'id_brand'        => $request->idbrand
         ];
         $arSizeUpdate = $this->ProductSize->getSizePro($id);
         foreach ($arSizeUpdate as $key => $item) {

@@ -29,8 +29,7 @@
                         </div>
                     </div>
                     <div class="ads-product-button">
-                        @php $slug_rand = \Illuminate\Support\Str::slug($random->name_product,'-') @endphp
-                        <a href="{{route('shoes.shoes.product',['slug'=>$slug_rand,'id'=>$random->id_product])}}" class="btn btn-primary">Xem sản phẩm</a>
+                        <a href="{{route('shoes.shoes.product',$random->slug_product)}}" class="btn btn-primary">Xem sản phẩm</a>
                     </div>
                 </div>
                 @endforeach
@@ -63,8 +62,7 @@
                                 <p>{{number_format($value->price)}} đ</p>
                             </div>
                             <div class="new-product-button">
-                                @php $slug_new = \Illuminate\Support\Str::slug($value->name_product,'-') @endphp
-                                <a href="{{route('shoes.shoes.product',['slug'=>$slug_new,'id'=>$value->id_product] )}}" class="btn btn-primary">Xem sản phẩm</a>
+                                <a href="{{route('shoes.shoes.product',$value->slug_product )}}" class="btn btn-primary">Xem sản phẩm</a>
                             </div>
                         </div>
                         @endforeach
@@ -90,8 +88,7 @@
                                 <p>{{number_format($selling->price)}} đ</p>
                             </div>
                             <div class="new-product-button">
-                                @php $slug_selling = \Illuminate\Support\Str::slug($selling->name_product,'-') @endphp
-                                <a href="{{route('shoes.shoes.product',['slug'=>$slug_selling,'id'=>$selling->id_product] )}}" class="btn btn-primary">Xem sản phẩm</a>
+                                <a href="{{route('shoes.shoes.product',$selling->slug_product)}}" class="btn btn-primary">Xem sản phẩm</a>
                             </div>
                         </div>
                         @endforeach
@@ -127,41 +124,6 @@
                 @endif
             </div>
         </div>
-        {{--phụ kiện khác--}}
-        <div class="">
-            @if($arIndex['accessories'])
-                <div class="accessories">
-                    <h3>Phụ kiện khác</h3>
-                </div>
-                <div class="product-new row">
-                    @foreach($arIndex['accessories'] as $item)
-                        <div class="col-sm-3 box-product-new box-product-new">
-                        <div class="new-product-content">
-                            <div class="product-new-content">
-                                @php
-                                    $images = json_decode($item->images);
-                                    $img = reset($images);
-                                @endphp
-                                <img src="{{asset('images/app/products/'.$img)}}" alt="">
-                            </div>
-                        </div>
-                        <div class="info">
-                            <p>{{$item->name_product}}</p>
-                            <p>{{number_format($item->price)}} đ</p>
-                        </div>
-                        <div class="new-product-button">
-                            @php $slug_item = \Illuminate\Support\Str::slug($new_pd->name_product,'-') @endphp
-                            <a href="{{route('shoes.shoes.product',['slug'=>$slug_item,'id'=>$item->id_product])}}" class="btn btn-primary">Xem sản phẩm</a>
-                        </div>
-                    </div>
-                    @endforeach
-                    {{--read more--}}
-                </div>
-                <div class="row button-read-mode">
-                    <a href="/danh-sach-san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
-                </div>
-            @endif
-        </div>
         {{--sản phẩm giảm giá--}}
         <div class=" margin-top">
             <div class="accessories">
@@ -190,15 +152,50 @@
                             <p>{{number_format($price_sale)}} đ</p>
                         </div>
                         <div class="new-product-button">
-                            @php $slug_sale = \Illuminate\Support\Str::slug($item_sale->name_product,'-') @endphp
-                            <a href="{{route('shoes.shoes.product',['slug'=>$slug_sale,'id'=>$item_sale->id_product])}}" class="btn btn-primary">Xem sản phẩm</a>
+                            <a href="{{route('shoes.shoes.product',$item_sale->slug_product)}}" class="btn btn-primary">Xem sản phẩm</a>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{--read more--}}
+                </div>
+            @endif
+        </div>
+        {{--sản phẩm mới--}}
+        <div class=" margin-top">
+            <div class="accessories">
+                <h3>Sản phẩm mới</h3>
+            </div>
+            @if(!empty($arIndex['new_produts']))
+                <div class="product-new row">
+                    @foreach($arIndex['new_produts'] as $item_sale)
+                        <div class="col-sm-3 box-product-new box-product-new">
+                        <div class="new-product-content">
+                            <div class="product-new-content">
+                                @php
+                                    $images = json_decode($item_sale->images);
+                                    $img = reset($images)
+                                @endphp
+                                <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                                <div class="sale-product">
+                                    <p>{{$item_sale->sale}}%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <p>{{$item_sale->name_product}}</p>
+                            <del>{{number_format($item_sale->price)}} đ</del>
+                            @php $price_sale = $item_sale->price - $item_sale->price*$item_sale->sale/100 @endphp
+                            <p>{{number_format($price_sale)}} đ</p>
+                        </div>
+                        <div class="new-product-button">
+                            <a href="{{route('shoes.shoes.product', $item_sale->slug_product)}}" class="btn btn-primary">Xem sản phẩm</a>
                         </div>
                     </div>
                     @endforeach
                     {{--read more--}}
                 </div>
                 <div class="row button-read-mode">
-                    <a href="/danh-sach-san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
+                    <a href="/san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
                 </div>
             @endif
         </div>

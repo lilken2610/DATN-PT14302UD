@@ -26,6 +26,7 @@ class AddProRequest extends FormRequest
         return [
             'nameproduct'   => 'required|min:10|max:255|unique:products,name_product',
             'idcat'         => 'required',
+            'idbrand'         => 'required',
             'ch_name'          => 'required',
             'price'         => 'required|max:99999999',
             'preview'       => 'required|min:20|max:255'
@@ -40,6 +41,7 @@ class AddProRequest extends FormRequest
             'nameproduct.max'        => 'Nhập tổi đa 255 ký tự !',
             'nameproduct.required'   => 'Vui lòng nhập tên sản phẩm !',
             'idcat.required'         => 'Vui lòng chọn danh mục !',
+            'idbrand.required'         => 'Vui lòng chọn thương hiệu !',
             'ch_name.required'          => 'Vui lòng chọn size',
             'qty.max'                => 'Nhập số lượng không quá 99999999 !',
             'price.required'         => 'Vui lòng nhập giá sản phẩm',

@@ -1,6 +1,6 @@
 @extends('templates.admin.master')
 {{--title--}}
-@section('title-admin') Thêm Danh Mục @endsection
+@section('title-admin') Thêm Thuonwg hiệu @endsection
 {{--src--}}
 @section('src-header-admin')
      <!-- DataTables CSS -->
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Danh Mục</h1>
+                    <h1 class="page-header">Thương hiệu</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -23,23 +23,23 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Cập Nhập Danh Mục
+                            Cập Nhập Thương hiệu
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="{{route('shoes.categories.postEdit',$getId->id_cat)}}" method="post">
+                                    <form role="form" action="{{route('shoes.brands.postEdit',$getId->id_brand)}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <label>Tên danh mục</label>
-                                            <input class="form-control" name="editnamecat" value="{{$getId->name_cat}}">
-                                            <span class="alert-danger">{{$errors->first('namecat')}}</span>
+                                            <label>Tên thương hiệu</label>
+                                            <input class="form-control" name="editnamebrand" value="{{$getId->name_brand}}">
+                                            <span class="alert-danger">{{$errors->first('namebrand')}}</span>
                                             @if(Session::has('error-duplicate'))
                                                 <span class="alert-danger">{{Session::get('error-duplicate')}}</span>
                                             @endif
                                         </div>
                                         <input type="submit" class="btn btn-primary" value="Cập nhập">
-                                        <a href="{{route('shoes.categories.index')}}" class="btn btn-success">Quay lại</a>
+                                        <a href="{{route('shoes.brands.index')}}" class="btn btn-success">Quay lại</a>
                                     </form>
                                 </div>
                             </div>

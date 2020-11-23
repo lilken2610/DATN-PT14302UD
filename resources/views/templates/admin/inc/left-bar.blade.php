@@ -22,6 +22,9 @@
                         <a href="{{route('shoes.categories.index')}}">Danh mục</a>
                     </li>
                     <li>
+                        <a href="{{route('shoes.brands.index')}}">Thương hiệu</a>
+                    </li>
+                    <li>
                         <a href="{{route('shoes.products.index')}}">Sản phẩm</a>
                     </li>
                     <li>

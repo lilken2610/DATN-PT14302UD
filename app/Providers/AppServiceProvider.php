@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Model\Admin\Categories;
+use App\Model\Admin\Brands;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('urlPublicShoes',getenv('urlPublicShoes'));
         View::share('urlPublicAdmin',getenv('urlPublicAdmin'));
         View::share('urlStorage',getenv('urlStorage'));
-        $menu = Categories::where('parent_id',0)->get();
-        View::share('menu',$menu);
+        $menu = Categories::all();
+        $menuBrand = Brands::all();
+        View::share(['menu'=>$menu, 'menuBrand'=> $menuBrand ]);
     }
 }

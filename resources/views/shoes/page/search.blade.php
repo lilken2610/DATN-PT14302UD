@@ -36,9 +36,8 @@ Tìm kiếm: {{$keyword}}
                             <ul class="list-group custom-popover">
                                 @foreach($arProductBar['muanhieu'] as $value)
                                 <li class="list-group-item">
-                                    @php $slug0 = \Illuminate\Support\Str::slug($value->name_product,'-') @endphp
                                     <a
-                                        href="{{route('shoes.shoes.product',['slug'=>$slug0,'id'=>$value->id_product])}}">
+                                        href="{{route('shoes.shoes.product',$value->slug_product)}}">
                                         <div class="popover-content-cart">
                                             <div class="list-group-item-img">
                                                 @php
@@ -71,8 +70,7 @@ Tìm kiếm: {{$keyword}}
                             <ul class="list-group custom-popover">
                                 @foreach($arProductBar['noibat'] as $item)
                                 <li class="list-group-item">
-                                    @php $slug1 = \Illuminate\Support\Str::slug($item->name_product,'-') @endphp
-                                    <a href="{{route('shoes.shoes.product',['slug'=>$slug1,'id'=>$item->id_product])}}">
+                                    <a href="{{route('shoes.shoes.product',$item->slug_product)}}">
                                         <div class="popover-content-cart">
                                             <div class="list-group-item-img">
                                                 @php
@@ -120,8 +118,7 @@ Tìm kiếm: {{$keyword}}
                                 <p>{{$value->sale}}%</p>
                             </div>
                             @endif
-                            @php $slug = \Illuminate\Support\Str::slug($value->name_product,'-') @endphp
-                            <a href="{{route('shoes.shoes.product',['slug'=>$slug,'id'=>$value->id_product])}}"
+                            <a href="{{route('shoes.shoes.product',$value->slug_product)}}"
                                 class="btn btn-primary new-product-button" style="opacity: 1">Xem chi chiết</a>
                         </div>
                     </div>

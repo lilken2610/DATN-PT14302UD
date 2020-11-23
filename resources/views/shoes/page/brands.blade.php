@@ -1,10 +1,10 @@
 @extends('templates.shoes.master')
-@section('title') Danh Mục @endsection
+@section('title') Thương hiệu {{$nameBrand}} @endsection
 @section('content')
     <div class="container categories margin-res-top" style="margin-top: 150px">
         <div class="col-sm-6 categories-title">
             <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>/
-            <a  style="font-weight: 700;color: #333333">{{$nameCat}} ({{$getProductCat->total()}})</a>
+            <a  style="font-weight: 700;color: #333333">{{$nameBrand}} ({{$getProductBrand->total()}})</a>
         </div>
         <div class="col-sm-6">
             <div style="width: 50%;float: right;padding-right: 25px">
@@ -92,8 +92,8 @@
         @endif
         <div class="col-sm-9">
             <div class="categories-right">
-                @if(isset($getProductCat))
-                    @foreach($getProductCat as $value)
+                @if(isset($getProductBrand))
+                    @foreach($getProductBrand as $value)
                     <div class="container-product">
                         <div class="container-product-content">
                             <div class="container-product-content-img">

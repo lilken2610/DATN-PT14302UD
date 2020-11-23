@@ -5,13 +5,13 @@ namespace App\Model\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Categories extends Model
+class Brands extends Model
 {
-    protected $table = "categories";
-    protected $primaryKey = "id_cat";
+    protected $table = "brands";
+    protected $primaryKey = "id_brand";
     public $timestamps = true;
     protected $fillable = [
-        'id_cat', 'name_cat', 'slug_cat','created_at','updated_at',
+        'id_brand', 'name_brand', 'slug_brand','created_at','updated_at',
     ];
 
     public function setUpdatedAt($value)
@@ -20,30 +20,30 @@ class Categories extends Model
     }
 
     public function getId($id) {
-        return Categories::find($id);
+        return Brands::find($id);
     }
 
     public function getIdById($slug) {
-        return Categories::where('slug_cat', $slug);
+        return Brands::where('slug_brand', $slug);
     }
 
     public function getAll() {
-        return Categories::orderBy('id_cat', 'DESC')->get();
+        return Brands::orderBy('id_brand', 'DESC')->get();
     }
-    //add categories
-    public function addCat ($arAdd) {
-        return Categories::insert($arAdd);
+    //add Brands
+    public function addBrand ($arAdd) {
+        return Brands::insert($arAdd);
     }
     //delete
     public function delId($id) {
-        $result = Categories::find($id);
+        $result = Brands::find($id);
         return $result->delete();
     }
     //edit
     public function edit($arEdit,$id) {
         $object = $this->getId($id);
-        $object->name_cat = $arEdit['name_cat'];
-        $object->slug_cat = $arEdit['slug_cat'];
+        $object->name_brand = $arEdit['name_brand'];
+        $object->slug_brand = $arEdit['slug_brand'];
         return $object->update();
     }
 }

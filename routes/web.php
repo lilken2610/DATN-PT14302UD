@@ -40,6 +40,35 @@ Route::group(['namespace'=>'Admin','prefix'=>'admincp','middleware'=>'auth'],fun
             'as'   => 'shoes.categories.status'
         ])->middleware('role:1');
     });
+    /*nhãn hiệu*/
+    Route::group(['prefix'=>'thuong-hieu'],function(){
+        Route::get('/',[
+            'uses' => 'BrandsController@index',
+            'as'   => 'shoes.brands.index'
+        ]);
+        //thêm danh mục
+        Route::get('/them-thuon-hieu',[
+            'uses' => 'BrandsController@add',
+            'as'   => 'shoes.brands.add'
+        ])->middleware('role:1');
+        Route::post('/them-thuong-hieu',[
+            'uses' => 'BrandsController@postAdd',
+            'as'   => 'shoes.brands.postAdd'
+        ])->middleware('role:1');
+        Route::get('/delete/{id}',[
+            'uses' => 'BrandsController@del',
+            'as'   => 'shoes.brands.del'
+        ])->middleware('role:1');
+        //edit
+        Route::get('/sua-danh-muc/{id}',[
+            'uses' => 'BrandsController@edit',
+            'as'   => 'shoes.brands.edit'
+        ])->middleware('role:1');
+        Route::post('/sua-danh-muc/{id}',[
+            'uses' => 'BrandsController@postEdit',
+            'as'   => 'shoes.brands.postEdit'
+        ])->middleware('role:1');
+    });
     /*sản phẩm*/
     Route::group(['prefix'=>'san-pham'],function(){
         Route::get('/',[
@@ -249,7 +278,7 @@ Route::group(['namespace'=>'Shoes'],function(){
 		'as'   => 'shoes.shoes.index'
     ]);
 
-    Route::get('/danh-sach-san-pham', [
+    Route::get('/san-pham', [
         'uses' => 'IndexController@list',
         'as'   => 'shoes.shopping.list'
     ]);  
@@ -258,9 +287,13 @@ Route::group(['namespace'=>'Shoes'],function(){
         'uses' => 'IndexController@search',
         'as'   => 'shoes.shopping.search'
     ]);
-    Route::get('/danh-muc/{id}',[
+    Route::get('/the-loai/{slug}',[
         'uses' => 'IndexController@categories',
         'as'   => 'shoes.shoes.categories'
+    ]);
+    Route::get('/thuong-hieu/{slug}',[
+        'uses' => 'IndexController@brands',
+        'as'   => 'shoes.shoes.brands'
     ]);
     Route::group(['prefix'=>'tin-tuc'],function(){
         Route::get('/',[
@@ -273,7 +306,7 @@ Route::group(['namespace'=>'Shoes'],function(){
         ]);
 
     });
-    Route::get('/san-pham/{slug}-{id}',[
+    Route::get('/san-pham/{slug}',[
         'uses' => 'IndexController@product',
         'as'   => 'shoes.shoes.product'
     ]);

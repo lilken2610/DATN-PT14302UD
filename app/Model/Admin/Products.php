@@ -19,7 +19,8 @@ class Products extends Model
     public function getAll() {
         $products = DB::table('products')
             ->join('categories','products.id_cat','=','categories.id_cat')
-            ->select('products.*','categories.name_cat')
+            ->join('brands','products.id_brand','=','brands.id_brand')
+            ->select('products.*','categories.name_cat', 'brands.name_brand')
             ->orderBy('id_product','DESC')
             ->get();
         foreach ($products as $item) {
@@ -81,6 +82,7 @@ class Products extends Model
     public function add($arAdd) {
         $product = new Products();
         $product->name_product  =   $arAdd['name_product'];
+        $product->slug_product  =   $arAdd['slug_product'];
         $product->qty           =   $arAdd['qty'];
         $product->price         =   $arAdd['price'];
         $product->sale          =   $arAdd['sale'];
@@ -88,6 +90,7 @@ class Products extends Model
         $product->description   =   $arAdd['description'];
         $product->images        =   $arAdd['images'];
         $product->id_cat        =   $arAdd['id_cat'];
+        $product->id_brand        =   $arAdd['id_brand'];
         $product->save();
         return $product->id_product;
     }
@@ -111,6 +114,7 @@ class Products extends Model
     public function edit($id,$arEdit) {
         $object = $this->getId($id);
         $object->name_product = $arEdit['name_product'];
+        $object->slug_product  = $arEdit['slug_product'];
         $object->qty = $arEdit['qty'];
         $object->price = $arEdit['price'];
         $object->sale   = $arEdit['sale'];
@@ -118,6 +122,7 @@ class Products extends Model
         $object->description = $arEdit['description'];
         $object->images = $arEdit['images'];
         $object->id_cat = $arEdit['id_cat'];
+        $object->id_brand = $arEdit['id_brand'];
         return $object->update();
     }
     public function updateQty($qty,$id) {
@@ -134,11 +139,9 @@ class Products extends Model
             ->limit(8)
             ->get();
     }
-    public function getIdPro($id) {
+    public function getSlugPro($slug) {
         return DB::table('products as p')
-            ->where('id_product',$id)
-            ->join('categories as c','p.id_cat','c.id_cat')
-            ->select('p.*','c.name_cat')
+            ->where('slug_product',$slug)
             ->first();
     }
     public function getSale() {
@@ -159,14 +162,28 @@ class Products extends Model
             ->orderBy('id_product','ASC')
             ->get();
     }
+    public function getProductNewsV2() {
+        return DB::table('products')
+            ->orderBy('id_product','DESC')
+            ->limit(8)
+            ->get();
+    }
     public function getProductCat($id) {
         return DB::table('products as pd')
             ->join('categories as c','pd.id_cat','c.id_cat')
             ->select('pd.*','c.name_cat')
             ->where('pd.id_cat',$id)
-            ->orderBy('id_product','ASC')
-            ->get();
+            ->orderBy('id_product','DESC')
+            ->paginate(16);
     }
+
+    public function getProductBrand($id){
+           return DB::table('products as pd')
+            ->where('id_brand',$id)
+            ->orderBy('id_product','DESC')
+            ->paginate(16);
+    }
+
     public function getChart() {
         return DB::table('products')
             ->orderBy('hot_pay','DESC')

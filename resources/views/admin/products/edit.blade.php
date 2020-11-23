@@ -47,24 +47,25 @@
                                             <span class="alert-danger">{{$errors->first('ch_name')}}</span>
                                             <span class="error"></span>
                                         </div>
-                                        @if(isset($optionNameCat))
-                                            <div class="form-group">
-                                                <label>Danh mục</label>
-                                                <select class="form-control" name="idcat">
-                                                    <option value="0">--Không--</option>
-                                                    @foreach($optionNameCat as $value)
-                                                        @php $active = ''; @endphp
-                                                        @if( $value->id_cat == $object->id_cat )
-                                                            @php
-                                                                $active ='selected=""';
-                                                            @endphp
-                                                        @endif
-                                                        <option {{$active}} value="{!! $value->id_cat !!}">{!! $value->name_cat !!}</option>
-                                                        @php subMenuOption($allCat,$value->id_cat,$object->id_cat) @endphp
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        @endif
+                                        <div class="form-group">
+                                            <label>Thể loại</label>
+                                            <select class="form-control" name="idcat">
+                                                <option value="">--Không--</option>
+                                                @foreach($allCat as $value)
+                                                    <option value="{{ $value->id_cat }}" {{$object->id_cat == $value->id_cat ? 'selected':''}}>{{$value->name_cat}}</option>
+                                                @endforeach
+                                            </select>
+                                            <span class="alert-danger">{{$errors->first('idcat')}}</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thương hiệu</label>
+                                            <select class="form-control" name="idbrand">
+                                                <option value="">--Không--</option>
+                                                @foreach($allBrand as $value)
+                                            <option value="{{$value->id_brand}}" {{$object->id_brand == $value->id_brand ? 'selected':''}}>{{$value->name_brand}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label>Hình ảnh</label>
                                             <input type="file" class="form-control" name="imgedit[]" multiple>

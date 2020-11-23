@@ -35,18 +35,6 @@
                                             <input class="form-control" name="namecat" placeholder="Nhập tên danh mục">
                                             <span class="alert-danger">{{$errors->first('namecat')}}</span>
                                         </div>
-                                        @if(isset($optionNameCat))
-                                        <div class="form-group">
-                                            <label>Danh mục cha</label>
-                                            <select class="form-control" name="idsub">
-                                                <option value="0">--Không--</option>
-                                                @foreach($optionNameCat as $value)
-                                                    <option value="{!! $value->id_cat !!}">{!! $value->name_cat !!}</option>
-                                                    @php subMenuOption($allCat,$value->id_cat,$id_cat=0) @endphp
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        @endif
                                         <input type="submit" class="btn btn-primary" value="Thêm">
                                         <a href="{{route('shoes.categories.index')}}" class="btn btn-success">Quay lại</a>
                                     </form>

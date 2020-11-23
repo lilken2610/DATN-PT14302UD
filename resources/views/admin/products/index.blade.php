@@ -39,7 +39,8 @@
                                         <tr>
                                             <th>STT</th>
                                             <th>Tên sản phẩm</th>
-                                            <th>Danh mục</th>
+                                            <th>Thể loại</th>
+                                            <th>Thương hiệu</th>
                                             <th>Hình ảnh</th>
                                             <th>Thông tin</th>
                                             <th>Chức Năng</th>
@@ -62,6 +63,7 @@
                                                     </div>
                                                 </td>
                                                 <td>{!! $value->name_cat !!}</td>
+                                                <td>{!! $value->name_brand !!}</td>
                                                 <td>
                                                     @php
                                                         $objectImg = json_decode($value->images);
@@ -92,7 +94,8 @@
                                                         </div>
                                                         <div class="modal-body info-product">
                                                             <p><strong>Tên sản phẩm</strong>: {!! $value->name_product !!}</p>
-                                                            <p><strong>Danh mục</strong>: {!! $value->name_cat !!}</p>
+                                                            <p><strong>Thể loại</strong>: {!! $value->name_cat !!}</p>
+                                                            <p><strong>Thương hiệu</strong>: {!! $value->name_brand !!}</p>
                                                             <p>
                                                                 <strong>Lượt đánh giá</strong>:
                                                                 <div>

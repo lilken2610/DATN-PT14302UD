@@ -18,7 +18,7 @@
         <div class="col-sm-6">
             <div class="product-right">
                 <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>/
-                <a href="">{{$object->name_cat}}</a>
+                <a href="">{{$object->name_product}}</a>
                 <h3>{{$object->name_product}}</h3>
                 <div>
                     <span class="pro-rating">
@@ -136,8 +136,7 @@
                             <div class="container-product-content-text">
                                 <p>{{$item->name_product}}</p>
                                 <p>{{number_format($item->price)}} VNĐ</p>
-                                @php $slug = \Illuminate\Support\Str::slug($item->name_product,'-') @endphp
-                                <a href="{{route('shoes.shoes.product',['slug'=>$slug,'id'=>$item->id_product])}}" class="btn btn-primary new-product-button" style="opacity: 1">Chi tiết</a>
+                                <a href="{{route('shoes.shoes.product',$item->slug_product)}}" class="btn btn-primary new-product-button" style="opacity: 1">Chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +145,7 @@
         </div>
     </div>
     @section('src-public')
-        <srctip !src="{{asset('shoes/js/rating.code.js')}}"></srctip>
+        <script src="{{asset('shoes/js/rating.code.js')}}"></script>
     @endsection
     <script>
         var header = document.getElementById("size-product");

@@ -1,6 +1,6 @@
 @extends('templates.admin.master')
 {{--title--}}
-@section('title-admin') Quản Lý Danh Mục @endsection
+@section('title-admin') Quản Lý Thương hiệu @endsection
 {{--src--}}
 @section('src-header-admin')
     <!-- DataTables CSS -->
@@ -15,8 +15,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Danh mục </h1>
-                    <a href="{{route('shoes.categories.add')}}" class="btn btn-primary" style="margin-bottom: 15px">Thêm danh mục</a>
+                    <h1 class="page-header">Thương hiệu </h1>
+                    <a href="{{route('shoes.brands.add')}}" class="btn btn-primary" style="margin-bottom: 15px">Thêm thương hiệu</a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -32,27 +32,29 @@
                             @endif
                         </div>
                         <!-- /.panel-heading -->
-                        @if(isset($allCat))
+                        @if(isset($allBrand))
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Tên danh mục</th>
+                                        <th>Tên thương hiệu</th>
                                         <th>Chức Năng</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @php $stt=0 @endphp
-                                    @foreach($allCat as $value)
+                                    @foreach($allBrand as $value)
                                         @php $stt++; @endphp
                                         <tr class="gradeU">
                                             <td>{!! $stt !!}</td>
-                                            <td>{{$value->name_cat}}</td>
+                                            <td>
+                                                {{$value->name_brand}}
+                                            </td>
                                             <td style="text-align: center;">
-                                                <a href="{{route('shoes.categories.edit',$value->id_cat)}}" class="btn btn-primary">Sửa</a>
-                                                <a href="{{route('shoes.categories.del',$value->id_cat)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
+                                                <a href="{{route('shoes.brands.edit',$value->id_brand)}}" class="btn btn-primary">Sửa</a>
+                                                <a href="{{route('shoes.brands.del',$value->id_brand)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach

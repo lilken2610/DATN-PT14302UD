@@ -53,19 +53,26 @@
                                             <span class="error"></span>
                                         </div>
                                         @endif
-                                        @if(isset($optionNameCat))
-                                            <div class="form-group">
-                                                <label>Danh mục</label>
-                                                <select class="form-control" name="idcat">
-                                                    <option value="">--Không--</option>
-                                                    @foreach($optionNameCat as $value)
-                                                        <option value="{!! $value->id_cat !!}">{!! $value->name_cat !!}</option>
-                                                        @php subMenuOption($allCat,$value->id_cat,$id_cat=0) @endphp
-                                                    @endforeach
-                                                </select>
-                                                <span class="alert-danger">{{$errors->first('idcat')}}</span>
-                                            </div>
-                                        @endif
+                                        <div class="form-group">
+                                            <label>Thể loại</label>
+                                            <select class="form-control" name="idcat">
+                                                <option value="">--Không--</option>
+                                                @foreach($allCat as $value)
+                                                    <option value="{{ $value->id_cat }}">{{$value->name_cat}}</option>
+                                                @endforeach
+                                            </select>
+                                            <span class="alert-danger">{{$errors->first('idcat')}}</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>THương hiệu</label>
+                                            <select class="form-control" name="idbrand">
+                                                <option value="">--Không--</option>
+                                                @foreach($allBrand as $value)
+                                                    <option value="{{ $value->id_brand }}">{{$value->name_brand}}</option>
+                                                @endforeach
+                                            </select>
+                                            <span class="alert-danger">{{$errors->first('idbrand')}}</span>
+                                        </div>
                                         <div class="form-group">
                                             <label>Hình ảnh</label>
                                             <input type="file" class="form-control" name="img[]" multiple>
