@@ -5,42 +5,33 @@
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Giới thiệu</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">Chào mừng bạn đến với ngôi nhà Converse! Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang dấu ấn lịch sử Converse 100 năm, và đang không ngừng phát triển lớn mạnh.</a></li>
+                        <li><a href="javascript:void();">Chào mừng bạn đến với F Luxury! Tại đây, mỗi sản phẩm chúng tôi mang đến đều chất lượng bằng tiền các bạn bỏ ra. </a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Địa chỉ</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">72 Nguyễn Xuân Nhĩ</a></li>
-                        <li><a href="javascript:void();">0362411205</a></li>
-                        <li><a href="javascript:void();">binhnguyen</a></li>
+                        <li><a href="javascript:void();">137 Nguyễn Thị Thập, Thanh Khê Tây, Liên Chiểu, Đà Nẵng</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>Liên hệ</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();">0362411205</a></li>
-                        <li><a href="javascript:void();">0316842842</a></li>
+                        <li><a href="javascript:void();">0336751070</a></li>
+                        <li><a href="javascript:void();">thinhltpd02874@fpt.edu.vn</a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-address-card" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-bath" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-id-card" aria-hidden="true"></i></a></li>
                         <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
-                </hr>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">By Bình</a></p>
-                </div>
-                </hr>
             </div>
         </div>
     </div>

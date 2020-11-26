@@ -362,13 +362,29 @@ Route::group(['namespace'=>'Shoes'],function(){
 
 /*auth*/
 Route::group(['namespace'=>'Auth'],function(){
-    Route::get('/dang-nhap',[
+    Route::get('/admin/dang-nhap',[
         'uses' => 'HomeLoginController@login',
         'as'   => 'shoes.auth.login'
     ]);
-    Route::post('/dang-nhap',[
+    Route::post('/admin/dang-nhap',[
         'uses' => 'HomeLoginController@postLogin',
         'as'   => 'shoes.auth.postLogin'
+    ]);
+    Route::get('/admin/reset-password',[
+        'uses' => 'HomeLoginController@sendEmail',
+        'as'   => 'shoes.auth.sendEmail'
+    ]);
+    Route::post('/admin/reset-password',[
+        'uses' => 'HomeLoginController@postSendResetPassword',
+        'as'   => 'shoes.auth.postSendResetPassword'
+    ]);
+    Route::get('/admin/reset-password-with-token/token={token}', [
+        'uses' => 'HomeLoginController@getChangePassword',
+        'as'   => 'shoes.auth.getChangePassword'
+    ]);
+    Route::put('/admin/reset-password-with-token/token', [
+        'uses' => 'HomeLoginController@postChangePassword',
+        'as'   => 'shoes.auth.postChangePassword'
     ]);
     Route::get('/dang-xuat',[
         'uses' => 'HomeLoginController@logout',
@@ -383,6 +399,30 @@ Route::group(['namespace'=>'Auth'],function(){
         'as'   => 'shoes.auth.callback'
     ]);
     /*login public*/
+    Route::get('/dang-nhap', [
+        'uses' => 'HomeLoginController@getLoginUser',
+        'as'   => 'shoes.auth.getLoginUser'
+    ]);
+    Route::post('/dang-nhap',[
+        'uses' => 'HomeLoginController@postLoginUser',
+        'as'   => 'shoes.auth.postLoginUser'
+    ]);
+    Route::get('/gui-email', [
+        'uses' => 'HomeLoginController@getSendEmail',
+        'as'   => 'shoes.auth.getSendEmail'
+    ]);
+    Route::post('/gui-email', [
+        'uses' => 'HomeLoginController@postSendEmail',
+        'as'   => 'shoes.auth.postSendEmail'
+    ]);
+    Route::get('/reset-password-with-token/token={token}', [
+        'uses' => 'HomeLoginController@getChangePasswordUser',
+        'as'   => 'shoes.auth.getChangePasswordUser'
+    ]);
+    Route::put('/reset-password-with-token/token', [
+        'uses' => 'HomeLoginController@postChangePasswordUser',
+        'as'   => 'shoes.auth.postChangePasswordUser'
+    ]);
     Route::get('/tai-khoan-cua-toi',[
         'uses' => 'HomeLoginController@info',
         'as'   => 'shoes.auth.info'
@@ -390,10 +430,6 @@ Route::group(['namespace'=>'Auth'],function(){
     Route::post('/tai-khoan-cua-toi',[
         'uses' => 'HomeLoginController@postInfo',
         'as'   => 'shoes.auth.postInfo'
-    ]);
-    Route::post('/dang-nhap-ajax',[
-        'uses' => 'HomeLoginController@postLoginUser',
-        'as'   => 'shoes.auth.postLoginUser'
     ]);
     Route::get('/logOutUser',[
         'uses' => 'HomeLoginController@logoutUser',

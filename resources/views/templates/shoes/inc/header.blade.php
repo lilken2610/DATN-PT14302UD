@@ -34,14 +34,16 @@
     {{--form awwesome--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{--ajax--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js"
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js"
         integrity="sha512-8ehqhNuD1bseIPwrxDUkt2VcYdhvHJptB5vmVCWwCqJShQdOq7gnj4FfXEUnNMfRaWN2/q7yXBO4cboaRloP8w=="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.min.css"
         integrity="sha512-zEmgzrofH7rifnTAgSqWXGWF8rux/+gbtEQ1OJYYW57J1eEQDjppSv7oByOdvSJfo0H39LxmCyQTLOYFOa8wig=="
-        crossorigin="anonymous" />
+        crossorigin="anonymous" /> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script src="{{asset('admin/js/customjs/login.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('admin/css/customCss/admin.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
@@ -62,13 +64,13 @@
                                 </ul>
                             </div>
                             @else
-                            <a href="" data-toggle="modal" data-target="#login">Đăng nhập</a>/
+                            <a href="{{route('shoes.auth.getLoginUser')}}">Đăng nhập</a>/
                             <a href="{{route('shoes.auth.signUp')}}">Đăng ký</a>
                             @endif
                         </div>
                         <div class="bar-header-logo">
                             <a href="{{route('shoes.shoes.index')}}">
-                                <img id="nav-logo-img" src="{{asset('images/file/logo-mona.png')}}" alt="">
+                                <img id="nav-logo-img" src="{{asset('images/file/payment3.png')}}" alt="">
                             </a>
                         </div>
                         <form action="/tim-kiem" method="GET">
