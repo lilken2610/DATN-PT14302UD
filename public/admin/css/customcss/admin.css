@@ -1,0 +1,8 @@
+#validation label {
+    float: right;
+    width: 100%;
+}
+
+.error {
+    color: #F00;
+}
