@@ -6,6 +6,7 @@ use App\Model\Admin\Categories;
 use App\Model\Admin\Brands;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
         $menu = Categories::all();
         $menuBrand = Brands::all();
         View::share(['menu'=>$menu, 'menuBrand'=> $menuBrand ]);
+        Paginator::defaultView('common.paginate');
     }
 }

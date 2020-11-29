@@ -6,12 +6,16 @@
             <form action="{{route('shoes.auth.postLoginUser')}}" method="post" id="formLogin">
                 @csrf
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Tên đăng nhập</label>
-                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" class="form-control" value="{{ Request::old('username') }}" name="username" maxlength="255" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Mật khẩu</label>
-                    <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                    <label >Mật khẩu</label>
+                    <input type="password" class="form-control" value="{{ Request::old('password') }}" name="password" maxlength="255" placeholder="Mật khẩu">
+                </div>
+                <div class="form-check">
+                    <input value="{{ Request::old('remember_me') }}" type="checkbox" class="form-check-input" name="remember_me">
+                    <label class="form-check-label">Nhớ tài khoản</label>
                 </div>
                 <div style="text-align: center">
                     <input type="submit" value="Đăng nhập" class="btn btn-default">

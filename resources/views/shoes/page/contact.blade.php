@@ -5,16 +5,25 @@
         <div class="container margin-res-top" style="margin-top: 150px">
             <div class="col-sm-6 contact-left">
                 <h3>Thông tin liên hệ</h3>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> 72 Nguyễn Xuân Nhĩ, Hải Châu, Đà Nẳng</p>
-                <p><i class="fa fa-phone" aria-hidden="true"></i> 0362411205</p>
-                <p><i class="fa fa-envelope" aria-hidden="true"></i> binhnguyen280498@gmail.com</p>
-                <p><i class="fa fa-facebook" aria-hidden="true"></i> /binhxikeno2</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> 137 Nguyễn Thị Thập, Thanh Khê Tây, Liên Chiểu, Đà Nẵng </p>
+                <p><i class="fa fa-phone" aria-hidden="true"></i> 0336751070 </p>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i> trungthinh2610@gmail.com</p>
                 <div class="gg-map">
 
                 </div>
-                <div id="map" style="width:100%;height:400px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.69151896779!2d108.22449321480725!3d16.029566088905355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219fab297947d%3A0x239448f97cb61ede!2zNzIgTmd1eeG7hW4gWHXDom4gTmjEqSwgSG_DoCBDxrDhu51uZyBOYW0sIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZywgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1580984743725!5m2!1sen!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                </div>
+                <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                    <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
+                    var setting = {"height":400,"width":600,"zoom":17,"queryString":"137 Nguyễn Thị Thập, Hòa Minh, Liên Chiểu, Đà Nẵng, Vietnam","place_id":"ChIJ9WYu5-YYQjERCjdVLQ6aYUY","satellite":false,"centerCoord":[16.07578265457635,108.16998310000001],"cid":"0x46619a0e2d55370a","lang":"en","cityUrl":"/vietnam/da-nang-33810","cityAnchorText":"Map of Da Nang, Da Nang Municipality, Vietnam","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"315724"};
+                    var d = document;
+                    var s = d.createElement('script');
+                    s.src = 'https://1map.com/js/script-for-user.js?embed_id=315724';
+                    s.async = true;
+                    s.onload = function (e) {
+                      window.OneMap.initMap(setting)
+                    };
+                    var to = d.getElementsByTagName('script')[0];
+                    to.parentNode.insertBefore(s, to);
+                  })();</script><a href="https://1map.com/map-embed">1 Map</a></div>
             </div>
             <div class="col-sm-6 contact-right">
                 <form action="{{route('shoes.shoes.postContact')}}" method="post">
@@ -26,7 +35,7 @@
                         <input type="text" class="form-control" name="email" placeholder="Email" >
                     </div>
                     <div class="form-group col-sm-6 form-left" >
-                        <input type="text" class="form-control" name="phone" placeholder="Số điện thoại"">
+                        <input type="text" class="form-control" name="phone" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group col-sm-6 form-right" >
                         <input type="text" class="form-control" name="title" placeholder="Tiêu dề" name="pwd">

@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{asset('images/icon.png')}}" type="image/png" sizes="136x136">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> @yield('title-admin') - Sneaker </title>
+    <title> @yield('title-admin') - Admin </title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('/admin/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -25,7 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{route('shoes.admin.index')}}">Sneaker - Dashboard</a>
+            <a class="navbar-brand" href="{{route('shoes.admin.index')}}"><img id="nav-logo-img" style="max-height: 140%" src="{{asset('images/logo.png')}}" alt=""></a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

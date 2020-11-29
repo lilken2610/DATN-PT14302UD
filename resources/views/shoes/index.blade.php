@@ -36,9 +36,14 @@
             </div>@endif
         {{--col 4--}}
         <div class="product margin-top">
+            <script>
+                jQuery(function(){
+                   jQuery('#default').click();
+                });
+                </script>
             <div class="">
                 <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Sản phẩm mới</button>
+                    <button class="tablinks" onclick="openCity(event, 'London')" id="default">Sản phẩm mới</button>
                     <button class="tablinks" onclick="openCity(event, 'Paris')">Sản phẩm bán chạy</button>
                     <button class="tablinks" onclick="openCity(event, 'Tokyo')">Sản phẩm mới nhất</button>
                 </div>
@@ -158,6 +163,9 @@
                     @endforeach
                     {{--read more--}}
                 </div>
+                <div class="row button-read-mode">
+                    <a href="{{route('shoes.shopping.sale')}}" class="btn btn-primary button-hover">Xem tất cả</a>
+                </div>
             @endif
         </div>
         {{--sản phẩm mới--}}
@@ -195,7 +203,7 @@
                     {{--read more--}}
                 </div>
                 <div class="row button-read-mode">
-                    <a href="/san-pham" class="btn btn-primary button-hover">Xem tất cả</a>
+                    <a href="{{route('shoes.shopping.list')}}" class="btn btn-primary button-hover">Xem tất cả</a>
                 </div>
             @endif
         </div>

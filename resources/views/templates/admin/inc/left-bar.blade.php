@@ -45,16 +45,16 @@
             <li>
                 <a href="{{route('shoes.slide.index')}}"><i class="fa fa-film fa-fw"></i> Quản lý slide </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{route('shoes.contact.index')}}"><i class="fa fa-envelope-o fa-fw"></i> Quản lý liên hệ </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('shoes.user.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý người dùng </a>
             </li>
             @if( Auth::user()->username == 'admin' )
-            <li>
+            {{-- <li>
                 <a href="{{route('shoes.statistics.index','20'.date('y'))}}"><i class="fa fa-line-chart fa-fw"></i> Doanh Thu </a>
-            </li>
+            </li> --}}
             @endif
         </ul>
     </div>

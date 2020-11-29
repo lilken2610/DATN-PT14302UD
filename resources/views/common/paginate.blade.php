@@ -1,6 +1,6 @@
     <ul class="pagination">
         <li class="page-item {{ $paginator->previousPageUrl() ? :'disabled'}}">
-            <a class="page-link" href="{{ $paginator->previousPageUrl() }}"><</a>
+            <a class="page-link" href="{{ $paginator->previousPageUrl() }}">Trước</a>
         </li>
 
         {{-- Pagination Elements --}}
@@ -24,6 +24,6 @@
         @endforeach
 
         <li class="page-item {{ $paginator->nextPageUrl() ? :'disabled'}}">
-            <a class="page-link" href="{{ $paginator->nextPageUrl() }}">></a>
+            <a class="page-link" href="{{ $paginator->nextPageUrl() }}">Sau</a>
         </li>
     </ul>

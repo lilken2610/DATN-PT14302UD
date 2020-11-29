@@ -23,9 +23,12 @@ class ProductsController extends Controller
         $this->ProductSize= $productSize;
     }
 
-    public function index() {
-        $arProducts = $this->Products->getAll();
-        return view('admin.products.index',compact('arProducts'));
+    public function index(Request $request) {
+        $arProducts = $this->Products->getAll($request);
+        $keyword = $request->keyword;
+        $category = $request->category;
+        $brand = $request->brand;
+        return view('admin.products.index',compact('arProducts', 'keyword', 'category', 'brand'));
     }
     //add
     public function add() {
@@ -39,8 +42,9 @@ class ProductsController extends Controller
         if($request->hasFile('img')) {
             $files = $request->img;
             foreach ($files as $key => $value) {
-                $value->move(public_path('images/app/products/'),$value->getClientOriginalName());
-                $dataImg[$key] = $value->getClientOriginalName(); 
+                $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+                $value->move(public_path('images/app/products/'), $filename);
+                $dataImg[$key] = $filename;
             }
             $image = json_encode($dataImg);
         }
@@ -111,8 +115,9 @@ class ProductsController extends Controller
             //add file
             $files = $request->imgedit;
             foreach ($files as $key => $value) {
-                $value->move(public_path('images/app/products/'),$value->getClientOriginalName());
-                $dataImg[$key] = $value->getClientOriginalName(); 
+                $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+                $value->move(public_path('images/app/products/'),$filename);
+                $dataImg[$key] = $filename;
             }
             $images = json_encode($dataImg);
         }

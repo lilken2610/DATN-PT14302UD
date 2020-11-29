@@ -14,10 +14,10 @@ class RoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$check)
+    public function handle($request, Closure $next)
     {
         $id = Auth::user()->id_level;
-        if ( $id != $check ) {
+        if ( $id != 1 ) {
             $request->session()->flash('error','Tài khoản của bạn không có chức năng này');
             return redirect()->route('shoes.admin.index');
         }

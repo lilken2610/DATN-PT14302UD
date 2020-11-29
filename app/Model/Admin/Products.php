@@ -16,21 +16,29 @@ class Products extends Model
         return DB::table('products')->count();
     }
 
-    public function getAll() {
-        $products = DB::table('products')
-            ->join('categories','products.id_cat','=','categories.id_cat')
-            ->join('brands','products.id_brand','=','brands.id_brand')
-            ->select('products.*','categories.name_cat', 'brands.name_brand')
-            ->orderBy('id_product','DESC')
-            ->get();
-        foreach ($products as $item) {
-            $item->size = DB::table('product_size as pz')
-                ->join('size as s','pz.id_size','s.id_size')
-                ->where('pz.id_product',$item->id_product)
-                ->select('pz.*','s.size')
-                ->get();
+    public function category(){
+        return $this->belongsTo(Categories::class, 'id_cat', 'id_cat');
+    }
+
+    public function brand(){
+        return $this->belongsTo(Brands::class, 'id_brand', 'id_brand');
+    }
+
+    public function getAll(Request $request) {
+        $products = Products::query();
+        if($request->keyword){
+            $products->where('name_product', 'like', '%' . $request->keyword . '%');
         }
-        return $products;
+
+        if($request->category){
+            $products->where('id_cat', $request->category);
+        }
+
+        if($request->brand){
+            $products->where('id_brand', $request->brand);
+        }
+
+        return $products->paginate(10);
     }
 
     public function list(Request $request){
@@ -47,10 +55,27 @@ class Products extends Model
         if($request->options == 3){
             $products->orderBy('price', 'DESC');
         }
-        
+
         return $products
-            ->join('categories as c','pd.id_cat','c.id_cat')
-            ->select('pd.*','c.name_cat')
+            ->paginate(16);
+    }
+
+    public function sale(Request $request){
+        $products = DB::table('products')->where('sale', '!=' , 0);
+
+        if($request->options == null || $request->options == 1){
+            $products->orderBy('id_product','DESC');
+        }
+
+        if($request->options == 2){
+            $products->orderBy('price', 'ASC');
+        }
+
+        if($request->options == 3){
+            $products->orderBy('price', 'DESC');
+        }
+
+        return $products
             ->paginate(16);
     }
 
@@ -59,6 +84,14 @@ class Products extends Model
 
         if($request->keyword){
             $products->where('name_product', 'like', '%' . $request->keyword . '%');
+        }
+
+        if($request->category){
+            $products->where('id_cat', $request->category);
+        }
+
+        if($request->brand){
+            $products->where('id_brand', $request->brand);
         }
 
         if($request->options == null || $request->options == 1){
@@ -72,10 +105,8 @@ class Products extends Model
         if($request->options == 3){
             $products->orderBy('price', 'DESC');
         }
-        
+
         return $products
-            ->join('categories as c','pd.id_cat','c.id_cat')
-            ->select('pd.*','c.name_cat')
             ->paginate(16);
     }
 
@@ -136,7 +167,7 @@ class Products extends Model
             ->select('pd.*','c.name_cat')
             ->orderBy('id_product','ASC')
             ->where('sale',0)
-            ->limit(8)
+            ->limit(6)
             ->get();
     }
     public function getSlugPro($slug) {
@@ -168,20 +199,40 @@ class Products extends Model
             ->limit(8)
             ->get();
     }
-    public function getProductCat($id) {
-        return DB::table('products as pd')
-            ->join('categories as c','pd.id_cat','c.id_cat')
-            ->select('pd.*','c.name_cat')
-            ->where('pd.id_cat',$id)
-            ->orderBy('id_product','DESC')
-            ->paginate(16);
+    public function getProductCat($id, Request $request) {
+        $products = DB::table('products')
+            ->where('id_cat',$id);
+            if($request->options == null || $request->options == 1){
+                $products->orderBy('id_product','DESC');
+            }
+
+            if($request->options == 2){
+                $products->orderBy('price', 'ASC');
+            }
+
+            if($request->options == 3){
+                $products->orderBy('price', 'DESC');
+            }
+            return $products
+            ->paginate(12);
     }
 
-    public function getProductBrand($id){
-           return DB::table('products as pd')
-            ->where('id_brand',$id)
-            ->orderBy('id_product','DESC')
-            ->paginate(16);
+    public function getProductBrand($id, Request $request){
+        $products = DB::table('products')
+            ->where('id_brand',$id);
+            if($request->options == null || $request->options == 1){
+                $products->orderBy('id_product','DESC');
+            }
+
+            if($request->options == 2){
+                $products->orderBy('price', 'ASC');
+            }
+
+            if($request->options == 3){
+                $products->orderBy('price', 'DESC');
+            }
+            return $products
+            ->paginate(12);
     }
 
     public function getChart() {
@@ -194,7 +245,7 @@ class Products extends Model
     public function selling() {
         return DB::table('products')
             ->orderBy('hot_pay','DESC')
-            ->limit(10)
+            ->limit(8)
             ->get();
     }
     public function newProduct() {

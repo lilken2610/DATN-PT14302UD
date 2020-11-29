@@ -35,16 +35,19 @@ class HomeLoginController extends Controller
             'username' => 'required|max:255',
             'password' => 'required|max:255'
         ]);
-        if (Auth::attempt($credentials)) {
+        $remember = ($request->remember_me) ? true : false;
+        if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
             if($user->id_level == 3){
                 Auth::logout();
+                $request->flash('request',$request->all());
                 Session()->flash('message_error','Sai tên đăng nhập hoặc mật khẩu!');
                 return back();
             }else{
                 return redirect()->intended(route('shoes.admin.index'));
             }
         }else {
+            $request->flash('request',$request->all());
             Session()->flash('message_error','Sai tên đăng nhập hoặc mật khẩu!');
             return back();
         }
@@ -67,7 +70,7 @@ class HomeLoginController extends Controller
                 Session()->flash('message_error', 'Email không đúng, vui lòng thử lại');
                 return back();
         } else {
-            $checkEmail = PasswordReset::where('email', $email)->get()->first();
+            $checkEmail = PasswordReset::where('email', $email)->orderBy('expiration_date', 'DESC')->get()->first();
             if($checkEmail != null && now() <= $checkEmail->expiration_date){
                 Session()->flash('message_error', 'Thư đổi mật khẩu đã tồn tại, vui lòng kiểm tra hoặc đợi sau 15 phút!');
                 return back();
@@ -125,7 +128,7 @@ class HomeLoginController extends Controller
             $updatePassword->password = Hash::make($rePassword);
             $updatePassword->save();
             if ($updatePassword) {
-                PasswordReset::where('token', $token)->delete();                
+                PasswordReset::where('token', $token)->delete();
                 Session()->flash('message_success', 'Đổi mật khẩu thành công, bạn có thể đăng nhập!');
                 return view('auth.admin.success_change_password');
             } else {
@@ -148,13 +151,15 @@ class HomeLoginController extends Controller
         return view('auth.login');
     }
     public function postLoginUser(Request $request) {
-        $credentials = $request->validate([
+        $check = $request->validate([
             'username' => 'required|max:255',
             'password' => 'required|max:255'
         ]);
-        if (Auth::attempt($credentials)) {
+        $remember = ($request->remember_me) ? true : false;
+        if (Auth::attempt($check, $remember)) {
             return redirect('/');
         }else {
+            $request->flash('request',$request->all());
             alert()->error('Thông báo', 'Sai tài khoản hoặc mật khẩu!');
             return back();
         }
@@ -177,7 +182,7 @@ class HomeLoginController extends Controller
                 Session()->flash('message_error', 'Email không đúng, vui lòng thử lại');
                 return back();
         } else {
-            $checkEmail = PasswordReset::where('email', $email)->get()->first();
+            $checkEmail = PasswordReset::where('email', $email)->orderBy('expiration_date', 'DESC')->get()->first();
             if($checkEmail != null && now() <= $checkEmail->expiration_date){
                 Session()->flash('message_error', 'Thư đổi mật khẩu đã tồn tại, vui lòng kiểm tra hoặc đợi sau 15 phút!');
                 return back();
@@ -234,7 +239,7 @@ class HomeLoginController extends Controller
             $updatePassword->password = Hash::make($rePassword);
             $updatePassword->save();
             if ($updatePassword) {
-                PasswordReset::where('token', $token)->delete();                
+                PasswordReset::where('token', $token)->delete();
                 Session()->flash('message_success', 'Đổi mật khẩu thành công, bạn có thể đăng nhập!');
                 return view('auth.success');
             } else {

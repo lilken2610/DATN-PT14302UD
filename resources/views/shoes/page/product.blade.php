@@ -1,5 +1,5 @@
 @extends('templates.shoes.master')
-@section('title') Sản phẩm @endsection
+@section('title') {{$object->name_product}} @endsection
 @section('content')
     <div class="container detail-product margin-res-top" style="margin-top: 150px">
         @if(isset($object))

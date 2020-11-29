@@ -1,5 +1,5 @@
 @extends('templates.shoes.master')
-@section('title') 
+@section('title')
 Danh sách sản phẩm
 @endsection
 @section('content')
@@ -108,7 +108,7 @@ Danh sách sản phẩm
                             <img src="{{asset('images/app/products/'.$img)}}" alt="">
                         </div>
                         <div class="container-product-content-text">
-                            <p>{{$value->name_product}}</p>
+                            <p>{{str_limit($value->name_product, 18)}}</p>
                             <p>{{number_format($value->price)}} VNĐ</p>
                             @if( $value->sale !=0 )
                             <div class="sale-product" style="top: 8%;left: 5%">
