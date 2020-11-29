@@ -36,9 +36,14 @@
             </div>@endif
         {{--col 4--}}
         <div class="product margin-top">
+            <script>
+                jQuery(function(){
+                   jQuery('#default').click();
+                });
+                </script>
             <div class="">
                 <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Sản phẩm mới</button>
+                    <button class="tablinks" onclick="openCity(event, 'London')" id="default">Sản phẩm mới</button>
                     <button class="tablinks" onclick="openCity(event, 'Paris')">Sản phẩm bán chạy</button>
                     <button class="tablinks" onclick="openCity(event, 'Tokyo')">Sản phẩm mới nhất</button>
                 </div>

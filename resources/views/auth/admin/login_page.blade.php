@@ -34,10 +34,10 @@
                     </div>
                     @endif
                     <div class="form-group">
-                        <input class="form-control" type="text" name="username" placeholder="Username">
+                        <input class="form-control" value="{{ Request::old('username') }}"  type="text" name="username" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password"
+                        <input class="form-control" value="{{ Request::old('password') }}" type="password" name="password"
                             placeholder="Password">
                     </div>
 

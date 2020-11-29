@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Epic Shoes | @yield('title')</title>
+    <link rel="icon" href="{{asset('images/icon.png')}}" type="image/png" sizes="136x136">
+    <title> F-LUXURY | @yield('title')</title>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- bootstrap cdn -->
@@ -34,12 +35,12 @@
     {{--form awwesome--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{--ajax--}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js"
         integrity="sha512-8ehqhNuD1bseIPwrxDUkt2VcYdhvHJptB5vmVCWwCqJShQdOq7gnj4FfXEUnNMfRaWN2/q7yXBO4cboaRloP8w=="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.min.css"
         integrity="sha512-zEmgzrofH7rifnTAgSqWXGWF8rux/+gbtEQ1OJYYW57J1eEQDjppSv7oByOdvSJfo0H39LxmCyQTLOYFOa8wig=="
-        crossorigin="anonymous" /> --}}
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <script src="{{asset('admin/js/customjs/login.js')}}"></script>
@@ -70,7 +71,7 @@
                         </div>
                         <div class="bar-header-logo">
                             <a href="{{route('shoes.shoes.index')}}">
-                                <img id="nav-logo-img" src="{{asset('images/file/payment3.png')}}" alt="">
+                                <img id="nav-logo-img" style="height: 40%; width: 40%" src="{{asset('images/logo.png')}}" alt="">
                             </a>
                         </div>
                         <form action="/tim-kiem" method="GET">
@@ -149,11 +150,11 @@
                                         <ul>
                                             @foreach ($menu as $item)
                                         <li><a href="/the-loai/{{$item->slug_cat}}">{{$item->name_cat}}</a>
-                                            </li>                                                
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
-                                </li>   
+                                </li>
                                 <li>
                                     <a href="{{route('shoes.shoes.news')}}">Tin tức</a>
                                 </li>
@@ -187,7 +188,7 @@
                                         <ul>
                                             @foreach ($menu as $item)
                                         <li><a href="/the-loai/{{$item->slug_cat}}">{{$item->name_cat}}</a>
-                                            </li>                                                
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -198,7 +199,7 @@
                                         <ul>
                                             @foreach ($menuBrand as $item)
                                         <li><a href="/thuong-hieu/{{$item->slug_brand}}">{{$item->name_brand}}</a>
-                                            </li>                                                
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>

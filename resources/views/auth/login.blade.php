@@ -7,11 +7,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên đăng nhập</label>
-                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
+                    <input type="text" class="form-control" value="{{ Request::old('username') }}" name="username" maxlength="255" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật khẩu</label>
-                    <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                    <input type="password" class="form-control" value="{{ Request::old('password') }}" name="password" maxlength="255" placeholder="Mật khẩu">
                 </div>
                 <div style="text-align: center">
                     <input type="submit" value="Đăng nhập" class="btn btn-default">

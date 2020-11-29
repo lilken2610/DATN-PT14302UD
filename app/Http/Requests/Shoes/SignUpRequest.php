@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Shoes;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Request;
 class SignUpRequest extends FormRequest
 {
     /**
@@ -21,20 +21,21 @@ class SignUpRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(Request $request)
+    {  
         return [
+            'request' => $request->all(),
             'fullname' => 'required',
             'username' => 'required|unique:users,username|min:6',
             'pwd'      => 'required',
             'pwdreturn' => 'required|same:pwd',
             'email'     => 'required|email|unique:users,email',
             'phone'     => 'required',
-            'address'   => 'required'
+            'address'   => 'required',
         ];
     }
     public function messages()
-    {
+    {    
         return [
             'fullname.required' => 'Vui lòng nhập họ tên',
             'username.required' => 'Vui lòng nhập tên đăng nhập',
@@ -47,7 +48,8 @@ class SignUpRequest extends FormRequest
             'email.email'        => 'Vui lòng nhập đúng định dạng email',
             'email.unique'        => 'Email này đã được sử dụng',
             'phone.required'     => 'Vui lòng nhập số điện thoại',
-            'address.required'   => 'Vui lòng nhập địa chỉ'
+            'address.required'   => 'Vui lòng nhập địa chỉ', 
         ];
+               
     }
 }

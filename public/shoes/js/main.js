@@ -1,10 +1,10 @@
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("nav-logo-img").style.width = "20%";
-  } else {
-    document.getElementById("nav-logo-img").style.width = "25%";
-  }
-};
+// function scrollFunction() {
+//   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+//     document.getElementById("nav-logo-img").style.width = "20%";
+//   } else {
+//     document.getElementById("nav-logo-img").style.width = "25%";
+//   }
+// };
 //owl carousel
 $(document).ready(function(){
     //slide header

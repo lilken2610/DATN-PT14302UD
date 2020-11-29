@@ -54,14 +54,14 @@ body {
 }
 
 .header-scroll {
-    background: #333333;
+    background: #201E1F;
 }
 
 .header-menu-logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #333333;
+    background: #201E1F;
     color: rgba(255, 255, 255, 0.8);
     padding: 10px;
 }
@@ -1289,7 +1289,6 @@ ul.list-unstyled.list-inline.social.text-center {
     padding: 0 10px;
     width: 150px;
     caret-color: red;
-    transition: width 0.4s linear;
 }
 
 .searchbar:hover>.search_icon {

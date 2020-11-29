@@ -281,7 +281,7 @@ Route::group(['namespace'=>'Shoes'],function(){
     Route::get('/san-pham', [
         'uses' => 'IndexController@list',
         'as'   => 'shoes.shopping.list'
-    ]);  
+    ]);
 
     Route::get('/tim-kiem', [
         'uses' => 'IndexController@search',
@@ -291,6 +291,7 @@ Route::group(['namespace'=>'Shoes'],function(){
         'uses' => 'IndexController@categories',
         'as'   => 'shoes.shoes.categories'
     ]);
+
     Route::get('/thuong-hieu/{slug}',[
         'uses' => 'IndexController@brands',
         'as'   => 'shoes.shoes.brands'

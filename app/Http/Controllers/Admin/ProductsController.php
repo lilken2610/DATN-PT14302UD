@@ -39,8 +39,9 @@ class ProductsController extends Controller
         if($request->hasFile('img')) {
             $files = $request->img;
             foreach ($files as $key => $value) {
-                $value->move(public_path('images/app/products/'),$value->getClientOriginalName());
-                $dataImg[$key] = $value->getClientOriginalName(); 
+                $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+                $value->move(public_path('images/app/products/'), $filename);
+                $dataImg[$key] = $filename;
             }
             $image = json_encode($dataImg);
         }
@@ -111,8 +112,9 @@ class ProductsController extends Controller
             //add file
             $files = $request->imgedit;
             foreach ($files as $key => $value) {
-                $value->move(public_path('images/app/products/'),$value->getClientOriginalName());
-                $dataImg[$key] = $value->getClientOriginalName(); 
+                $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+                $value->move(public_path('images/app/products/'),$filename);
+                $dataImg[$key] = $filename;
             }
             $images = json_encode($dataImg);
         }

@@ -73,32 +73,38 @@ class IndexController extends Controller
         $resultSearch = $this->Products->search($request);
         $keyword = $request->keyword;
         $option = $request->options;
+        $category = $request->category;
+        $brand = $request->brand;
 
-        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option'));
+        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option', 'category', 'brand'));
     }
 
-    public function categories($slug) {
+    public function categories($slug, Request $request) {
         $cat = $this->Categories->getIdById($slug)->get()->first();
         $idCat = $cat->id_cat;
         $nameCat = $cat->name_cat;
-        $getProductCat = $this->Products->getProductCat($idCat);
+        $getProductCat = $this->Products->getProductCat($idCat, $request);
         $arProductBar = [
             'noibat' => $this->Products->getProductNews(),
             'muanhieu' => $this->Products->selling()
         ];
-        return view('shoes.page.categories',compact('getProductCat','nameCat','arProductBar'));
+        $slug = $slug;
+        $option = $request->options;
+        return view('shoes.page.categories',compact('getProductCat','nameCat','arProductBar', 'slug', 'option'));
     }
 
-    public function brands($slug){
+    public function brands($slug, Request $request){
         $brand = $this->Brands->getIdById($slug)->get()->first();
         $idBrand = $brand->id_brand;
         $nameBrand = $brand->name_brand;
-        $getProductBrand = $this->Products->getProductBrand($idBrand);
+        $getProductBrand = $this->Products->getProductBrand($idBrand, $request);
         $arProductBar = [
             'noibat' => $this->Products->getProductNews(),
             'muanhieu' => $this->Products->selling()
         ];
-        return view('shoes.page.brands',compact('getProductBrand','nameBrand','arProductBar'));
+        $slug = $slug;
+        $option = $request->options;
+        return view('shoes.page.brands',compact('getProductBrand','nameBrand','arProductBar', 'slug', 'option'));
     }
 
     public function product($slug) {

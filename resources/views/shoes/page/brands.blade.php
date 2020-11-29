@@ -8,12 +8,11 @@
         </div>
         <div class="col-sm-6">
             <div style="width: 50%;float: right;padding-right: 25px">
-                <form action="">
-                    <select name="" class="form-control">
-                        <option value="">Mặc định</option>
-                        <option value="">Giá thấp đến cao</option>
-                        <option value="">Giá cao đến thấp</option>
-                        <option value="">Mới nhất</option>
+                <form action="/thuong-hieu/{{$slug}}">
+                    <select name="options" class="form-control"  onchange="this.form.submit()">
+                        <option value="1" {{$option == 1 ? 'selected':''}}>Mới nhất</option>
+                        <option value="2" {{$option == 2 ? 'selected':''}}>Giá thấp đến cao</option>
+                        <option value="3" {{$option == 3 ? 'selected':''}}>Giá cao đến thấp</option>
                     </select>
                 </form>
             </div>
@@ -104,7 +103,7 @@
                                 <img src="{{asset('images/app/products/'.$img)}}" alt="">
                             </div>
                             <div class="container-product-content-text">
-                                <p>{{$value->name_product}}</p>
+                                <p>{{str_limit($value->name_product, 20)}}</p>
                                 <p>{{number_format($value->price)}} VNĐ</p>
                                 @if( $value->sale !=0 )
                                     <div class="sale-product" style="top: 8%;left: 5%">
