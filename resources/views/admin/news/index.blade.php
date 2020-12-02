@@ -57,7 +57,7 @@
                                                     {!! $value->preview !!}
                                                 </td>
                                                 <td class="img-new">
-                                                    @if ( empty($value->picure) )
+                                                    @if ( empty($value->picture) )
                                                         <img src="{{asset('images/app/products/notfound.png')}}"  alt="">
                                                     @else
                                                         <img src="{{asset('images/app/news/'.$value->picture)}}"  alt="">

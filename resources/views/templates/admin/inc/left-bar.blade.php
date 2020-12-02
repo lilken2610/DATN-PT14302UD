@@ -27,9 +27,9 @@
                     <li>
                         <a href="{{route('shoes.products.index')}}">Sản phẩm</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{route('shoes.size.index')}}">Size</a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
@@ -40,7 +40,7 @@
                 <a href="{{route('shoes.gift.index')}}"><i class="fa fa-gift fa-fw"></i> Quản lý mã giảm giá </a>
             </li>
             <li>
-                <a href="{{route('shoes.news.index')}}"><i class="fa fa-table fa-fw"></i> Quản lý bài đăng</a>
+                <a href="{{route('shoes.news.index')}}"><i class="fa fa-table fa-fw"></i> Quản lý bài viết</a>
             </li>
             <li>
                 <a href="{{route('shoes.slide.index')}}"><i class="fa fa-film fa-fw"></i> Quản lý slide </a>

@@ -10,14 +10,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\PasswordReset;
 use Illuminate\Support\Facades\Hash;
-use RealRashid\SweetAlert\Facades\Aler;
-Use Alert;
-use SweetAlert;
 
 class HomeLoginController extends Controller
 {
@@ -43,7 +39,12 @@ class HomeLoginController extends Controller
                 $request->flash('request',$request->all());
                 Session()->flash('message_error','Sai tên đăng nhập hoặc mật khẩu!');
                 return back();
-            }else{
+            }else if($user->active == 0){
+            $request->flash('request',$request->all());
+            Session()->flash('message_error', 'Tài khoản bạn đã bị khóa, vui lòng liên hệ quản trị viên!');
+            return back();
+            }
+            else{
                 return redirect()->intended(route('shoes.admin.index'));
             }
         }else {
@@ -151,13 +152,19 @@ class HomeLoginController extends Controller
         return view('auth.login');
     }
     public function postLoginUser(Request $request) {
-        $check = $request->validate([
+        $credentials = $request->validate([
             'username' => 'required|max:255',
             'password' => 'required|max:255'
         ]);
         $remember = ($request->remember_me) ? true : false;
-        if (Auth::attempt($check, $remember)) {
-            return redirect('/');
+        if (Auth::attempt($credentials, $remember)) {
+            if(Auth::user()->active == 0){
+                $request->flash('request',$request->all());
+            alert()->error('Thông báo', 'Tài khoản bạn đã bị khóa, vui lòng liên hệ quản trị viên!');
+            return back();
+            }else{
+                return redirect('/');
+            }
         }else {
             $request->flash('request',$request->all());
             alert()->error('Thông báo', 'Sai tài khoản hoặc mật khẩu!');
@@ -266,7 +273,6 @@ class HomeLoginController extends Controller
     }
     //post update info user public
     public function postInfo(Request $request) {
-        $pwd = bcrypt($request->pwd);
         $object = $this->User->getId( Auth::id() );
         $img = $object->avatar;
         $image = $request->file('avatar');
@@ -283,7 +289,7 @@ class HomeLoginController extends Controller
             'username'   => $request->username,
             'fullname'   => $request->fullname,
             'email'      => $request->email,
-            'password'   => $pwd,
+            'password'   => Hash::make($request->pwd),
             'address'    => $request->address,
             'phone'      => $request->phone,
             'avatar'     => $img
@@ -298,20 +304,24 @@ class HomeLoginController extends Controller
     //dang ky
     public function activeAc($id) {
         $object = $this->User->getId($id);
-        if( $object->active == 0 ) {
+        if( $object->email_code != null ) {
             return view('auth.email_code',compact('object'));
         }
         return redirect()->route('shoes.shoes.index');
     }
     public function postActiveAc($id,ActiveRequest $request) {
+        debug();
         $object = $this->User->getId($id);
         if ( $object->email_code == $request->acitve ) {
-            $actvie = $this->User->active($id);
-            if ( $actvie == 1 ) {
-                return '<script>alert("Kích hoạt thành công");window.location.href="/"</script>';
-            }else {
-                return redirect()->route('shoes.shoes.index');
+            $object->email_code = "";
+            $object->save();
+            Session()->flash('success', "");
+            return redirect('/');
             }
+        else{
+            $request->flash('request',$request->all());
+            Session()->flash('error', "");
+            return back();
         }
     }
     public function signUp() {
@@ -327,7 +337,7 @@ class HomeLoginController extends Controller
             'address'   => $request->address,
             'phone' => $request->phone,
             'id_level' => 3,
-            'active' => 0,
+            'active' => 1,
             'email_code' => $email_code,
         ];
         $id_user = $this->User->addSignUp($arAdd);

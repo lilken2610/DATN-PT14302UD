@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddNewRequest;
 use App\Model\Admin\News;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -25,9 +26,10 @@ class NewsController extends Controller
     public function postAdd(AddNewRequest $request) {
         $img = '';
         if ( $request->hasFile('pic') ) {
-            $filePath = $request->pic->store('news');
-            $arFile = explode("/",$filePath);
-            $img = end($arFile);
+            $value = $request->pic;
+            $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+            $value->move(public_path('images/app/news/'), $filename);
+            $img = $filename;
         }
         $arNews = [
             'title'     => $request->namenew,
@@ -57,11 +59,15 @@ class NewsController extends Controller
     public function postEdit($id,Request $request) {
         $object = $this->News->getId($id);
         $img = $object->picture;
-        if ( $request->hasFile('pic') ) {
-            Storage::delete('news/'.$img);
-            $filePath = $request->pic->store('news');
-            $arFile = explode("/",$filePath);
-            $img = end($arFile);
+        if($request->hasFile('pic')) {
+                $filename = public_path("images/app/news/$img");
+                File::delete($filename);
+
+            //add file
+            $value = $request->pic;
+            $filename = Str::random().time() . '.' . $value->getClientOriginalExtension();
+            $value->move(public_path('images/app/news/'), $filename);
+            $img = $filename;
         }
         $arEdit = [
             'title'     => $request->namenew,

@@ -1,4 +1,7 @@
-function qtyCart(qty,id) {
+function qtyCart(qty, id) {
+    if (qty < 1) {
+        qty = 1
+    }
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

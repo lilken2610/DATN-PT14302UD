@@ -14,7 +14,7 @@
                     <input type="password" class="form-control" value="{{ Request::old('password') }}" name="password" maxlength="255" placeholder="Mật khẩu">
                 </div>
                 <div class="form-check">
-                    <input value="{{ Request::old('remember_me') }}" type="checkbox" class="form-check-input" name="remember_me">
+                    <input type="checkbox" class="form-check-input" name="remember_me">
                     <label class="form-check-label">Nhớ tài khoản</label>
                 </div>
                 <div style="text-align: center">
