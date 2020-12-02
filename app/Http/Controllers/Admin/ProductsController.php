@@ -10,7 +10,6 @@ use App\Model\Admin\Products;
 use App\Model\Admin\ProductSize;
 use App\Model\Admin\Size;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 class ProductsController extends Controller

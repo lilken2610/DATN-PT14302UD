@@ -100,7 +100,9 @@ $(document).ready(function () {
                 equalTo: "#pwd",
             },
             phone: {
-                required: true
+                required: true,
+                minlength: 8,
+                maxlength: 13
             },
             address: {
                 required: true
@@ -130,10 +132,32 @@ $(document).ready(function () {
                 equalTo: "Mật khẩu không giống nhau !"
             },
             phone: {
-                required: "Xin vui lòng nhập số điện thoại!"
+                required: "Xin vui lòng nhập số điện thoại!",
+                minlength: "Số điện thoại quá ngắn!",
+                maxlength: "Số điện thoại quá dài!"
             },
             address: {
                 required: "Xin vui lòng nhập địa chỉ"
+            }
+        }
+    });
+});
+
+// Validate Gửi reset mật khẩu
+$(document).ready(function () {
+    $("#formCart").validate({
+        rules: {
+            quantity: {
+                required: true,
+                min: 1,
+                max: 10
+            }
+        },
+        messages: {
+            quantity: {
+                required: "Vui lòng nhập số lượng!",
+                min: "Số lương lớn hơn 0!",
+                max: "Số lượng nhỏ hơn 11!"
             }
         }
     });

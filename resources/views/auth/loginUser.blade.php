@@ -26,7 +26,9 @@
                 <div class="profile">
                     <ul>
                         <li><a href=""><i style="color:blue" class="fa fa-user"></i> Hồ sơ</a></li>
+                        @if (Auth::user()->email_code)
                         <li><a href="{{route( 'shoes.auth.activeAc',Auth::id() )}}"><i style="color: green" class="fa fa-file-text-o"></i> Kích hoạt tài khoản</a></li>
+                        @endif
                         <li><a href=""><i style="color: red" class="fa fa-file-text-o"></i> Lịch sử mua hàng</a></li>
                         <li><a href="{{route('shoes.auth.logoutUser')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng xuất</a></li>
                     </ul>
