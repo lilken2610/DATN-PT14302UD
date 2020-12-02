@@ -37,7 +37,7 @@
                     <h4>{{number_format($object->price)}} VNĐ</h4>
                 @endif
                 <div class="info-cart">
-                    <form action="{{route('shoes.shopping.add',$object->id_product)}}" method="post">
+                    <form action="{{route('shoes.shopping.add',$object->id_product)}}" method="post" id="formAddToCart">
                         @csrf
                         <div class="size" id="size-product">
                             <h4>Size</h4>

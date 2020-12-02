@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên đăng nhập</label>
                     <input type="text" class="form-control" value="{{ Request::old('username') }}" name="username" id="username" aria-describedby="emailHelp" placeholder="Tên đăng nhập">
-                    <span class="alert-danger">{{$errors->first('username')}}</span>
+                    <label class="error">{{$errors->first('username')}}</label>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật khẩu</label>
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" class="form-control" value="{{ Request::old('email') }}" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
-                    <span class="alert-danger">{{$errors->first('email')}}</span>
+                    <label class="error">{{$errors->first('email')}}</label>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Số điện thoại</label>

@@ -142,8 +142,6 @@ $(document).ready(function () {
         }
     });
 });
-
-// Validate Gửi reset mật khẩu
 $(document).ready(function () {
     $("#formCart").validate({
         rules: {
@@ -155,6 +153,25 @@ $(document).ready(function () {
         },
         messages: {
             quantity: {
+                required: "Vui lòng nhập số lượng!",
+                min: "Số lương lớn hơn 0!",
+                max: "Số lượng nhỏ hơn 11!"
+            }
+        }
+    });
+});
+
+$(document).ready(function () {
+    $("#formAddToCart").validate({
+        rules: {
+            qty: {
+                required: true,
+                min: 1,
+                max: 10
+            }
+        },
+        messages: {
+            qty: {
                 required: "Vui lòng nhập số lượng!",
                 min: "Số lương lớn hơn 0!",
                 max: "Số lượng nhỏ hơn 11!"

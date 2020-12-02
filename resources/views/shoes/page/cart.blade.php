@@ -88,8 +88,6 @@ Giỏ hàng
             <script>
                 var user = {!! json_encode(optional(auth()->user())->only('id', 'email', 'email_code')) !!}
                 function checkLogin() {
-
-                    debugger;
                     var validator = $( "#formCart" ).validate();
                     if((validator.errorList).length == 0){
 

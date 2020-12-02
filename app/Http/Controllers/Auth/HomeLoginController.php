@@ -310,7 +310,6 @@ class HomeLoginController extends Controller
         return redirect()->route('shoes.shoes.index');
     }
     public function postActiveAc($id,ActiveRequest $request) {
-        debug();
         $object = $this->User->getId($id);
         if ( $object->email_code == $request->acitve ) {
             $object->email_code = "";

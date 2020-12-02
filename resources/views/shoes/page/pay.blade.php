@@ -1,6 +1,11 @@
 @extends('templates.shoes.master')
 @section('title') Thanh Toán @endsection
 @section('content')
+@if (count(Cart::content()) == 0)
+    <script>
+        window.location.href = "/";
+    </script>
+@else
     <div class="pay">
         <div class="container margin-res-top" style="margin-top: 150px">
             <div class="col-sm-6">
@@ -142,8 +147,15 @@
                         data:{ id_pay:idpay },
                         success:function(data){
                             if (data==1) {
-                                alert('Đặt hàng thành công !');
-                                window.location.href='/';
+                                Swal.fire(
+                                    'Thống báo!',
+  'Đặt hàng thành công!',
+  'success'
+                                ).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "/tai-khoan-cua-toi#lich-su";
+                            }
+                        })
                             }
                         }
                     });
@@ -156,3 +168,4 @@
     <script src="{{asset('shoes/js/ajax/gift.code.order.js')}}"></script>
     <script src="{{asset('shoes/js/ajax/order.pay.js')}}"></script>
 @endsection
+@endif
