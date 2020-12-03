@@ -8,6 +8,7 @@ use App\Http\Requests\Shoes\SignUpRequest;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Admin\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -17,9 +18,10 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeLoginController extends Controller
 {
-    public function __construct(User $user)
+    public function __construct(User $user, Transaction $transaction)
     {
         $this->User = $user;
+        $this->Transaction = $transaction;
     }
     //login admin
     public function login() {
@@ -266,7 +268,18 @@ class HomeLoginController extends Controller
     //update info user public
     public function info() {
         if ( Auth::check() ) {
-            return view('auth.loginUser');
+            return view('auth.infoUser');
+        }else {
+            return redirect()->back();
+        }
+    }
+    public function history(Request $request) {
+        if ( Auth::check() ) {
+            $object = $this->Transaction->getTransactionForUser($request);
+            $record = $request->record;
+            $date = $request->date;
+            $status = $request->status;
+            return view('auth.history', compact('object', 'record', 'date', 'status'));
         }else {
             return redirect()->back();
         }

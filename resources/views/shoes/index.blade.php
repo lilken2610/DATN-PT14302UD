@@ -10,7 +10,6 @@
         'Bạn đã kích hoạt thành công, bây giờ bạn có thể đặt hàng!',
         'success'
     )
-
 </script>
 @endif
 <div class="container margin-res-top" style="margin-top: 150px">

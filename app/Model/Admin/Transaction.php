@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Model\Admin;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class Transaction extends Model
 {
     protected $table = "transaction";
@@ -92,5 +92,26 @@ class Transaction extends Model
         $object->status = 1;
         return $object->update();
     }
+
+    public function getTransactionForUser (Request $request) {
+        $object = DB::table('transaction')->where('id_user', Auth::id())->join('users','users.id','transaction.id_user')->orderBy('id_transaction','DESC')
+        ->select('transaction.*','users.*');
+
+        if($request->record){
+            $record = $request->record;
+        }else{
+            $record = 5;
+        }
+
+        if($request->date){
+            $object = $object->whereDate('created_at', '=', $request->date);
+        }
+
+        if($request->status){
+            $object = $object->where('status', $request->status);
+        }
+
+        return $object->paginate($record);
+     }
 
 }

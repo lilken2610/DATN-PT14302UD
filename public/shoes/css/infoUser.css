@@ -1,0 +1,30 @@
+
+.gradeU .id {
+    font-weight: bold;
+    text-align: center;
+    min-width: 55px;
+}
+
+.gradeU .fullname {
+    font-weight: bold;
+    text-align: center;
+    min-width: 130px;
+}
+
+.gradeU .email {
+    font-weight: bold;
+    text-align: center;
+    min-width: 110px;
+}
+
+.gradeU .bill {
+    font-weight: bold;
+    text-align: center;
+    min-width: 90px;
+}
+
+.searchBar {
+    width: 50%;
+    float: right;
+    padding-right: 5px
+}

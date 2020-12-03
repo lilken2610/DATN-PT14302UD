@@ -437,6 +437,10 @@ Route::group(['namespace'=>'Auth'],function(){
         'uses' => 'HomeLoginController@postInfo',
         'as'   => 'shoes.auth.postInfo'
     ]);
+    Route::get('/tai-khoan-cua-toi/lich-su-dat-hang',[
+        'uses' => 'HomeLoginController@history',
+        'as'   => 'shoes.auth.history'
+    ]);
     Route::get('/logOutUser',[
         'uses' => 'HomeLoginController@logoutUser',
         'as'   => 'shoes.auth.logoutUser'

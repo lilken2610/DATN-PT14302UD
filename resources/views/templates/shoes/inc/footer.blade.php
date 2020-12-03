@@ -48,7 +48,7 @@
                 tablinks[i].className = tablinks[i].className.replace("active", "");
             }
             document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += "active";
+            // evt.currentTarget.className = "active";
         }
         // window.onscroll = function() {scrollFunction()};
     </script>
