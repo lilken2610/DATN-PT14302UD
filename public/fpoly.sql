@@ -2,10 +2,10 @@
 -- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 04, 2020 at 10:59 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 04, 2020 lúc 03:59 PM
+-- Phiên bản máy phục vụ: 10.4.14-MariaDB
+-- Phiên bản PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sneaker`
+-- Cơ sở dữ liệu: `sneaker`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
+-- Cấu trúc bảng cho bảng `brands`
 --
 
 CREATE TABLE `brands` (
@@ -36,7 +36,7 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `brands`
+-- Đang đổ dữ liệu cho bảng `brands`
 --
 
 INSERT INTO `brands` (`id_brand`, `name_brand`, `slug_brand`, `created_at`, `updated_at`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `brands` (`id_brand`, `name_brand`, `slug_brand`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
 CREATE TABLE `categories` (
@@ -62,7 +62,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `categories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
 INSERT INTO `categories` (`id_cat`, `name_cat`, `slug_cat`, `created_at`, `updated_at`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `categories` (`id_cat`, `name_cat`, `slug_cat`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Cấu trúc bảng cho bảng `contact`
 --
 
 CREATE TABLE `contact` (
@@ -88,7 +88,7 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `contact`
+-- Đang đổ dữ liệu cho bảng `contact`
 --
 
 INSERT INTO `contact` (`id_contact`, `fullname`, `email`, `title`, `content`, `phone`, `updated_at`, `created_at`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `contact` (`id_contact`, `fullname`, `email`, `title`, `content`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gift_code`
+-- Cấu trúc bảng cho bảng `gift_code`
 --
 
 CREATE TABLE `gift_code` (
@@ -113,7 +113,7 @@ CREATE TABLE `gift_code` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `gift_code`
+-- Đang đổ dữ liệu cho bảng `gift_code`
 --
 
 INSERT INTO `gift_code` (`id_code`, `code`, `value`, `qty`, `status`, `created_day`, `end_day`) VALUES
@@ -123,7 +123,7 @@ INSERT INTO `gift_code` (`id_code`, `code`, `value`, `qty`, `status`, `created_d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Cấu trúc bảng cho bảng `level`
 --
 
 CREATE TABLE `level` (
@@ -132,7 +132,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `level`
+-- Đang đổ dữ liệu cho bảng `level`
 --
 
 INSERT INTO `level` (`id_level`, `level`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `level` (`id_level`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -155,7 +155,7 @@ CREATE TABLE `migrations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Cấu trúc bảng cho bảng `news`
 --
 
 CREATE TABLE `news` (
@@ -169,7 +169,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `news`
+-- Đang đổ dữ liệu cho bảng `news`
 --
 
 INSERT INTO `news` (`id_new`, `title`, `preview`, `detail`, `picture`, `created_ad`, `updated_at`) VALUES
@@ -179,7 +179,7 @@ INSERT INTO `news` (`id_new`, `title`, `preview`, `detail`, `picture`, `created_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -189,7 +189,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `password_resets`
+-- Đang đổ dữ liệu cho bảng `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `expiration_date`) VALUES
@@ -200,7 +200,7 @@ INSERT INTO `password_resets` (`email`, `token`, `expiration_date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pay`
+-- Cấu trúc bảng cho bảng `pay`
 --
 
 CREATE TABLE `pay` (
@@ -209,7 +209,7 @@ CREATE TABLE `pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `pay`
+-- Đang đổ dữ liệu cho bảng `pay`
 --
 
 INSERT INTO `pay` (`id_pay`, `pay`) VALUES
@@ -218,7 +218,7 @@ INSERT INTO `pay` (`id_pay`, `pay`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -240,7 +240,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `price`, `sale`, `preview`, `description`, `images`, `id_cat`, `id_brand`, `hot_pay`, `pro_rating`, `created_at`, `updated_at`) VALUES
@@ -272,29 +272,28 @@ INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `pr
 (104, 'Jordan 1 - Bred', 'jordan-1-bred-1607074040', 1, 624000, 0, 'Jordan 1 - Bred - Giá 624,000Jordan 1 - Bred - Giá 624,000Jordan 1 - Bred - Giá 624,000Jordan 1 - Bred - Giá 624,000', '<p>Jordan 1 - Bred - Gi&aacute; 624,000Jordan 1 - Bred - Gi&aacute; 624,000Jordan 1 - Bred - Gi&aacute; 624,000Jordan 1 - Bred - Gi&aacute; 624,000</p>', '[\"hLRtvGQ4EAKMACzJ1607074037.jpg\",\"6VP5di7pgxZLMqpW1607074038.jpg\",\"p6fOaZtD5cWZoQqp1607074039.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 09:27:20', '2020-12-04 09:27:20'),
 (105, 'Jordan 1 Low - Core black', 'jordan-1-low-core-black-1607074237', 0, 624000, 0, 'Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00', '<p>Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00</p>', '[\"B4NDI1ZfS1r51L8y1607074235.jpg\",\"U9Vut53QD8UqswxS1607074236.jpg\",\"OkWqKhAYR4sPHKSb1607074236.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 09:30:37', '2020-12-04 09:30:37'),
 (106, 'Jordan 1 Low - Cream', 'jordan-1-low-cream-1607074539', 1, 624000, 0, 'Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000', '<p>Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000</p>', '[\"rnDuFySm8V7N5g0u1607074537.jpg\",\"hDfK0nBnwGhRK6OK1607074538.jpg\",\"6Kg94mO1UfPY27mo1607074539.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 09:35:39', '2020-12-04 09:35:39'),
-(107, 'Jordan 1 Low - Multicolor', 'jordan-1-low-multicolor-1606542639', 1, 624000, 0, 'Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000', '<p>Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000</p>', '[\"1606542639.jpg\",\"1606542639.jpg\",\"1606542639.jpg\"]', 132, 8, NULL, NULL, '2020-11-28 05:50:39', '2020-11-28 05:50:39'),
-(108, 'Jordan 1 Low - White Core Navy', 'jordan-1-low-white-core-navy-1606542793', 1, 624000, 0, 'Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000', '<p>Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000</p>', '[\"1606542793.jpg\",\"1606542793.jpg\",\"1606542793.jpg\"]', 132, 8, NULL, NULL, '2020-11-28 05:53:13', '2020-11-28 05:53:13'),
-(109, 'Jordan 1 Low - White Core Red', 'jordan-1-low-white-core-red-1606542835', 1, 624000, 0, 'Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000', '<p>Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000</p>', '[\"1606542835.jpg\",\"1606542835.jpg\",\"1606542835.jpg\"]', 132, 8, NULL, NULL, '2020-11-28 05:53:55', '2020-11-28 05:53:55'),
-(110, 'Nike Jordan 1 - Galaxy Blue', 'nike-jordan-1-galaxy-blue-1606542876', 1, 1624000, 0, 'Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000', '<p>Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000</p>', '[\"1606542876.jpg\",\"1606542876.jpg\",\"1606542876.jpg\"]', 132, 8, NULL, NULL, '2020-11-28 05:54:36', '2020-11-28 05:54:36'),
-(111, 'NB80 - Be Nâu', 'nb80-be-nau-1606542963', 1, 330000, 0, 'NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000', '<p>NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000</p>', '[\"1606542963.jpg\",\"1606542963.jpg\",\"1606542963.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:56:03', '2020-11-28 05:56:03'),
-(112, 'NB80 - Đen', 'nb80-den-1606542999', 1, 330000, 0, 'NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000', '<p>NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000</p>', '[\"1606542999.jpg\",\"1606542999.jpg\",\"1606542999.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:56:39', '2020-11-28 05:56:39'),
-(113, 'NB80 - Xanh Nhạt', 'nb80-xanh-nhat-1606543034', 1, 330000, 0, 'NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000', '<p>NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000</p>', '[\"1606543034.jpg\",\"1606543034.jpg\",\"1606543034.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:57:14', '2020-11-28 05:57:14'),
-(114, 'NB81 - Nâu Xanh', 'nb81-nau-xanh-1606543079', 1, 300000, 0, 'NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000', '<p>NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000</p>', '[\"1606543079.jpg\",\"1606543079.jpg\",\"1606543079.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:57:59', '2020-11-28 05:57:59'),
-(115, 'NB81 - Xanh Hồng', 'nb81-xanh-hong-1606543117', 1, 300000, 0, 'NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000', '<p>NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000</p>', '[\"1606543117.jpg\",\"1606543117.jpg\",\"1606543117.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:58:37', '2020-11-28 05:58:37'),
-(116, 'SD-9801 - Ghi', 'sd-9801-ghi-1606543170', 1, 260000, 0, 'SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000', '<p>SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000</p>', '[\"1606543170.jpg\",\"1606543170.jpg\",\"1606543170.jpg\"]', 133, 9, NULL, NULL, '2020-11-28 05:59:30', '2020-11-28 05:59:30'),
-(117, 'SD-NB59 - Full Black', 'sd-nb59-full-black-1606543207', -3, 338000, 0, 'SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000', '<p>SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000</p>', '[\"1606543207.jpg\",\"1606543207.jpg\",\"1606543207.jpg\"]', 133, 9, NULL, NULL, '2020-12-02 14:43:00', '2020-12-02 14:43:00'),
-(118, 'MARVEL ALL OVER PRINT NAM, NỮ', 'marvel-all-over-print-nam-nu-1606543346', 1, 552000, 0, 'MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000', '<p>MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000</p>', '[\"1606543346.jpg\"]', 134, 10, NULL, NULL, '2020-11-28 06:02:26', '2020-11-28 06:02:26'),
-(119, 'MARVEL TRẮNG ĐEN NAM, NỮ', 'marvel-trang-den-nam-nu-1606543385', 1, 595000, 0, 'MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000', '<p>MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000</p>', '[\"1606543385.jpg\"]', 134, 10, NULL, NULL, '2020-11-28 06:03:05', '2020-11-28 06:03:05'),
-(120, 'OLD SKOOL - Black', 'old-skool-black-1606543421', 1, 360000, 0, 'OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000', '<p>OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000</p>', '[\"1606543421.jpg\",\"1606543421.jpg\",\"1606543421.jpg\"]', 134, 10, NULL, NULL, '2020-11-28 06:03:41', '2020-11-28 06:03:41'),
-(121, 'Old Skool REP 1;1 -REd Stripe', 'old-skool-rep-11-red-stripe-1606543455', 1, 408000, 0, 'Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000', '<p>Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000</p>', '[\"1606543455.jpg\",\"1606543455.jpg\",\"1606543455.jpg\"]', 134, 10, NULL, NULL, '2020-11-28 06:04:15', '2020-11-28 06:04:15'),
-(122, 'Old Skool REP 11 - Black Stripe', 'old-skool-rep-11-black-stripe-1606724548', 1, 408000, 0, 'Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000', '<p>Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000</p>', '[\"zaWvNqikNnBAoQSB1606724548.jpg\",\"Yk4ZIT2fZwHGSQ551606724548.jpg\",\"e8F6SkcIPyWGVFXf1606724548.jpg\"]', 134, 10, NULL, NULL, '2020-11-30 08:22:28', '2020-11-30 08:22:28'),
-(123, 'SLIP ON HULK REPLICA NAM, NỮ', 'slip-on-hulk-replica-nam-nu-1606543525', 1, 425000, 0, 'SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000', '<p>SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000</p>', '[\"1606543525.jpg\"]', 134, 10, NULL, NULL, '2020-11-28 06:05:25', '2020-11-28 06:05:25'),
-(126, 'SD-NB57 - Grey L.Grey', 'sd-nb57-grey-lgrey-1607072274', 1, 150000, 1, 'Sandal Vento SD-NB57 - Grey L.Grey - Giá 485,000Sandal Vento SD-NB57 - Grey L.Grey - Giá 485,000Sandal Vento SD-NB57 - Grey L.Grey - Giá 485,000Sandal Vento SD-NB57 - Grey L.Grey - Giá 485,000', '<p>Sandal Vento SD-NB57 - Grey L.Grey - Gi&aacute; 485,000Sandal Vento SD-NB57 - Grey L.Grey - Gi&aacute; 485,000Sandal Vento SD-NB57 - Grey L.Grey - Gi&aacute; 485,000Sandal Vento SD-NB57 - Grey L.Grey - Gi&aacute; 485,000Sandal Vento SD-NB57 - Grey L.Grey - Gi&aacute; 485,000</p>', '[\"oMR7JRANLG4Gztty1607072273.jpg\",\"TO2BV0JtY7AVOEdt1607072273.jpg\",\"PYC1SB31yq1icArU1607072273.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 08:57:54', '2020-12-04 08:57:54');
+(107, 'Jordan 1 Low - Multicolor', 'jordan-1-low-multicolor-1607076416', 1, 624000, 0, 'Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000', '<p>Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000</p>', '[\"k67JzbXDRAVWbvYX1607076411.jpg\",\"Jlie9vB00Bsocuad1607076413.jpg\",\"dfDI4KPaWn2ikLF51607076414.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:06:56', '2020-12-04 10:06:56'),
+(108, 'Jordan 1 Low - White Core Navy', 'jordan-1-low-white-core-navy-1607076508', 1, 624000, 0, 'Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000', '<p>Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000</p>', '[\"673bOP0ntMwZk7OL1607076505.jpg\",\"kwlZ29OjfmSwQJsJ1607076506.jpg\",\"gCXENVl9U2iVkj9T1607076507.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:28', '2020-12-04 10:08:28'),
+(109, 'Jordan 1 Low - White Core Red', 'jordan-1-low-white-core-red-1607076518', 1, 624000, 0, 'Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000', '<p>Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000</p>', '[\"tEGUruTRnXx8hvpU1607076514.jpg\",\"NFEuYEPJZdEA1Tkc1607076515.jpg\",\"TVz9VJHOrc763ClC1607076517.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:38', '2020-12-04 10:08:38'),
+(110, 'Nike Jordan 1 - Galaxy Blue', 'nike-jordan-1-galaxy-blue-1607076525', 1, 1624000, 0, 'Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000', '<p>Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000</p>', '[\"sPJDGuSV92DSXRJQ1607076522.jpg\",\"d9IM2zycshuujYxo1607076523.jpg\",\"wdfutpZL6jMazN491607076524.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:45', '2020-12-04 10:08:45'),
+(111, 'NB80 - Be Nâu', 'nb80-be-nau-1607076545', 1, 330000, 0, 'NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000', '<p>NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000</p>', '[\"8ahiSXKayDoMY33i1607076543.jpg\",\"NgAXc3TeARap6Lzq1607076544.jpg\",\"lxrBlI4AaZt8Ekrp1607076545.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:05', '2020-12-04 10:09:05'),
+(112, 'NB80 - Đen', 'nb80-den-1607076555', 1, 330000, 0, 'NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000', '<p>NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000</p>', '[\"gys4Tsrx1oKL8kzP1607076553.jpg\",\"PrIsEr98V8VRaHEV1607076554.jpg\",\"6xLfzNGzhBNH20Wm1607076554.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:15', '2020-12-04 10:09:15'),
+(113, 'NB80 - Xanh Nhạt', 'nb80-xanh-nhat-1607076564', 1, 330000, 0, 'NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000', '<p>NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000</p>', '[\"FWolazD6W4V1aQ681607076562.jpg\",\"fVYoinrsFWVNSfAO1607076563.jpg\",\"FUun507dImL4J2vb1607076564.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:24', '2020-12-04 10:09:24'),
+(114, 'NB81 - Nâu Xanh', 'nb81-nau-xanh-1607076576', 1, 300000, 0, 'NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000NB81 - Nâu Xanh- Giá 300.000', '<p>NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000NB81 - N&acirc;u Xanh- Gi&aacute; 300.000</p>', '[\"KAY7BoA5tHbIlaSA1607076574.jpg\",\"DZKgv1TFvr7sW1291607076574.jpg\",\"VSYZbh4qT3dnTZMy1607076575.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:36', '2020-12-04 10:09:36'),
+(115, 'NB81 - Xanh Hồng', 'nb81-xanh-hong-1607076604', 1, 300000, 0, 'NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000NB81 - Xanh Hồng- Giá 300,000', '<p>NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000NB81 - Xanh Hồng- Gi&aacute; 300,000</p>', '[\"dMg6tUGiSnwVUj1d1607076602.jpg\",\"TbhSM8xHBjSW8JZS1607076603.jpg\",\"CZ1m8okBZB8rRdpP1607076603.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:10:04', '2020-12-04 10:10:04'),
+(116, 'SD-9801 - Ghi', 'sd-9801-ghi-1607076615', 1, 260000, 0, 'SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000SD-9801 - Ghi-Giá 260,000', '<p>SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000SD-9801 - Ghi-Gi&aacute; 260,000</p>', '[\"7lBHnPxNZ7cvWZgR1607076613.jpg\",\"5yOwDlmFfJdmlRXl1607076614.jpg\",\"lL3FvatTcsaDNw8N1607076615.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:10:15', '2020-12-04 10:10:15'),
+(117, 'SD-NB59 - Full Black', 'sd-nb59-full-black-1607076627', -3, 338000, 0, 'SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000SD-NB59 - Full Black -Giá 338,000', '<p>SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000SD-NB59 - Full Black -Gi&aacute; 338,000</p>', '[\"0VhLhNwtHgVwg8Zb1607076625.jpg\",\"npo4yAlpgaoEKwxV1607076625.jpg\",\"ceDUIdh3wORiMaSt1607076626.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:10:27', '2020-12-04 10:10:27'),
+(118, 'MARVEL ALL OVER PRINT NAM, NỮ', 'marvel-all-over-print-nam-nu-1607076650', 1, 552000, 0, 'MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000MARVEL ALL OVER PRINT NAM, NỮ-Giá 552,000', '<p>MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000MARVEL ALL OVER PRINT NAM, NỮ-Gi&aacute; 552,000</p>', '[\"E45sIgzeDj30xgyk1607076650.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:10:50', '2020-12-04 10:10:50'),
+(119, 'MARVEL TRẮNG ĐEN NAM, NỮ', 'marvel-trang-den-nam-nu-1607076658', 1, 595000, 0, 'MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Giá 595,000', '<p>MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000MARVEL TRẮNG ĐEN NAM, NỮ-Gi&aacute; 595,000</p>', '[\"ZIZmoCEwcPpcta0g1607076658.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:10:58', '2020-12-04 10:10:58'),
+(120, 'OLD SKOOL - Black', 'old-skool-black-1607076668', 1, 360000, 0, 'OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000', '<p>OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000</p>', '[\"JhFO9BSMzpjFUNZZ1607076668.jpg\",\"gJs54sZZEeCAC4XI1607076668.jpg\",\"hE2AJO0imhEc49Pk1607076668.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:08', '2020-12-04 10:11:08'),
+(121, 'Old Skool REP 1;1 -REd Stripe', 'old-skool-rep-11-red-stripe-1607076677', 1, 408000, 0, 'Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000', '<p>Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000</p>', '[\"bn7yBOnA3vkCPp1C1607076676.jpg\",\"UCRTI6jIMqAWGMF31607076676.jpg\",\"i9iUp1pG6jALsO7p1607076676.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:17', '2020-12-04 10:11:17'),
+(122, 'Old Skool REP 11 - Black Stripe', 'old-skool-rep-11-black-stripe-1607076684', 1, 408000, 0, 'Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000', '<p>Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000</p>', '[\"9s20iZyGI998jntv1607076683.jpg\",\"5GpxoOdgaiVKRIiU1607076684.jpg\",\"grnn0NmKy4Z5lArW1607076684.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:24', '2020-12-04 10:11:24'),
+(123, 'SLIP ON HULK REPLICA NAM, NỮ', 'slip-on-hulk-replica-nam-nu-1607076691', 1, 425000, 0, 'SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000', '<p>SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000</p>', '[\"X285snvgVzESOj6x1607076691.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:31', '2020-12-04 10:11:31');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_size`
+-- Cấu trúc bảng cho bảng `product_size`
 --
 
 CREATE TABLE `product_size` (
@@ -305,7 +304,7 @@ CREATE TABLE `product_size` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `product_size`
+-- Đang đổ dữ liệu cho bảng `product_size`
 --
 
 INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
@@ -390,13 +389,12 @@ INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
 (111, 120, 1, 1),
 (112, 121, 1, 1),
 (113, 122, 2, 1),
-(114, 123, 1, 1),
-(121, 126, 1, 1);
+(114, 123, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating`
+-- Cấu trúc bảng cho bảng `rating`
 --
 
 CREATE TABLE `rating` (
@@ -410,7 +408,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `rating`
+-- Đang đổ dữ liệu cho bảng `rating`
 --
 
 INSERT INTO `rating` (`id_rating`, `rating`, `comment`, `id_product`, `id_user`, `created_at`, `updated_at`) VALUES
@@ -446,7 +444,7 @@ INSERT INTO `rating` (`id_rating`, `rating`, `comment`, `id_product`, `id_user`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `size`
+-- Cấu trúc bảng cho bảng `size`
 --
 
 CREATE TABLE `size` (
@@ -455,7 +453,7 @@ CREATE TABLE `size` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `size`
+-- Đang đổ dữ liệu cho bảng `size`
 --
 
 INSERT INTO `size` (`id_size`, `size`) VALUES
@@ -468,7 +466,7 @@ INSERT INTO `size` (`id_size`, `size`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slide`
+-- Cấu trúc bảng cho bảng `slide`
 --
 
 CREATE TABLE `slide` (
@@ -480,7 +478,7 @@ CREATE TABLE `slide` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `slide`
+-- Đang đổ dữ liệu cho bảng `slide`
 --
 
 INSERT INTO `slide` (`id_slide`, `title`, `position_text`, `content`, `img`) VALUES
@@ -490,7 +488,7 @@ INSERT INTO `slide` (`id_slide`, `title`, `position_text`, `content`, `img`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction`
+-- Cấu trúc bảng cho bảng `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -506,7 +504,7 @@ CREATE TABLE `transaction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `transaction`
+-- Đang đổ dữ liệu cho bảng `transaction`
 --
 
 INSERT INTO `transaction` (`id_transaction`, `totalPrice`, `tax`, `discount`, `id_pay`, `id_user`, `status`, `created_at`, `updated_at`) VALUES
@@ -521,7 +519,7 @@ INSERT INTO `transaction` (`id_transaction`, `totalPrice`, `tax`, `discount`, `i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_detail`
+-- Cấu trúc bảng cho bảng `transaction_detail`
 --
 
 CREATE TABLE `transaction_detail` (
@@ -536,7 +534,7 @@ CREATE TABLE `transaction_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `transaction_detail`
+-- Đang đổ dữ liệu cho bảng `transaction_detail`
 --
 
 INSERT INTO `transaction_detail` (`id_transaction_dt`, `id_product`, `qty`, `size`, `totalproduct`, `id_transaction`, `updated_at`, `createad_at`) VALUES
@@ -552,7 +550,7 @@ INSERT INTO `transaction_detail` (`id_transaction_dt`, `id_product`, `qty`, `siz
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -574,17 +572,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `remember_token`, `address`, `phone`, `id_level`, `avatar`, `orders`, `active`, `email_code`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Lê Trung Thịnh', 'trungthinh2610@gmail.com', '$2y$10$McDE9i1t8Tw3eNyAlBG6NeHra4IdsbrGsL1v0lhAEgwXR2ynXFCz2', 'UmUNcbsyk2sIc2hVSO2TFCdoy0qjQNVDnNiCarPspPPsmQyKzhDVT08lwY0F', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 1, 'admin-1606650702.jpg', 1, 1, '', '2020-02-14 05:51:07', '2020-12-02 07:19:03'),
+(1, 'admin', 'Lê Trung Thịnh', 'trungthinh2610@gmail.com', '$2y$10$MZk6Z5cjy0Q6UyFc.Fl2C.oQSHrVQ3KUbbHhkMA9kVw77SAaod/nS', 'dDGBVf1Lw3iYkcGRTUsu368FrqFCCBbb0sIIZbHh7SYTCH4bR5wd2juAwRuX', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 1, 'admin-1607090141.jpg', 1, 1, '', '2020-02-14 05:51:07', '2020-12-04 13:55:42'),
 (5, 'user001', 'Tôi là user001', 'user001@gmail.com', '$2y$10$/y/MHgFjwTDhXSbPAYND4ejOrJXZADCK6n.EnOL8hXtiPyHouM63O', NULL, 'ABCD', '123123', 3, NULL, 13, 1, '', '2020-02-20 13:53:07', '2020-02-20 13:53:07'),
 (6, 'user002', 'User 002', 'user002@gmail.com', '$2y$10$TVGgoLXt7D.fKs.gN.31EOT6BGUq5XuAlmu/y1Cz6y3.ogq40pA2m', NULL, 'abc', '12313', 3, '', 5, 1, '', '2020-02-19 03:55:39', '2020-02-19 03:55:39'),
 (8, 'user003', 'Tôi là user003', 'lynguyen.pna@gmail.com', '$2y$10$BJ3AxseCgliexDAK8r9b1OHf9Gy8.PNy0D3DcmtVCiVlZ1G3JFmty', NULL, 'ẤCDSA', '123132', 3, 'etr0Bo5KWKIo7cUNUgYn6fllBM0NWt1F8iJ8E8Mk.jpeg', 7, 1, '', '2020-02-20 13:53:33', '2020-03-10 20:57:26'),
 (9, 'user004', 'Tôi là user004', 'user004@gmail.com', '$2y$10$XWHs5F7WOMn7KvhFrSQwi.hcVZsUujiZ.IafMXkr2VHPYLNytsWP6', NULL, 'ádasdasdasdsa', '123132', 3, NULL, 7, 1, '', '2020-02-20 13:54:18', '2020-02-20 13:54:18'),
 (19, 'vanchieu77', 'Đào Văn Chiểu', 'daovanchieu77@gmail.com', '$2y$10$yAuKpnTklU3kNbQMwQTJme5L8lGOpMVftXCbJen580t2I1VmaPaQ6', NULL, 'avc', '123123123', 3, NULL, 0, 1, '158391233515e68958fa3691', '2020-03-11 00:38:55', '2020-03-11 00:39:15'),
-(20, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$yfyx8uT0Tp6t2SbyP2lOJ.28jkj.Ha0RUSrC0GH1N5UWxZwUwenV6', NULL, 'Duy Thanh', '0336751070', 3, NULL, 0, 1, '160585247415fb75d3a69480', '2020-11-19 23:07:54', '2020-11-19 23:08:28'),
+(20, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$7VHm4h31QfDRXzOAdfRXvOiO3kAObIkoHcj0e8dWhA0v8NgXd7fs2', NULL, 'Duy Thanh', '0336751070', 3, 'user2020-1607091827.jpg', 0, 1, '160585247415fb75d3a69480', '2020-11-19 23:07:54', '2020-12-04 14:23:47'),
 (21, 'lilken2k', 'Lee Trung thinh', 'trungthinh2610@gmail.comeqweqweqwe', '$2y$10$q0JeilIBVpyTvfEj/M/P1eQ3A9qyG07mRisD9Z24oUwmVNTcA8KfW', NULL, 'duy thành', '0336751070', 3, NULL, NULL, 0, '160636017715fbf1c71b514d', '2020-11-26 03:09:37', '2020-11-26 03:09:37'),
 (22, 'lilken2610', 'Lee Trung thinh', 'lilken261s0d@gmail.com', '$2y$10$LTctWr24DnaOjhtVBtP0UeYwm2BN4FGUfCaGG7/EElEqc5UPiENyO', NULL, 'Duy Thanh', '0336751070', 3, NULL, NULL, 0, '160636529815fbf3072474aa', '2020-11-26 04:34:58', '2020-11-26 04:34:58'),
 (23, 'adminqewqe', 'Lê Trung Thịnh', 'lilcowken@gmail.com', '$2y$10$SAEyA1NVXcGLb1R4CSqWZu5l3eIf1MYiZ8/VM35M3xwP14GR52IiO', NULL, 'Vai lon luon dau cat moi', '0336751070', 3, NULL, NULL, 0, '160649218215fc12016bddf7', '2020-11-27 15:49:42', '2020-11-27 15:49:42'),
@@ -592,201 +590,201 @@ INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `remembe
 (25, 'ngulon', 'Lê Trung Thịnh', 'bubuoi@gmail.com', '$2y$10$OdF8ORyXdgKKYavcAQY0nOvHSVUerAhvis4udgyP3jVQ83rgje8hC', '1IiePQCuq2N4nWBVFcwXaVLHID01RlWt1TnMk8ejHtMfNQfQu0Wy6syjInAU', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 3, 'ngulon-1607065364.jpg', NULL, 1, '', '2020-12-01 14:39:11', '2020-12-04 07:02:44');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `brands`
+-- Chỉ mục cho bảng `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id_brand`);
 
 --
--- Indexes for table `categories`
+-- Chỉ mục cho bảng `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_cat`);
 
 --
--- Indexes for table `contact`
+-- Chỉ mục cho bảng `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id_contact`);
 
 --
--- Indexes for table `gift_code`
+-- Chỉ mục cho bảng `gift_code`
 --
 ALTER TABLE `gift_code`
   ADD PRIMARY KEY (`id_code`);
 
 --
--- Indexes for table `level`
+-- Chỉ mục cho bảng `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `news`
+-- Chỉ mục cho bảng `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id_new`);
 
 --
--- Indexes for table `pay`
+-- Chỉ mục cho bảng `pay`
 --
 ALTER TABLE `pay`
   ADD PRIMARY KEY (`id_pay`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id_product`);
 
 --
--- Indexes for table `product_size`
+-- Chỉ mục cho bảng `product_size`
 --
 ALTER TABLE `product_size`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rating`
+-- Chỉ mục cho bảng `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`id_rating`);
 
 --
--- Indexes for table `size`
+-- Chỉ mục cho bảng `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`id_size`);
 
 --
--- Indexes for table `slide`
+-- Chỉ mục cho bảng `slide`
 --
 ALTER TABLE `slide`
   ADD PRIMARY KEY (`id_slide`);
 
 --
--- Indexes for table `transaction`
+-- Chỉ mục cho bảng `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id_transaction`);
 
 --
--- Indexes for table `transaction_detail`
+-- Chỉ mục cho bảng `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
   ADD PRIMARY KEY (`id_transaction_dt`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `brands`
+-- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
   MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
--- AUTO_INCREMENT for table `contact`
+-- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `gift_code`
+-- AUTO_INCREMENT cho bảng `gift_code`
 --
 ALTER TABLE `gift_code`
   MODIFY `id_code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT cho bảng `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
   MODIFY `id_new` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pay`
+-- AUTO_INCREMENT cho bảng `pay`
 --
 ALTER TABLE `pay`
   MODIFY `id_pay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
--- AUTO_INCREMENT for table `product_size`
+-- AUTO_INCREMENT cho bảng `product_size`
 --
 ALTER TABLE `product_size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
--- AUTO_INCREMENT for table `rating`
+-- AUTO_INCREMENT cho bảng `rating`
 --
 ALTER TABLE `rating`
   MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `size`
+-- AUTO_INCREMENT cho bảng `size`
 --
 ALTER TABLE `size`
   MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `slide`
+-- AUTO_INCREMENT cho bảng `slide`
 --
 ALTER TABLE `slide`
   MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `transaction`
+-- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `transaction_detail`
+-- AUTO_INCREMENT cho bảng `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
   MODIFY `id_transaction_dt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;

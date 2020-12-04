@@ -85,7 +85,7 @@ Giỏ hàng
             <input type="button" value="Tiến hành thanh toán" style="width: 100%" class="button btn btn-primary"
                 onclick="checkLogin();" />
 
-            <script>
+            <script>debugger
                 var user = {!! json_encode(optional(auth()->user())->only('id', 'email', 'email_code')) !!}
                 function checkLogin() {
                     var validator = $( "#formCart" ).validate();
@@ -106,7 +106,7 @@ Giỏ hàng
                             }
                         })
                     } else {
-                        if(user.email_code == null){
+                        if(user.email_code){
                             Swal.fire({
                             title: 'Oh, có vấn đề?',
                             text: "Bạn cần xác thực email mới có thế mua hàng!",

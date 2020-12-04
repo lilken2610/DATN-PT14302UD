@@ -145,11 +145,11 @@ class IndexController extends Controller
     }
     public function pay() {
         if ( Auth::check() ) {
-            if ( Auth::user()->active != 0 ) {
+            if ( Auth::user()->email_code ) {
+                return '<script>alert("Tài khoản của bạn chưa được kích hoạt, vui lòng kích hoạt để sử dụng chức năng này");window.location.href="/kich-hoat-tai-khoan/'.Auth::id().'"</script>';
+            }else {
                 $order_pays = $this->Pay->getPay();
                 return view('shoes.page.pay',compact('order_pays'));
-            }else {
-                return '<script>alert("Tài khoản của bạn chưa được kích hoạt, vui lòng kích hoạt để sử dụng chức năng này");window.location.href="/kich-hoat-tai-khoan/'.Auth::id().'"</script>';
             }
         }else {
             return redirect()->route('shoes.shopping.index');
