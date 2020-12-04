@@ -100,7 +100,7 @@
                                     $arImg = json_decode($value->images);
                                     $img = reset($arImg);
                                 @endphp
-                                <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                                <img src="{{asset('images/app/thumbnails/'.$img)}}" alt="">
                             </div>
                             <div class="container-product-content-text">
                                 <p>{{str_limit($value->name_product, 20)}}</p>

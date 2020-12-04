@@ -1,6 +1,4 @@
-
-.gradeU .id {
-    font-weight: bold;
+.gradeU .stt {
     text-align: center;
     min-width: 55px;
 }
@@ -17,14 +15,26 @@
     min-width: 110px;
 }
 
-.gradeU .bill {
+.gradeU .total {
     font-weight: bold;
     text-align: center;
     min-width: 90px;
 }
 
-.searchBar {
-    width: 50%;
-    float: right;
-    padding-right: 5px
+.gradeU .date {
+    font-weight: bold;
+    text-align: center;
+    min-width: 90px;
+}
+
+.gradeU .status {
+    font-weight: bold;
+    text-align: center;
+    min-width: 170px;
+}
+
+.gradeU .function {
+    font-weight: bold;
+    text-align: center;
+    min-width: 70px;
 }

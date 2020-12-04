@@ -12,6 +12,7 @@
         "barryvdh/laravel-dompdf": "^0.8.5",
         "bumbummen99/shoppingcart": "^2.8",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
@@ -40,10 +41,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        },
-        "files": [
-            "app/MyClass/function.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {

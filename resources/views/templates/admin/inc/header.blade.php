@@ -22,11 +22,6 @@
 </head>
 
 <body>
-    @if (Auth::user()->id_level == 3)
-    <script type="text/javascript">
-        window.location.href = "/";
-    </script>
-    @else
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -67,4 +62,3 @@
 
             @include('templates.admin.inc.left-bar')
         </nav>
-        @endif

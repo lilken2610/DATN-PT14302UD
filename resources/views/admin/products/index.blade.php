@@ -105,7 +105,7 @@
                                             $objectImg = json_decode($value->images);
                                             $img = reset($objectImg);
                                             @endphp
-                                            <img src="{{asset('images/app/products/'.$img)}}" style="width: 100px"
+                                            <img src="{{asset('images/app/thumbnails/'.$img)}}" style="width: 100px"
                                                 alt="">
                                         </td>
                                         <td>
@@ -169,7 +169,7 @@
                                                     }
                                                     @endphp
                                                     @foreach($arInfo as $img)
-                                                    <img src="{{asset('images/app/products/'.$img)}}" alt=""
+                                                    <img src="{{asset('images/app/thumbnails/'.$img)}}" alt=""
                                                         style="width: 50px;height: 50px">
                                                     @endforeach
                                                 </div>

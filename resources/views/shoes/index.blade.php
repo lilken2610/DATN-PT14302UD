@@ -72,7 +72,7 @@
                                 $img = json_decode($value->images);
                                 $linkImg = reset($img);
                                 @endphp
-                                <img src="{{asset('images/app/products/'.$linkImg)}}" alt="">
+                                <img src="{{asset('images/app/thumbnails/'.$linkImg)}}" alt="">
                             </div>
                         </div>
                         <div class="info">
@@ -99,7 +99,7 @@
                                 $images_selling = json_decode($selling->images);
                                 $img_selling = reset($images_selling);
                                 @endphp
-                                <img src="{{asset('images/app/products/'.$img_selling)}}" alt="">
+                                <img src="{{asset('images/app/thumbnails/'.$img_selling)}}" alt="">
                             </div>
                         </div>
                         <div class="info">
@@ -126,7 +126,7 @@
                                 $images_newpd = json_decode($new_pd->images);
                                 $img_newpd = reset($images_newpd);
                                 @endphp
-                                <img src="{{asset('images/app/products/'.$img_newpd)}}" alt="">
+                                <img src="{{asset('images/app/thumbnails/'.$img_newpd)}}" alt="">
                             </div>
                         </div>
                         <div class="info">
@@ -160,7 +160,7 @@
                         $images = json_decode($item_sale->images);
                         $img = reset($images)
                         @endphp
-                        <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                        <img src="{{asset('images/app/thumbnails/'.$img)}}" alt="">
                         <div class="sale-product">
                             <p>{{$item_sale->sale}}%</p>
                         </div>
@@ -200,7 +200,7 @@
                         $images = json_decode($item_sale->images);
                         $img = reset($images)
                         @endphp
-                        <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                        <img src="{{asset('images/app/thumbnails/'.$img)}}" alt="">
                         <div class="sale-product">
                             <p>{{$item_sale->sale}}%</p>
                         </div>

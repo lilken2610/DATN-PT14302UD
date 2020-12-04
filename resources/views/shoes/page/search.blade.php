@@ -126,7 +126,7 @@ Tìm kiếm: {{$keyword}}
                             $arImg = json_decode($value->images);
                             $img = reset($arImg);
                             @endphp
-                            <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                            <img src="{{asset('images/app/products/'.$img)}}">
                         </div>
                         <div class="container-product-content-text">
                             <p>{{str_limit($item->name_product, 18)}}</p>
