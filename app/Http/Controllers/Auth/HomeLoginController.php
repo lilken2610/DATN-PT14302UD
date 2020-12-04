@@ -311,11 +311,17 @@ class HomeLoginController extends Controller
             $image->move(public_path('images/app/users'), $nowImageName);
             $img = $nowImageName;
         }
+        $pwd = '';
+        if($request->pwd == $object->password){
+            $pwd = $object->password;
+        }else{
+            $pwd = Hash::make($request->pwd);
+        }
         $arInfo = [
             'username'   => $request->username,
             'fullname'   => $request->fullname,
             'email'      => $request->email,
-            'password'   => Hash::make($request->pwd),
+            'password'   => $pwd,
             'address'    => $request->address,
             'phone'      => $request->phone,
             'avatar'     => $img

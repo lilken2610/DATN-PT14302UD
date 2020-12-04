@@ -37,7 +37,7 @@
                                                     $images = json_decode( $value->images );
                                                     $imgs = reset($images);
                                                 @endphp
-                                                <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                             </div>
                                             <div class="list-group-item-text">
                                                 <p>{{$value->name_product}}</p>
@@ -70,7 +70,7 @@
                                                             $images = json_decode( $item->images );
                                                             $imgs = reset($images);
                                                         @endphp
-                                                        <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                        <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                                     </div>
                                                     <div class="list-group-item-text">
                                                         <p>{{$item->name_product}}</p>
@@ -110,7 +110,7 @@
                                         <p>{{$value->sale}}%</p>
                                     </div>
                                 @endif
-                                <a href="{{route('shoes.shoes.product',$value->slug_product)}}" class="btn btn-primary new-product-button" style="opacity: 1">Xem chi chiết</a>
+                                <a href="{{route('shoes.shoes.product',$value->slug_product)}}" class="btn btn-primary new-product-button" style="opacity: 1">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>

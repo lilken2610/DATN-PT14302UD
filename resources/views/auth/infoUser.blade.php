@@ -5,14 +5,14 @@
 @section('content')
     <div class="container" style="margin-top: 150px; width: 80%">
         <form action="{{route('shoes.auth.postInfo')}}" method="post" enctype="multipart/form-data">
+            <div class="col-sm-3">
+                <div class="card">
             @csrf
             @if(Session::has('msg'))
                 <span style="margin: 10px 0" class="alert-success">{{Session::get('msg')}}</span>
             @elseif(Session::has('error'))
                 <span style="margin: 10px 0" class="alert-danger">{{Session::get('error')}}</span>
             @endif
-            <div class="col-sm-3">
-                <div class="card">
                     @if( Auth::user()->avatar != null )
                         <img id='output' src="{{asset('images/app/users/'. Auth::user()->avatar) }}">
                     @else
@@ -64,8 +64,9 @@
                     </div>
                     <input type="submit" class="button btn btn-primary" value="Lưu" />
                 </div>
+            </form>
                 <div id="history" class="tab-pane fade in active">
-                    <form action="{{route('shoes.auth.history')}}">
+                    <form action="{{route('shoes.auth.postInfo')}}">
                         <div class="col-sm-3">
                             <input id="date" class="form-control" value="{{$date}}" type="date" name="date" onchange="this.form.submit()">
                         </div>
@@ -82,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-sm-2">
-    
+
                             <div class="dataTables_length" id="dataTables-example_length"> <select name="record" class="form-control" onchange="this.form.submit()">
                                     @foreach ($arr=[5, 10, 15, 20] as $item)
                                     <option value="{{$item}}" {{$record == $item ? 'selected':''}}>{{$item}}</option>
@@ -98,13 +99,6 @@
                     </form>
                     <div class="col-sm-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                @if(Session::has('msg'))
-                                <span class="alert-success">{{Session::get('msg')}}</span>
-                                @elseif(Session::has('error'))
-                                <span class="alert-danger">{{Session::get('error')}}</span>
-                                @endif
-                            </div>
                             <!-- /.panel-heading -->
                             @if(isset($object))
                             <div class="panel-body">
@@ -112,24 +106,22 @@
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr class="gradeU">
-                                                <th class="stt">STT</th>
-                                                <th class="fullname">Tên khách hàng</th>
-                                                <th class="email">Email</th>
-                                                <th class="detail">Chi tiết</th>
-                                                <th class="total">Tổng bill</th>
-                                                <th class="date">Thời gian</th>
-                                                <th class="status">Trạng thái</th>
-                                                <th class="function">Chức năng</th>
+                                                <th style="min-width: 40px; text-align: center">No.</th>
+                                                <th style="min-width: 118px; text-align: center">Tên khách hàng</th>
+                                                <th style="min-width: 118px; text-align: center">Thông tin giao hàng</th>
+                                                <th style="min-width: 40px; text-align: center">Tổng tiền</th>
+                                                <th style="min-width: 40px; text-align: center">Ngày đặt</th>
+                                                <th style="min-width: 40px; text-align: center">Trạng thái</th>
+                                                <th style="min-width: 40px; text-align: center">Chức năng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-    
+
                                             @if (asset($object))
                                             @foreach($object as $value)
                                             <tr class="gradeU">
                                                 <td>{!! $value->id_transaction !!}</td>
                                                 <td>{!! $value['user']->first()->fullname !!}</td>
-                                                <td>{{$value['user']->first()->email}}</td>
                                                 <td>
                                                     <p>Tổng tiền sản phẩm: <br /><span style="padding-left:10px">{{number_format($value->totalPrice)}}</span> đ</p>
                                                     <p>Thuế VAT: {{number_format($value->tax)}} đ</p>
@@ -139,7 +131,7 @@
                                                     @php $sum = $value->totalPrice + $value->tax - $value->discount @endphp
                                                     {{number_format($sum)}} đ
                                                 </td>
-                                                <td>{{ date( "m/d/Y", strtotime($value->created_at)) }}</td>
+                                                <td>{{ date( "d/m/Y", strtotime($value->created_at)) }}</td>
                                                 <td style="text-align: center">
                                                     @if( $value->status == -1 )
                                                     <a class="btn btn-outline btn-success">Đang vận chuyển</a>
@@ -153,7 +145,7 @@
                                             </tr>
                                             @endforeach
                                         </tbody>
-    
+
                                         <div class="modal fade" id="modalDetail" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
@@ -163,16 +155,16 @@
                                                         <h4 class="modal-title">Thông tin đơn hàng</h4>
                                                     </div>
                                                     <div class="modal-body">
-    
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                                                     </div>
                                                 </div>
-    
+
                                             </div>
                                         </div>
-    
+
                                         <script>
                                             $(document).ready(function() {
                                                 $('.view_transaction').click(function() {
@@ -208,7 +200,6 @@
                     </div>
                 </div>
             </div>
-        </form>
     </div>
     <script>
         var openFile = function(event) {

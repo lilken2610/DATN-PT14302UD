@@ -41,7 +41,7 @@ Sản phẩm giảm giá
                                                 $images = json_decode( $value->images );
                                                 $imgs = reset($images);
                                                 @endphp
-                                                <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                             </div>
                                             <div class="list-group-item-text">
                                                 <p>{{$value->name_product}}</p>
@@ -74,7 +74,7 @@ Sản phẩm giảm giá
                                                 $images = json_decode( $item->images );
                                                 $imgs = reset($images);
                                                 @endphp
-                                                <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                             </div>
                                             <div class="list-group-item-text">
                                                 <p>{{$item->name_product}}</p>
@@ -105,7 +105,7 @@ Sản phẩm giảm giá
                             $arImg = json_decode($value->images);
                             $img = reset($arImg);
                             @endphp
-                            <img src="{{asset('images/app/products/'.$img)}}" alt="">
+                            <img src="{{asset('images/app/thumbnails/'.$img)}}" alt="">
                         </div>
                         <div class="container-product-content-text">
                             <p>{{str_limit($value->name_product, 18)}}</p>
@@ -113,7 +113,7 @@ Sản phẩm giảm giá
                             @php $price_sale = $value->price - $value->price*$value->sale/100 @endphp
                             <p>{{number_format($price_sale)}} đ</p>
                             <a href="{{route('shoes.shoes.product',$value->slug_product)}}"
-                                class="btn btn-primary new-product-button" style="opacity: 1">Xem chi chiết</a>
+                                class="btn btn-primary new-product-button" style="opacity: 1">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>

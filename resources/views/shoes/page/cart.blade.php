@@ -26,7 +26,7 @@ Giỏ hàng
                             <td>
                                 <div class="cart-product">
                                     <div class="cart-product-image">
-                                        <img src="{{asset('images/app/products/'.$item->options->image)}}" alt="">
+                                        <img src="{{asset('images/app/thumbnails/'.$item->options->image)}}" alt="">
                                     </div>
                                     <div class="cart-product-info">
                                         <p>{{$item->name}}</p>

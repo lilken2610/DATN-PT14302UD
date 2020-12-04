@@ -62,7 +62,7 @@ Tìm kiếm: {{$keyword}}
                                                 $images = json_decode( $value->images );
                                                 $imgs = reset($images);
                                                 @endphp
-                                                <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                             </div>
                                             <div class="list-group-item-text">
                                                 <p>{{$value->name_product}}</p>
@@ -95,7 +95,7 @@ Tìm kiếm: {{$keyword}}
                                                 $images = json_decode( $item->images );
                                                 $imgs = reset($images);
                                                 @endphp
-                                                <img src="{{asset('images/app/products/'.$imgs)}}" alt="">
+                                                <img src="{{asset('images/app/thumbnails/'.$imgs)}}" alt="">
                                             </div>
                                             <div class="list-group-item-text">
                                                 <p>{{$item->name_product}}</p>
@@ -126,7 +126,7 @@ Tìm kiếm: {{$keyword}}
                             $arImg = json_decode($value->images);
                             $img = reset($arImg);
                             @endphp
-                            <img src="{{asset('images/app/products/'.$img)}}">
+                            <img src="{{asset('images/app/thumbnails/'.$img)}}">
                         </div>
                         <div class="container-product-content-text">
                             <p>{{str_limit($item->name_product, 18)}}</p>
@@ -137,7 +137,7 @@ Tìm kiếm: {{$keyword}}
                             </div>
                             @endif
                             <a href="{{route('shoes.shoes.product',$value->slug_product)}}"
-                                class="btn btn-primary new-product-button" style="opacity: 1">Xem chi chiết</a>
+                                class="btn btn-primary new-product-button" style="opacity: 1">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>

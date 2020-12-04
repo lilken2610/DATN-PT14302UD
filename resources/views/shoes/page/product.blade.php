@@ -131,7 +131,7 @@
                                     $item_imgs = json_decode($item->images);
                                     $item_img = reset($item_imgs);
                                 @endphp
-                                <img src="{{asset('images/app/products/'.$item_img)}}" alt="">
+                                <img src="{{asset('images/app/thumbnails/'.$item_img)}}" alt="">
                             </div>
                             <div class="container-product-content-text">
                                 <p>{{$item->name_product}}</p>
