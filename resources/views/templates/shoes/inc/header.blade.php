@@ -210,6 +210,8 @@
                                     <a href="{{route('shoes.shoes.news')}}">Tin Tức</a>
                                 </li>
                                 <li><a href="{{route('shoes.shoes.contact')}}">Liên Hệ</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://cdn.countryflags.com/thumbs/vietnam/flag-400.png" style="max-width: 30px; max-height: 20px" alt=""> Tiếng Việt</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" style="max-width: 30px; max-height: 20px" alt=""> English</a></li>
                             </ul>
                         </div>
                     </nav>

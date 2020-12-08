@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 04, 2020 lúc 03:59 PM
+-- Thời gian đã tạo: Th12 08, 2020 lúc 03:05 PM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.4.11
 
@@ -244,7 +244,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `price`, `sale`, `preview`, `description`, `images`, `id_cat`, `id_brand`, `hot_pay`, `pro_rating`, `created_at`, `updated_at`) VALUES
-(78, 'UltraBoost 20 - Core Black', 'ultraboost-20-core-black-1607072668', -1, 608000, 0, 'ADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core Black', '<p>ADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core Black</p>', '[\"oLQEyymiKhZ9EWg01607072666.jpg\",\"sTnVP2ngbxCoWCyJ1607072667.jpg\",\"SXASEG2ZkBuAMSDA1607072668.jpg\"]', 132, 5, NULL, NULL, '2020-12-04 09:04:28', '2020-12-04 09:04:28'),
+(78, 'UltraBoost 20 - Core Black', 'ultraboost-20-core-black-1607072668', -3, 608000, 0, 'ADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core Black', '<p>ADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core BlackADIDAS - UltraBoost 20 - Core Black</p>', '[\"oLQEyymiKhZ9EWg01607072666.jpg\",\"sTnVP2ngbxCoWCyJ1607072667.jpg\",\"SXASEG2ZkBuAMSDA1607072668.jpg\"]', 132, 5, NULL, NULL, '2020-12-05 08:07:27', '2020-12-05 08:07:27'),
 (79, 'X PLR - Black Core White', 'x-plr-black-core-white-1607072734', -3, 544000, 0, 'ADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core White', '<p>ADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core WhiteADIDAS - X PLR - Black Core White</p>', '[\"huhlk1X2r64rNmy11607072733.jpg\",\"wQ9vz8gpCIEb0iBc1607072733.jpg\",\"lbDdApQKAI6x1EHs1607072734.jpg\"]', 132, 5, NULL, NULL, '2020-12-04 09:05:34', '2020-12-04 09:05:34'),
 (80, 'UltraBoost 20 - Ash pearl', 'ultraboost-20-ash-pearl-1607073350', 1, 608000, 0, 'ADIDAS- UltraBoost 20 - Ash pearlADIDAS- UltraBoost 20 - Ash pearlADIDAS- UltraBoost 20 - Ash pearl', '<p>ADIDAS- UltraBoost 20 - Ash pearlADIDAS- UltraBoost 20 - Ash pearlADIDAS- UltraBoost 20 - Ash pearlADIDAS- UltraBoost 20 - Ash pearl</p>', '[\"SmOTURJLBxTchiyA1607073348.jpg\",\"NRGggpsLiyumhUPR1607073349.jpg\",\"LhvmtY7MfOGIXccG1607073349.jpg\"]', 132, 5, NULL, NULL, '2020-12-04 09:15:50', '2020-12-04 09:15:50'),
 (81, 'X PLR - White core black', 'x-plr-white-core-black-1607073276', 1, 544000, 0, 'filenamefilenamefilenamefilenamefilenamefilenamefilename', '<p>filenamefilenamefilenamefilenamefilenamefilenamefilenamefilename</p>', '[\"b3Nr86IYYPDc9ROA1607073274.jpg\",\"xXiHXD3xBT93sZlH1607073275.jpg\",\"l7NEGzEqyNuGyKWt1607073276.jpg\"]', 132, 5, NULL, NULL, '2020-12-04 09:14:36', '2020-12-04 09:14:36'),
@@ -275,7 +275,7 @@ INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `pr
 (107, 'Jordan 1 Low - Multicolor', 'jordan-1-low-multicolor-1607076416', 1, 624000, 0, 'Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000', '<p>Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000</p>', '[\"k67JzbXDRAVWbvYX1607076411.jpg\",\"Jlie9vB00Bsocuad1607076413.jpg\",\"dfDI4KPaWn2ikLF51607076414.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:06:56', '2020-12-04 10:06:56'),
 (108, 'Jordan 1 Low - White Core Navy', 'jordan-1-low-white-core-navy-1607076508', 1, 624000, 0, 'Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000', '<p>Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000</p>', '[\"673bOP0ntMwZk7OL1607076505.jpg\",\"kwlZ29OjfmSwQJsJ1607076506.jpg\",\"gCXENVl9U2iVkj9T1607076507.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:28', '2020-12-04 10:08:28'),
 (109, 'Jordan 1 Low - White Core Red', 'jordan-1-low-white-core-red-1607076518', 1, 624000, 0, 'Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000', '<p>Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000</p>', '[\"tEGUruTRnXx8hvpU1607076514.jpg\",\"NFEuYEPJZdEA1Tkc1607076515.jpg\",\"TVz9VJHOrc763ClC1607076517.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:38', '2020-12-04 10:08:38'),
-(110, 'Nike Jordan 1 - Galaxy Blue', 'nike-jordan-1-galaxy-blue-1607076525', 1, 1624000, 0, 'Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000', '<p>Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000</p>', '[\"sPJDGuSV92DSXRJQ1607076522.jpg\",\"d9IM2zycshuujYxo1607076523.jpg\",\"wdfutpZL6jMazN491607076524.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:45', '2020-12-04 10:08:45'),
+(110, 'Nike Jordan 1 - Galaxy Blue', 'nike-jordan-1-galaxy-blue-1607076525', 1, 1624000, 0, 'Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000', '<p>Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000</p>', '[\"sPJDGuSV92DSXRJQ1607076522.jpg\",\"d9IM2zycshuujYxo1607076523.jpg\",\"wdfutpZL6jMazN491607076524.jpg\"]', 132, 8, NULL, 2, '2020-12-05 06:21:08', '2020-12-05 06:21:08'),
 (111, 'NB80 - Be Nâu', 'nb80-be-nau-1607076545', 1, 330000, 0, 'NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000', '<p>NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000</p>', '[\"8ahiSXKayDoMY33i1607076543.jpg\",\"NgAXc3TeARap6Lzq1607076544.jpg\",\"lxrBlI4AaZt8Ekrp1607076545.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:05', '2020-12-04 10:09:05'),
 (112, 'NB80 - Đen', 'nb80-den-1607076555', 1, 330000, 0, 'NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000NB80 - Đen- Giá 330,000', '<p>NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000NB80 - Đen- Gi&aacute; 330,000</p>', '[\"gys4Tsrx1oKL8kzP1607076553.jpg\",\"PrIsEr98V8VRaHEV1607076554.jpg\",\"6xLfzNGzhBNH20Wm1607076554.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:15', '2020-12-04 10:09:15'),
 (113, 'NB80 - Xanh Nhạt', 'nb80-xanh-nhat-1607076564', 1, 330000, 0, 'NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000NB80 - Xanh Nhạt- Giá 330,000', '<p>NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000NB80 - Xanh Nhạt- Gi&aacute; 330,000</p>', '[\"FWolazD6W4V1aQ681607076562.jpg\",\"fVYoinrsFWVNSfAO1607076563.jpg\",\"FUun507dImL4J2vb1607076564.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:24', '2020-12-04 10:09:24'),
@@ -288,7 +288,8 @@ INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `pr
 (120, 'OLD SKOOL - Black', 'old-skool-black-1607076668', 1, 360000, 0, 'OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000OLD SKOOL - Black - Giá 360,000', '<p>OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000OLD SKOOL - Black - Gi&aacute; 360,000</p>', '[\"JhFO9BSMzpjFUNZZ1607076668.jpg\",\"gJs54sZZEeCAC4XI1607076668.jpg\",\"hE2AJO0imhEc49Pk1607076668.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:08', '2020-12-04 10:11:08'),
 (121, 'Old Skool REP 1;1 -REd Stripe', 'old-skool-rep-11-red-stripe-1607076677', 1, 408000, 0, 'Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000', '<p>Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000</p>', '[\"bn7yBOnA3vkCPp1C1607076676.jpg\",\"UCRTI6jIMqAWGMF31607076676.jpg\",\"i9iUp1pG6jALsO7p1607076676.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:17', '2020-12-04 10:11:17'),
 (122, 'Old Skool REP 11 - Black Stripe', 'old-skool-rep-11-black-stripe-1607076684', 1, 408000, 0, 'Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000', '<p>Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000</p>', '[\"9s20iZyGI998jntv1607076683.jpg\",\"5GpxoOdgaiVKRIiU1607076684.jpg\",\"grnn0NmKy4Z5lArW1607076684.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:24', '2020-12-04 10:11:24'),
-(123, 'SLIP ON HULK REPLICA NAM, NỮ', 'slip-on-hulk-replica-nam-nu-1607076691', 1, 425000, 0, 'SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000', '<p>SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000</p>', '[\"X285snvgVzESOj6x1607076691.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:31', '2020-12-04 10:11:31');
+(123, 'SLIP ON HULK REPLICA NAM, NỮ', 'slip-on-hulk-replica-nam-nu-1607076691', 1, 425000, 0, 'SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000', '<p>SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000</p>', '[\"X285snvgVzESOj6x1607076691.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:31', '2020-12-04 10:11:31'),
+(127, 'ADIDAS giay the thao', 'adidas-giay-the-thao-1607155893', 2, 624, 5, 'DạASSSSSSHDHJDJXVCDSFAKSFADSVDSA VSAFSJF', '<p>Q&Ecirc;WGCSXACDSCHNFDBVSDFBVFB</p>', '[\"2M5m7yKI2gONAkDg1607155893.jpeg\"]', 132, 5, NULL, NULL, '2020-12-05 08:11:33', '2020-12-05 08:11:33');
 
 -- --------------------------------------------------------
 
@@ -345,7 +346,7 @@ INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
 (66, 76, 3, 10),
 (67, 76, 4, 10),
 (68, 76, 5, 10),
-(69, 78, 1, -1),
+(69, 78, 1, -3),
 (70, 79, 1, -3),
 (71, 80, 2, 1),
 (72, 81, 1, 1),
@@ -389,7 +390,8 @@ INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
 (111, 120, 1, 1),
 (112, 121, 1, 1),
 (113, 122, 2, 1),
-(114, 123, 1, 1);
+(114, 123, 1, 1),
+(122, 127, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -406,40 +408,6 @@ CREATE TABLE `rating` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `rating`
---
-
-INSERT INTO `rating` (`id_rating`, `rating`, `comment`, `id_product`, `id_user`, `created_at`, `updated_at`) VALUES
-(3, 3, 'Tốt', 58, 3, '2020-02-26 13:48:30', '2020-02-26 13:48:30'),
-(4, 3, 'sdasd', 58, 3, '2020-02-26 13:54:43', '2020-02-26 13:54:43'),
-(6, 3, '123123', 66, 5, '2020-02-26 14:25:36', '2020-02-26 14:25:36'),
-(7, 3, 'rádasdas', 66, 5, '2020-02-26 14:26:06', '2020-02-26 14:26:06'),
-(8, 3, 'rádasdas', 66, 5, '2020-02-26 14:30:50', '2020-02-26 14:30:50'),
-(9, 5, 'ádasdsa', 66, 5, '2020-02-26 14:31:30', '2020-02-26 14:31:30'),
-(10, 4, 'Sản phẩm này rất tốt', 55, 6, '2020-02-27 06:10:03', '2020-02-27 06:10:03'),
-(11, 5, 'ádsa', 55, 6, '2020-02-27 06:16:58', '2020-02-27 06:16:58'),
-(12, 4, 'sdasd', 55, 6, '2020-02-27 06:19:10', '2020-02-27 06:19:10'),
-(13, 4, 'sdsad', 55, 6, '2020-02-27 06:20:10', '2020-02-27 06:20:10'),
-(14, 5, 'sad', 55, 6, '2020-02-27 06:20:40', '2020-02-27 06:20:40'),
-(15, 5, 'sad', 55, 6, '2020-02-27 06:20:41', '2020-02-27 06:20:41'),
-(16, 5, 'sadsd', 55, 6, '2020-02-27 06:20:44', '2020-02-27 06:20:44'),
-(17, 5, 'ssd', 55, 6, '2020-02-27 06:21:35', '2020-02-27 06:21:35'),
-(18, 3, 'sadas', 55, 6, '2020-02-27 06:22:23', '2020-02-27 06:22:23'),
-(19, 4, 'sdasd', 55, 6, '2020-02-27 06:22:54', '2020-02-27 06:22:54'),
-(20, 4, 'sdas', 55, 6, '2020-02-27 06:23:18', '2020-02-27 06:23:18'),
-(21, 3, 'sdas', 55, 6, '2020-02-27 06:24:27', '2020-02-27 06:24:27'),
-(22, 4, 'dsa', 55, 6, '2020-02-27 06:24:47', '2020-02-27 06:24:47'),
-(23, 5, 'sd', 55, 6, '2020-02-27 06:25:09', '2020-02-27 06:25:09'),
-(24, 5, 'sad', 55, 6, '2020-02-27 06:26:04', '2020-02-27 06:26:04'),
-(25, 5, 'sadasdas', 55, 6, '2020-02-27 06:33:21', '2020-02-27 06:33:21'),
-(26, 2, 'ádasdas', 55, 6, '2020-02-27 06:33:41', '2020-02-27 06:33:41'),
-(27, 3, 'sd', 55, 6, '2020-02-27 06:35:25', '2020-02-27 06:35:25'),
-(28, 3, 'saddasd', 55, 6, '2020-02-27 06:38:46', '2020-02-27 06:38:46'),
-(29, 4, 'hay', 58, 6, '2020-02-27 06:44:48', '2020-02-27 06:44:48'),
-(30, 5, 'Hay', 67, 6, '2020-02-27 06:47:07', '2020-02-27 06:47:07'),
-(31, 3, 'rất tốt', 64, 3, '2020-02-28 02:31:10', '2020-02-28 02:31:10');
 
 -- --------------------------------------------------------
 
@@ -514,7 +482,8 @@ INSERT INTO `transaction` (`id_transaction`, `totalPrice`, `tax`, `discount`, `i
 (68, 1872000, 393120, 0, 1, 1, -1, '2020-12-02 12:19:39', '2020-12-02 12:19:39'),
 (69, 1216000, 255360, 0, 1, 1, 1, '2020-12-02 12:20:58', '2020-12-02 14:49:50'),
 (70, 2176000, 456960, 0, 1, 1, 1, '2020-12-02 12:24:15', '2020-12-02 14:42:53'),
-(71, 2440000, 512400, 0, 1, 25, 1, '2020-12-02 14:41:31', '2020-12-02 14:43:04');
+(71, 2440000, 512400, 0, 1, 25, 1, '2020-12-02 14:41:31', '2020-12-02 14:43:04'),
+(72, 3648000, 766080, 0, 1, 28, 1, '2020-12-05 08:06:09', '2020-12-05 08:07:31');
 
 -- --------------------------------------------------------
 
@@ -545,7 +514,9 @@ INSERT INTO `transaction_detail` (`id_transaction_dt`, `id_product`, `qty`, `siz
 (67, 78, 2, 1, 1216000, 69, '2020-12-02 12:20:58', '2020-12-02 12:20:58'),
 (68, 79, 4, 1, 2176000, 70, '2020-12-02 12:24:15', '2020-12-02 12:24:15'),
 (69, 117, 4, 1, 1352000, 71, '2020-12-02 14:41:31', '2020-12-02 14:41:31'),
-(70, 81, 2, 1, 1088000, 71, '2020-12-02 14:41:31', '2020-12-02 14:41:31');
+(70, 81, 2, 1, 1088000, 71, '2020-12-02 14:41:31', '2020-12-02 14:41:31'),
+(71, 78, 2, 1, 1216000, 72, '2020-12-05 08:06:09', '2020-12-05 08:06:09'),
+(72, 80, 4, 2, 2432000, 72, '2020-12-05 08:06:09', '2020-12-05 08:06:09');
 
 -- --------------------------------------------------------
 
@@ -576,18 +547,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `remember_token`, `address`, `phone`, `id_level`, `avatar`, `orders`, `active`, `email_code`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Lê Trung Thịnh', 'trungthinh2610@gmail.com', '$2y$10$MZk6Z5cjy0Q6UyFc.Fl2C.oQSHrVQ3KUbbHhkMA9kVw77SAaod/nS', 'dDGBVf1Lw3iYkcGRTUsu368FrqFCCBbb0sIIZbHh7SYTCH4bR5wd2juAwRuX', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 1, 'admin-1607090141.jpg', 1, 1, '', '2020-02-14 05:51:07', '2020-12-04 13:55:42'),
+(1, 'admin', 'Lê Trung Thịnh', 'trungthinh2610@gmail.com', '$2y$10$T55DJ.yLIivULAfN8bt4qekWJTIPXuye32G.bxvsKCWvH8Rq39s6S', 'L13MDZdSwQG8hy6fwhjgyMG3TiIhFzyaRHs8WPVmpXDRm9tiprJdthDwR2h3', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 1, 'admin-1607152373.jpg', 1, 1, '', '2020-02-14 05:51:07', '2020-12-05 07:12:53'),
 (5, 'user001', 'Tôi là user001', 'user001@gmail.com', '$2y$10$/y/MHgFjwTDhXSbPAYND4ejOrJXZADCK6n.EnOL8hXtiPyHouM63O', NULL, 'ABCD', '123123', 3, NULL, 13, 1, '', '2020-02-20 13:53:07', '2020-02-20 13:53:07'),
 (6, 'user002', 'User 002', 'user002@gmail.com', '$2y$10$TVGgoLXt7D.fKs.gN.31EOT6BGUq5XuAlmu/y1Cz6y3.ogq40pA2m', NULL, 'abc', '12313', 3, '', 5, 1, '', '2020-02-19 03:55:39', '2020-02-19 03:55:39'),
 (8, 'user003', 'Tôi là user003', 'lynguyen.pna@gmail.com', '$2y$10$BJ3AxseCgliexDAK8r9b1OHf9Gy8.PNy0D3DcmtVCiVlZ1G3JFmty', NULL, 'ẤCDSA', '123132', 3, 'etr0Bo5KWKIo7cUNUgYn6fllBM0NWt1F8iJ8E8Mk.jpeg', 7, 1, '', '2020-02-20 13:53:33', '2020-03-10 20:57:26'),
 (9, 'user004', 'Tôi là user004', 'user004@gmail.com', '$2y$10$XWHs5F7WOMn7KvhFrSQwi.hcVZsUujiZ.IafMXkr2VHPYLNytsWP6', NULL, 'ádasdasdasdsa', '123132', 3, NULL, 7, 1, '', '2020-02-20 13:54:18', '2020-02-20 13:54:18'),
 (19, 'vanchieu77', 'Đào Văn Chiểu', 'daovanchieu77@gmail.com', '$2y$10$yAuKpnTklU3kNbQMwQTJme5L8lGOpMVftXCbJen580t2I1VmaPaQ6', NULL, 'avc', '123123123', 3, NULL, 0, 1, '158391233515e68958fa3691', '2020-03-11 00:38:55', '2020-03-11 00:39:15'),
-(20, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$7VHm4h31QfDRXzOAdfRXvOiO3kAObIkoHcj0e8dWhA0v8NgXd7fs2', NULL, 'Duy Thanh', '0336751070', 3, 'user2020-1607091827.jpg', 0, 1, '160585247415fb75d3a69480', '2020-11-19 23:07:54', '2020-12-04 14:23:47'),
-(21, 'lilken2k', 'Lee Trung thinh', 'trungthinh2610@gmail.comeqweqweqwe', '$2y$10$q0JeilIBVpyTvfEj/M/P1eQ3A9qyG07mRisD9Z24oUwmVNTcA8KfW', NULL, 'duy thành', '0336751070', 3, NULL, NULL, 0, '160636017715fbf1c71b514d', '2020-11-26 03:09:37', '2020-11-26 03:09:37'),
-(22, 'lilken2610', 'Lee Trung thinh', 'lilken261s0d@gmail.com', '$2y$10$LTctWr24DnaOjhtVBtP0UeYwm2BN4FGUfCaGG7/EElEqc5UPiENyO', NULL, 'Duy Thanh', '0336751070', 3, NULL, NULL, 0, '160636529815fbf3072474aa', '2020-11-26 04:34:58', '2020-11-26 04:34:58'),
-(23, 'adminqewqe', 'Lê Trung Thịnh', 'lilcowken@gmail.com', '$2y$10$SAEyA1NVXcGLb1R4CSqWZu5l3eIf1MYiZ8/VM35M3xwP14GR52IiO', NULL, 'Vai lon luon dau cat moi', '0336751070', 3, NULL, NULL, 0, '160649218215fc12016bddf7', '2020-11-27 15:49:42', '2020-11-27 15:49:42'),
-(24, 'vailonluon', 'Lê Trung Thịnh', 'vailonluon@gmail.com', '$2y$10$tw/0h9jYVJcthfcJGpwRtOYIw4LsrvHvctRwLG7YAbgZIdWRTE/PK', NULL, 'Vai lon luon dau cat moi', '0336751070', 3, NULL, NULL, 0, '160649220015fc120286bd95', '2020-11-27 15:50:00', '2020-11-27 15:50:00'),
-(25, 'ngulon', 'Lê Trung Thịnh', 'bubuoi@gmail.com', '$2y$10$OdF8ORyXdgKKYavcAQY0nOvHSVUerAhvis4udgyP3jVQ83rgje8hC', '1IiePQCuq2N4nWBVFcwXaVLHID01RlWt1TnMk8ejHtMfNQfQu0Wy6syjInAU', 'Thôn Thi Thại, xã Duy Thành, huyện Duy Xuyên, tỉnh Quảng Nam', '0336751070', 3, 'ngulon-1607065364.jpg', NULL, 1, '', '2020-12-01 14:39:11', '2020-12-04 07:02:44');
+(28, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$4OSkxyngt.7FcVQAcg2JU.3H1MDIVYMOUBK6wQHmysq24phgvdSd6', NULL, 'duy thanh', '0336751070', 3, 'user2020-1607155137.jpg', NULL, 1, '', '2020-12-05 07:57:10', '2020-12-05 08:00:50');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -697,13 +663,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT cho bảng `contact`
@@ -745,19 +711,19 @@ ALTER TABLE `pay`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT cho bảng `product_size`
 --
 ALTER TABLE `product_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT cho bảng `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `size`
@@ -775,19 +741,19 @@ ALTER TABLE `slide`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT cho bảng `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
-  MODIFY `id_transaction_dt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_transaction_dt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
