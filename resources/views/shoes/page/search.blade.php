@@ -2,42 +2,57 @@
 @section('title')
 Tìm kiếm: {{$keyword}}
 @endsection
-@section('content')
-<div class="container categories margin-res-top" style="margin-top: 150px">
+@section('content')<div class="container categories margin-res-top" style="margin-top: 150px">
     <div class="col-sm-3 categories-title">
         <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>
         /
         <a href="/tim-kiem?keyword={{$keyword}}">Kết quả: ({{$resultSearch->total()}})</a>
     </div>
-<form action="{{route('shoes.shopping.search')}}">
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+    <form action="{{route('shoes.shopping.search')}}">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <input type="text" name="keyword" @if (!empty($keyword)) value={{$keyword}} @endif hidden>
                 <select name="category" class="form-control" onchange="this.form.submit()">
                     <option value="">Loại sản phẩm</option>
                     @foreach ($menu as $item)
-                    <option value="{{$item->id_cat}}" {{$category == $item->id_cat ? 'selected': ''}}>{{$item->name_cat}}</option>
+                    <option value="{{$item->id_cat}}" {{$category == $item->id_cat ? 'selected': ''}}>
+                        {{$item->name_cat}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <select name="brand" class="form-control" onchange="this.form.submit()">
                     <option value="">Thương hiệu</option>
                     @foreach ($menuBrand as $item)
-                    <option value="{{$item->id_brand}}" {{$brand == $item->id_brand ? 'selected': ''}}>{{$item->name_brand}}</option>
+                    <option value="{{$item->id_brand}}" {{$brand == $item->id_brand ? 'selected': ''}}>
+                        {{$item->name_brand}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <select name="options" class="form-control" onchange="this.form.submit()">
                     <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
                     <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
                     <option value="3" {{$option == 3 ? 'selected': ''}}>Giá cao đến thấp</option>
                 </select>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+
+            <div class="price-slider"><span>Từ
+                    <input type="number" value="{{$minPrice ? $minPrice:'0'}}" min="0" max="10000000"
+                        onchange="this.form.submit()" /> tới
+                    <input type="number" value="{{$maxPrice ? $maxPrice:'10000000'}}" min="0" max="10000000"
+                        onchange="this.form.submit()" /></span>
+                <input value="{{$minPrice ? $minPrice:'0'}}" name="minPrice" min="0" max="10000000" step="50000"
+                    type="range" onchange="this.form.submit()" />
+                <input value="{{$maxPrice ? $maxPrice:'10000000'}}" name="maxPrice" min="0" max="10000000" step="50000"
+                    type="range" onchange="this.form.submit()">
             </div>
         </div>
 
@@ -129,7 +144,7 @@ Tìm kiếm: {{$keyword}}
                             <img src="{{asset('images/app/thumbnails/'.$img)}}">
                         </div>
                         <div class="container-product-content-text">
-                            <p>{{str_limit($item->name_product, 18)}}</p>
+                            <p>{{str_limit($value->name_product, 18)}}</p>
                             <p>{{number_format($value->price)}} VNĐ</p>
                             @if( $value->sale !=0 )
                             <div class="sale-product" style="top: 8%;left: 5%">

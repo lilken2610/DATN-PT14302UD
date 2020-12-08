@@ -61,8 +61,10 @@ class IndexController extends Controller
         ];
         $listProducts = $this->Products->list($request);
         $option = $request->options;
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
 
-        return view('shoes.page.listProducts',compact('listProducts','arProductBar', 'option'));
+        return view('shoes.page.listProducts',compact('listProducts','arProductBar', 'option', 'minPrice', 'maxPrice'));
     }
 
     public function sale(Request $request){
@@ -72,8 +74,10 @@ class IndexController extends Controller
         ];
         $saleProducts = $this->Products->sale($request);
         $option = $request->options;
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
 
-        return view('shoes.page.saleProducts',compact('saleProducts','arProductBar', 'option'));
+        return view('shoes.page.saleProducts',compact('saleProducts','arProductBar', 'option', 'minPrice', 'maxPrice'));
     }
 
     public function search(Request $request){
@@ -86,8 +90,10 @@ class IndexController extends Controller
         $option = $request->options;
         $category = $request->category;
         $brand = $request->brand;
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
 
-        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option', 'category', 'brand'));
+        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option', 'category', 'brand', 'minPrice', 'maxPrice'));
     }
 
     public function categories($slug, Request $request) {
@@ -101,7 +107,10 @@ class IndexController extends Controller
         ];
         $slug = $slug;
         $option = $request->options;
-        return view('shoes.page.categories',compact('getProductCat','nameCat','arProductBar', 'slug', 'option'));
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+
+        return view('shoes.page.categories',compact('getProductCat','nameCat','arProductBar', 'slug', 'option', 'minPrice', 'maxPrice'));
     }
 
     public function brands($slug, Request $request){
@@ -115,7 +124,10 @@ class IndexController extends Controller
         ];
         $slug = $slug;
         $option = $request->options;
-        return view('shoes.page.brands',compact('getProductBrand','nameBrand','arProductBar', 'slug', 'option'));
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+
+        return view('shoes.page.brands',compact('getProductBrand','nameBrand','arProductBar', 'slug', 'option', 'minPrice', 'maxPrice'));
     }
 
     public function product($slug) {

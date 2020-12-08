@@ -4,22 +4,37 @@ Danh sách sản phẩm
 @endsection
 @section('content')
 <div class="container categories margin-res-top" style="margin-top: 150px">
-    <div class="col-sm-6 categories-title">
+    <div class="col-sm-4 categories-title">
         <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>
         /
         <a href="/san-pham">Danh sách sản phẩm ({{$listProducts->total()}})</a>
     </div>
-    <div class="col-sm-6">
-        <div style="width: 50%;float: right;padding-right: 25px">
-            <form action="/san-pham">
+
+    <form action="/san-pham">
+        <div class="col-sm-5">
+            <div style="width: 50%;float: right;padding-right: 25px">
                 <select name="options" class="form-control" onchange="this.form.submit()">
                     <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
                     <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
                     <option value="3" {{$option == 3 ? 'selected': ''}}>Giá cao đến thấp</option>
                 </select>
-            </form>
+            </div>
         </div>
-    </div>
+
+        <div class="col-sm-3">
+
+            <div class="price-slider"><span>Từ
+                    <input type="number" value="{{$minPrice ? $minPrice:'0'}}" min="0" max="10000000"
+                        onchange="this.form.submit()" /> tới
+                    <input type="number" value="{{$maxPrice ? $maxPrice:'10000000'}}" min="0" max="10000000"
+                        onchange="this.form.submit()" /></span>
+                <input value="{{$minPrice ? $minPrice:'0'}}" name="minPrice" min="0" max="10000000" step="50000"
+                    type="range" onchange="this.form.submit()" />
+                <input value="{{$maxPrice ? $maxPrice:'10000000'}}" name="maxPrice" min="0" max="10000000" step="50000"
+                    type="range" onchange="this.form.submit()">
+            </div>
+        </div>
+    </form>
 </div>
 <div class="container" style="margin-top: 1%">
     @if(isset($arProductBar))
@@ -33,8 +48,7 @@ Danh sách sản phẩm
                             <ul class="list-group custom-popover">
                                 @foreach($arProductBar['muanhieu'] as $value)
                                 <li class="list-group-item">
-                                    <a
-                                        href="{{route('shoes.shoes.product',$value->slug_product)}}">
+                                    <a href="{{route('shoes.shoes.product',$value->slug_product)}}">
                                         <div class="popover-content-cart">
                                             <div class="list-group-item-img">
                                                 @php
