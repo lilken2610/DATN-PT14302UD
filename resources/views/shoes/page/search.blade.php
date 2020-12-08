@@ -2,16 +2,15 @@
 @section('title')
 Tìm kiếm: {{$keyword}}
 @endsection
-@section('content')
-<div class="container categories margin-res-top" style="margin-top: 150px">
+@section('content')<div class="container categories margin-res-top" style="margin-top: 150px">
     <div class="col-sm-3 categories-title">
         <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>
         /
         <a href="/tim-kiem?keyword={{$keyword}}">Kết quả: ({{$resultSearch->total()}})</a>
     </div>
 <form action="{{route('shoes.shopping.search')}}">
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <input type="text" name="keyword" @if (!empty($keyword)) value={{$keyword}} @endif hidden>
                 <select name="category" class="form-control" onchange="this.form.submit()">
                     <option value="">Loại sản phẩm</option>
@@ -21,8 +20,8 @@ Tìm kiếm: {{$keyword}}
                 </select>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <select name="brand" class="form-control" onchange="this.form.submit()">
                     <option value="">Thương hiệu</option>
                     @foreach ($menuBrand as $item)
@@ -31,8 +30,8 @@ Tìm kiếm: {{$keyword}}
                 </select>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div style="width: 100%;float: right;padding-right: 25px">
+        <div class="col-sm-2">
+            <div style="width: 100%;float: right;">
                 <select name="options" class="form-control" onchange="this.form.submit()">
                     <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
                     <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
@@ -40,6 +39,16 @@ Tìm kiếm: {{$keyword}}
                 </select>
             </div>
         </div>
+
+        <div class="col-sm-3">
+
+            <div class="price-slider"><span>Từ
+                <input type="number" value="{{$minPrice ? $minPrice:'0'}}" min="0" max="10000000" onchange="this.form.submit()"/>    tới
+                <input type="number"  value="{{$maxPrice ? $maxPrice:'10000000'}}" min="0" max="10000000" onchange="this.form.submit()"/></span>
+              <input value="{{$minPrice ? $minPrice:'0'}}" name="minPrice" min="0" max="10000000" step="50000" type="range"onchange="this.form.submit()"/>
+              <input value="{{$maxPrice ? $maxPrice:'10000000'}}" name="maxPrice" min="0" max="10000000" step="50000" type="range"onchange="this.form.submit()">
+            </div>
+            </div>
 
     </form>
 </div>
@@ -129,7 +138,7 @@ Tìm kiếm: {{$keyword}}
                             <img src="{{asset('images/app/thumbnails/'.$img)}}">
                         </div>
                         <div class="container-product-content-text">
-                            <p>{{str_limit($item->name_product, 18)}}</p>
+                            <p>{{str_limit($value->name_product, 18)}}</p>
                             <p>{{number_format($value->price)}} VNĐ</p>
                             @if( $value->sale !=0 )
                             <div class="sale-product" style="top: 8%;left: 5%">
@@ -150,4 +159,48 @@ Tìm kiếm: {{$keyword}}
         </div>
     </div>
 </div>
+
+<script>
+    (function() {
+
+var parent = document.querySelector(".price-slider");
+if(!parent) return;
+
+var
+rangeS = parent.querySelectorAll("input[type=range]"),
+numberS = parent.querySelectorAll("input[type=number]");
+
+rangeS.forEach(function(el) {
+el.oninput = function() {
+var slide1 = parseFloat(rangeS[0].value),
+  slide2 = parseFloat(rangeS[1].value);
+
+if (slide1 > slide2) {
+[slide1, slide2] = [slide2, slide1];
+}
+
+numberS[0].value = slide1;
+numberS[1].value = slide2;
+}
+});
+
+numberS.forEach(function(el) {
+el.oninput = function() {
+var number1 = parseFloat(numberS[0].value),
+number2 = parseFloat(numberS[1].value);
+
+if (number1 > number2) {
+var tmp = number1;
+numberS[0].value = number2;
+numberS[1].value = tmp;
+}
+
+rangeS[0].value = number1;
+rangeS[1].value = number2;
+
+}
+});
+
+})();
+</script>
 @endsection

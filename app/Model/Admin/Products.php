@@ -88,7 +88,19 @@ class Products extends Model
 
     public function search(Request $request)
     {
-        $products = DB::table('products as pd');
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
+        $products = Products::query();
 
         if ($request->keyword) {
             $products->where('name_product', 'like', '%' . $request->keyword . '%');
@@ -112,6 +124,10 @@ class Products extends Model
 
         if ($request->options == 3) {
             $products->orderBy('price', 'DESC');
+        }
+
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
         return $products

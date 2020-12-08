@@ -86,8 +86,10 @@ class IndexController extends Controller
         $option = $request->options;
         $category = $request->category;
         $brand = $request->brand;
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
 
-        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option', 'category', 'brand'));
+        return view('shoes.page.search',compact('resultSearch','arProductBar', 'keyword', 'option', 'category', 'brand', 'minPrice', 'maxPrice'));
     }
 
     public function categories($slug, Request $request) {
