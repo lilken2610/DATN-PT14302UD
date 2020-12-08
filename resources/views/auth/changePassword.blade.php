@@ -1,5 +1,5 @@
 @extends('templates.shoes.master')
-@section('title') Đổi mật khẩu @endsection
+@section('title') {{__('sentence.change_password')}} @endsection
 @section('content')
     <div class="container margin-res-top" style="margin-top: 200px; margin-bottom: 100px;">
         <div style="width: 50%;margin: 0 auto">
@@ -25,16 +25,16 @@
                 @endif
                 <input type="hidden" name="token" required value="{{$token}}">
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Mật khẩu</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu">
+                    <label for="exampleInputPassword1">{{__('sentence.password')}}</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="{{__('sentence.password')}}">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
-                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="Địa chỉ email">
+                    <label for="exampleInputPassword1">{{__('sentence.enter_the_password')}}</label>
+                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="{{__('sentence.enter_the_password')}}">
                 </div>
                 <div style="text-align: center">
-                    <input type="submit" value="Đổi mật khẩu" class="btn btn-default">
-                    <input type="button" value="Đăng nhập" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
+                    <input type="submit" value="{{__('sentence.change_password')}}" class="btn btn-default">
+                    <input type="button" value="{{__('sentence.login')}}" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
                 </div>
             </form>
         </div>

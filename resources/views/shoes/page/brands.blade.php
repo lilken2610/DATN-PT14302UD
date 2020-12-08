@@ -3,7 +3,7 @@
 @section('content')
 <div class="container categories margin-res-top" style="margin-top: 150px">
     <div class="col-sm-4 categories-title">
-        <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>/
+        <a href="{{route('shoes.shoes.index')}}">{{__('sentence.home_page')}}</a>/
         <a style="font-weight: 700;color: #333333">{{$nameBrand}} ({{$getProductBrand->total()}})</a>
     </div>
 
@@ -11,18 +11,18 @@
         <div class="col-sm-5">
             <div style="width: 50%;float: right;padding-right: 25px">
                 <select name="options" class="form-control" onchange="this.form.submit()">
-                    <option value="1" {{$option == 1 ? 'selected': ''}}>Mới nhất</option>
-                    <option value="2" {{$option == 2 ? 'selected': ''}}>Giá thấp đến cao</option>
-                    <option value="3" {{$option == 3 ? 'selected': ''}}>Giá cao đến thấp</option>
+                    <option value="1" {{$option == 1 ? 'selected': ''}}>{{__('sentence.latest')}}</option>
+                    <option value="2" {{$option == 2 ? 'selected': ''}}>{{__('sentence.low_to_hight_price')}}</option>
+                    <option value="3" {{$option == 3 ? 'selected': ''}}>{{__('sentence.hight_to_low_price')}}</option>
                 </select>
             </div>
         </div>
 
         <div class="col-sm-3">
 
-            <div class="price-slider"><span>Từ
+            <div class="price-slider"><span>
                     <input type="number" value="{{$minPrice ? $minPrice:'0'}}" min="0" max="10000000"
-                        onchange="this.form.submit()" /> tới
+                        onchange="this.form.submit()" /> {{__('sentence.to')}}
                     <input type="number" value="{{$maxPrice ? $maxPrice:'10000000'}}" min="0" max="10000000"
                         onchange="this.form.submit()" /></span>
                 <input value="{{$minPrice ? $minPrice:'0'}}" name="minPrice" min="0" max="10000000" step="50000"
@@ -37,7 +37,7 @@
     @if(isset($arProductBar))
     <div class="col-sm-3">
         <div class="categories-bar-left">
-            <h3>Sản phẩm mua nhiều</h3>
+            <h3>{{__('sentence.product_buy_more')}}</h3>
             <div class="categories-bar-left-container">
                 <ul>
                     <li>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="categories-bar-left">
-            <h3>Sản phẩm nổi bật</h3>
+            <h3>{{__('sentence.hot_products')}}</h3>
             <div class="categories-bar-left-container">
                 <ul>
                     <li>
@@ -126,7 +126,7 @@
                         </div>
                         @endif
                         <a href="{{route('shoes.shoes.product',$value->slug_product)}}"
-                            class="btn btn-primary new-product-button" style="opacity: 1">Xem chi tiết</a>
+                            class="btn btn-primary new-product-button" style="opacity: 1">{{__('sentence.see_details')}}</a>
                     </div>
                 </div>
             </div>

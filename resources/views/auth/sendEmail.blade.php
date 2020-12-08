@@ -1,5 +1,5 @@
 @extends('templates.shoes.master')
-@section('title') Lấy lại mật khẩu @endsection
+@section('title') {{__('sentence.forgot_password')}} @endsection
 @section('content')
     <div class="container margin-res-top" style="margin-top: 200px; margin-bottom: 100px;">
         <div style="width: 50%;margin: 0 auto">
@@ -22,12 +22,12 @@
                 </div>
                 @endif
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Địa chỉ email">
+                    <label for="exampleInputPassword1">{{__('sentence.email')}}</label>
+                    <input type="email" class="form-control" name="email" placeholder="{{__('sentence.email')}}">
                 </div>
                 <div style="text-align: center">
-                    <input type="submit" value="Gửi mật khẩu" class="btn btn-default">
-                    <input type="button" value="Đăng nhập" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
+                    <input type="submit" value="{{__('sentence.forgot_password')}}" class="btn btn-default">
+                    <input type="button" value="{{__('sentence.login')}}" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
                 </div>
             </form>
         </div>

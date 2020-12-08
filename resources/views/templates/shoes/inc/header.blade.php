@@ -59,19 +59,19 @@
                             <div class="bar-header">
                                 <div class="searchbar">
                                     <input class="search_input" type="text" name="keyword" @if (!empty($keyword))
-                                        value="{{$keyword}}" @else placeholder="Tìm kiếm..." @endif>
+                                        value="{{$keyword}}" @else placeholder="{{__('sentence.search')}}" @endif>
                                     <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </form>
                         <div class="bar-header" style="text-align: right;">
                             @if( Cart::count() > 0 )
-                            @php $title = 'Tổng: '.Cart::total(0).'đ'; @endphp
+                            @php $title = __('sentence.total'). ': ' .Cart::total(0).'đ'; @endphp
                             @else
-                            @php $title = 'Giỏ hàng trống '; @endphp
+                            @php $title = __('sentence.empty_cart'); @endphp
                             @endif
                             <a href="{{route('shoes.shopping.index')}}" data-toggle="popover" data-placement="bottom"
-                                data-toggle="popover" data-trigger="hover" title="{{$title}}">Giỏ hàng <i
+                                data-toggle="popover" data-trigger="hover" title="{{$title}}">{{__('sentence.cart')}} <i
                                     class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                             <!-- loaded popover content -->
                             @if( Cart::count() > 0 )
@@ -107,15 +107,15 @@
                             @if ( Auth::check() )
                             <div class="dropdown">
                                 <a href="" data-toggle="dropdown"
-                                    class="dropdown-toggle">Xin chào: {{ Auth::user()->fullname }}</a>
+                                    class="dropdown-toggle">{{__('sentence.hello')}}: {{ Auth::user()->fullname }}</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{route('shoes.auth.info')}}">Tài khoản</a></li>
-                                    <li><a href="{{route('shoes.auth.logoutUser')}}">Đăng xuất</a></li>
+                                    <li><a href="{{route('shoes.auth.info')}}">{{__('sentence.account')}}</a></li>
+                                    <li><a href="{{route('shoes.auth.logoutUser')}}">{{__('sentence.logout')}}</a></li>
                                 </ul>
                             </div>
                             @else
-                            <a href="{{route('shoes.auth.getLoginUser')}}">Đăng nhập</a>/
-                            <a href="{{route('shoes.auth.signUp')}}">Đăng ký</a>
+                            <a href="{{route('shoes.auth.getLoginUser')}}">{{__('sentence.login')}}</a>/
+                            <a href="{{route('shoes.auth.signUp')}}">{{__('sentence.register')}}</a>
                             @endif
                         </div>
                         <div class="menu-mobile">
@@ -183,9 +183,9 @@
                     <nav class="navbar navbar-inverse">
                         <div class="container-fluid" id="myTopnav">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('shoes.shoes.index')}}">Trang chủ</a></li>
+                                <li><a href="{{route('shoes.shoes.index')}}">{{__('sentence.home_page')}}</a></li>
                                 <li>
-                                    <a href="">Loại sản phẩm</a>
+                                    <a>{{__('sentence.category')}}</a>
                                     <div class="sub-menu">
                                         <ul>
                                             @foreach ($menu as $item)
@@ -196,7 +196,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="">Thương hiệu</a>
+                                    <a>{{__('sentence.brand')}}</a>
                                     <div class="sub-menu">
                                         <ul>
                                             @foreach ($menuBrand as $item)
@@ -207,9 +207,11 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="{{route('shoes.shoes.news')}}">Tin Tức</a>
+                                    <a href="{{route('shoes.shoes.news')}}">{{__('sentence.news')}}</a>
                                 </li>
-                                <li><a href="{{route('shoes.shoes.contact')}}">Liên Hệ</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}">{{__('sentence.contact')}}</a></li>
+                                <li><a href="/locale/vi"><img src="https://cdn.countryflags.com/thumbs/vietnam/flag-400.png" style="max-width: 30px; max-height: 20px" alt=""> Tiếng Việt</a></li>
+                                <li><a href="/locale/en"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" style="max-width: 30px; max-height: 20px" alt=""> English</a></li>
                             </ul>
                         </div>
                     </nav>

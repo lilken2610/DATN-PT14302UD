@@ -19,36 +19,36 @@
                 <form action="{{route('shoes.shoes.updateInfo')}}" method="post">
                     @csrf
                     <div class="form-group" >
-                        <label for="email">Họ tên:</label>
+                        <label for="email">{{__('sentence.full_name')}}:</label>
                         <input type="text" class="form-control" id="email" name="fullname" value="{{ Auth::user()->fullname }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Địa chỉ:</label>
+                        <label for="pwd">{{__('sentence.address')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="address" value="{{ Auth::user()->address }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Số điện thoại:</label>
+                        <label for="pwd">{{__('sentence.number_phone')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="phone" value="{{ Auth::user()->phone }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Email:</label>
+                        <label for="pwd">{{__('sentence.email')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="email" value="{{ Auth::user()->email }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Ghi chú:</label>
+                        <label for="pwd">{{__('sentence.note')}}:</label>
                         <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="bt-pay-update button btn btn-primary">Cập nhập</button>
+                    <button type="submit" class="bt-pay-update button btn btn-primary">{{__('sentence.update')}}</button>
                 </form>
             </div>
             <div class="col-sm-6 ">
                 <div class="pay-right">
-                    <h4>Đơn hàng của bạn</h4>
+                    <h4>{{__('sentence.your_order')}}</h4>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Sản phẩm</th>
-                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">{{__('sentence.product')}}</th>
+                            <th scope="col">{{__('sentence.total_money')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -59,32 +59,32 @@
                             </tr>
                         @endforeach
                         <tr>
-                            <th scope="row">Tổng cộng</th>
+                            <th scope="row">{{__('sentence.total')}}</th>
                             <td><strong>{{ Cart::initial(0) }} đ</strong></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: 700" scope="row">Thuế VAT (2%)</td>
+                            <td style="font-weight: 700" scope="row">{{__('sentence.tax')}} (2%)</td>
                             <td>{{ Cart::tax(0) }} đ</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: 700" scope="row">Mã giảm giá (%)</td>
+                            <td style="font-weight: 700" scope="row">{{__('sentence.gift_code')}} (%)</td>
                             <td>
                                 <form class="form-group" id="gift-code" action="">
                                     <div class="col-sm-6">
                                         <input type="text" name="code" class="gift-code form-control" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="submit" class="btn-right btn btn-dropbox" value="Áp dụng">
+                                        <input type="submit" class="btn-right btn btn-dropbox" value="{{__('sentence.apply')}}">
                                     </div>
                                 </form>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">Giảm giá</th>
+                            <th scope="row">{{__('sentence.sale')}}</th>
                             <td><span id="discount-pay">{{Cart::discount(0)}}</span> đ</td>
                         </tr>
                         <tr>
-                            <th scope="row">Phải trả</th>
+                            <th scope="row">{{__('sentence.total')}}</th>
                             <td><strong><span id="total-pay">{{ Cart::total(0) }}</span> đ</strong></td>
                         </tr>
                         </tbody>
@@ -95,7 +95,7 @@
                             <div id="form-pay">
                             @foreach( $order_pays as $itemPay )
                                 <div class="radio">
-                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{$itemPay->pay}}</label>
+                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{__('sentence.payment_on_delivery')}}</label>
                                 </div>
                             @endforeach
                             </div>
@@ -103,7 +103,7 @@
                         <div style="width: 500px;">
                             <div id="paypal-button-container" style="display: none"></div>
                         </div>
-                        <input type="submit" id="button-submit" class="button btn btn-primary" value="Đặt hàng">
+                        <input type="submit" id="button-submit" class="button btn btn-primary" value="{{__('sentence.order')}}">
                     </form>
                 </div>
             </div>

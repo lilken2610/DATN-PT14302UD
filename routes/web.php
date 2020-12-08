@@ -1,5 +1,11 @@
 <?php
 
+#multiple language
+Route::get('/locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
+
 /* Admin */
 Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'admin'], function () {
     Route::get('/', [

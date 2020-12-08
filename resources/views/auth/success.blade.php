@@ -1,5 +1,5 @@
 @extends('templates.shoes.master')
-@section('title') Đổi mật khẩu @endsection
+@section('title') {{__('sentence.change_password')}} @endsection
 @section('content')
     <div class="container margin-res-top" style="margin-top: 200px; margin-bottom: 100px;">
         <div style="width: 50%;margin: 0 auto">
@@ -14,7 +14,7 @@
                 <div class="alert alert-success text-center">{{Session::get('message_success')}}</div>
                 @endif
                 <div style="text-align: center">
-                    <input type="button" value="Đăng nhập" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
+                    <input type="button" value="{{__('sentence.login')}}" onclick="window.location.href='{{route('shoes.auth.getLoginUser')}}'" class="btn btn-default">
                 </div>
             </form>
         </div>

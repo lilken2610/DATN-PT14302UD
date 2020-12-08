@@ -1,6 +1,6 @@
 @extends('templates.shoes.master')
 @section('title')
-Giỏ hàng
+{{__('sentence.cart')}}
 @endsection
 @section('content')
 <br>
@@ -14,10 +14,10 @@ Giỏ hàng
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Sản phẩm</th>
-                            <th scope="col">Giá</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Tổng</th>
+                            <th scope="col">{{__('sentence.product')}}</th>
+                            <th scope="col">{{__('sentence.price')}}</th>
+                            <th scope="col">{{__('sentence.salary')}}</th>
+                            <th scope="col">{{__('sentence.total')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +54,7 @@ Giỏ hàng
                 </table>
                 <div>
                     <a href="{{route('shoes.shoes.index')}}" class="button-close btn btn-success" style="opacity: 1">
-                        <i class="fa fa-arrow-circle-left"></i> Tiếp tục mua sản phẩm
+                        <i class="fa fa-arrow-circle-left"></i> {{__('sentence.continue_to_buy_products')}}
                     </a>
                 </div>
             </form>
@@ -64,25 +64,25 @@ Giỏ hàng
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">{{__('sentence.total')}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">Tổng phụ</th>
+                        <th scope="row">{{__('sentence.total_sub')}}</th>
                         <td><span id="price_total">{{ Cart::priceTotal(0) }}</span> đ</td>
                     </tr>
                     <tr>
-                        <th scope="row">Thuế VAT(2%)</th>
+                        <th scope="row">{{__('sentence.tax')}}(2%)</th>
                         <td><span id="tax">{{Cart::tax(0) }}</span> đ</td>
                     </tr>
                     <tr>
-                        <th scope="row">Tổng cộng</th>
+                        <th scope="row">T{{__('sentence.total_money')}}</th>
                         <td><span id="total">{{ Cart::total(0) }}</span> đ</td>
                     </tr>
                 </tbody>
             </table>
-            <input type="button" value="Tiến hành thanh toán" style="width: 100%" class="button btn btn-primary"
+            <input type="button" value="{{__('sentence.proceed_with_payment')}}" style="width: 100%" class="button btn btn-primary"
                 onclick="checkLogin();" />
 
             <script>debugger
@@ -137,9 +137,9 @@ Giỏ hàng
     <br>
     <br>
     <div class="container margin-res-top" style="margin-top: 150px;text-align: center">
-        <h3>Giỏ hàng trống</h3>
+        <h3>{{__('sentence.empty_cart')}}</h3>
         <a href="{{route('shoes.shoes.index')}}" class="button-close btn btn-success" style="opacity: 1">
-            <i class="fa fa-arrow-circle-left"></i> Tiếp tục mua sản phẩm
+            <i class="fa fa-arrow-circle-left"></i> {{__('sentence.continue_to_buy_products')}}
         </a>
     </div>
     <br>

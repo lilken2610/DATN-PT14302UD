@@ -25,14 +25,14 @@
                 </div>
                 <div class="profile">
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i style="color:blue" class="fa fa-user"></i> Hồ sơ</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i style="color:blue" class="fa fa-user"></i>{{__('sentence.profile')}}</a></li>
                         @if (Auth::user()->email_code)
-                        <li><a href="{{route( 'shoes.auth.activeAc',Auth::id() )}}"><i style="color: green" class="fa fa-file-text-o"></i> Kích hoạt tài khoản</a></li>
+                        <li><a href="{{route( 'shoes.auth.activeAc',Auth::id() )}}"><i style="color: green" class="fa fa-file-text-o"></i> {{__('sentence.active_account')}} </a></li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false"><i style="color: red" class="fa fa-file-text-o"></i> Lịch sử mua hàng</a>
+                            <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false"><i style="color: red" class="fa fa-file-text-o"></i> {{__('sentence.purchase history')}}</a>
                         </li>
-                        <li><a href="{{route('shoes.auth.logoutUser')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng xuất</a></li>
+                        <li><a href="{{route('shoes.auth.logoutUser')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>{{__('sentence.logout')}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,26 +40,26 @@
                 <div id="home" class="tab-pane fade">
                     <div class="form-group " >
                         <div class="form-group">
-                            <label for="pwd">Tên đăng nhập:</label>
+                            <label for="pwd">{{__('sentence.user_name')}}:</label>
                             <input type="text" class="form-control" id="pwd" name="username" value="{{ Auth::user()->username }}">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Mật khẩu:</label>
+                            <label for="pwd">{{__('sentence.password')}}:</label>
                             <input type="password" class="form-control" id="pwd" name="pwd" value="{{ Auth::user()->password }}">
                         </div>
-                        <label for="email">Họ tên:</label>
+                        <label for="email">{{__('sentence.full_name')}}:</label>
                         <input type="text" class="form-control" id="email" name="fullname" value="{{ Auth::user()->fullname }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Địa chỉ:</label>
+                        <label for="pwd">{{__('sentence.address')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="address" value="{{ Auth::user()->address }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Số điện thoại:</label>
+                        <label for="pwd">{{__('sentence.number_phone')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="phone" value="{{ Auth::user()->phone }}">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Email:</label>
+                        <label for="pwd">{{__('sentence.email')}}:</label>
                         <input type="text" class="form-control" id="pwd" name="email" value="{{ Auth::user()->email }}">
                     </div>
                     <input type="submit" class="button btn btn-primary" value="Lưu" />
@@ -72,14 +72,14 @@
                         </div>
                         <div class="col-sm-2">
                             <select id="status" name="status" class="form-control" onchange="this.form.submit()">
-                                <option value="">Trạng thái</option>
-                                <option value="-1" {{$status == '-1' ? 'selected':''}}>Đang vận chuyển</option>
-                                <option value="1" {{$status == '1' ? 'selected':''}}>Đang xét duyệt</option>
+                                <option value="">{{__('sentence.status')}}</option>
+                                <option value="-1" {{$status == '-1' ? 'selected':''}}>{{__('sentence.begin_transaction')}}</option>
+                                <option value="1" {{$status == '1' ? 'selected':''}}>{{__('sentence.under_review')}}</option>
                             </select>
                         </div>
                         <div class="col-sm-2">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-primary" onclick="refreshSearchHistory(); this.form.submit();">Làm mới</button>
+                                <button type="button" class="btn btn-primary" onclick="refreshSearchHistory(); this.form.submit();">{{__('sentence.refresh')}}</button>
                             </div>
                         </div>
                         <div class="col-sm-2">
@@ -107,12 +107,12 @@
                                         <thead>
                                             <tr class="gradeU">
                                                 <th style="min-width: 40px; text-align: center">No.</th>
-                                                <th style="min-width: 118px; text-align: center">Tên khách hàng</th>
-                                                <th style="min-width: 118px; text-align: center">Thông tin giao hàng</th>
-                                                <th style="min-width: 40px; text-align: center">Tổng tiền</th>
-                                                <th style="min-width: 40px; text-align: center">Ngày đặt</th>
-                                                <th style="min-width: 40px; text-align: center">Trạng thái</th>
-                                                <th style="min-width: 40px; text-align: center">Chức năng</th>
+                                                <th style="min-width: 118px; text-align: center">{{__('sentence.customer_name')}}</th>
+                                                <th style="min-width: 118px; text-align: center">{{__('sentence.additional_infomation')}}</th>
+                                                <th style="min-width: 40px; text-align: center">{{__('sentence.total_money')}}</th>
+                                                <th style="min-width: 40px; text-align: center">{{__('sentence.date_of_booking')}}</th>
+                                                <th style="min-width: 40px; text-align: center">{{__('sentence.status')}}</th>
+                                                <th style="min-width: 40px; text-align: center">{{__('sentence.function')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,13 +134,13 @@
                                                 <td>{{ date( "d/m/Y", strtotime($value->created_at)) }}</td>
                                                 <td style="text-align: center">
                                                     @if( $value->status == -1 )
-                                                    <a class="btn btn-outline btn-success">Đang vận chuyển</a>
+                                                    <a class="btn btn-outline btn-success">{{__('sentence.begin_transaction')}}</a>
                                                     @elseif( $value->status == 1 )
-                                                    <a class="btn btn-outline btn-info">Đang xét duyệt</a>
+                                                    <a class="btn btn-outline btn-info">{{__('sentence.under_review')}}</a>
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <a data-id="{{$value->id_transaction}}" class="view_transaction btn btn-info">Xem</a>
+                                                    <a data-id="{{$value->id_transaction}}" class="view_transaction btn btn-info">{{__('sentence.see_details')}}</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -152,7 +152,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Thông tin đơn hàng</h4>
+                                                        <h4 class="modal-title">{{__('sentence.additional_infomation')}}</h4>
                                                     </div>
                                                     <div class="modal-body">
 

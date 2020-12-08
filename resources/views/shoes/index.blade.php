@@ -40,8 +40,7 @@
                 </div>
             </div>
             <div class="ads-product-button">
-                <a href="{{route('shoes.shoes.product',$random->slug_product)}}" class="btn btn-primary">Xem sản
-                    phẩm</a>
+                <a href="{{route('shoes.shoes.product',$random->slug_product)}}" class="btn btn-primary">{{__('sentence.see_details')}}</a>
             </div>
         </div>
         @endforeach
@@ -56,9 +55,9 @@
         </script>
         <div class="">
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')" id="default">Sản phẩm mới</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Sản phẩm bán chạy</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Sản phẩm mới nhất</button>
+                <button class="tablinks" onclick="openCity(event, 'London')" id="default">{{__('sentence.sale_products')}}</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">{{__('sentence.selling_products')}}</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">{{__('sentence.new_products')}}</button>
             </div>
             {{--sản phẩm mới--}}
             @if(!empty($arIndex['productNews']))
@@ -108,7 +107,7 @@
                         </div>
                         <div class="new-product-button">
                             <a href="{{route('shoes.shoes.product',$selling->slug_product)}}"
-                                class="btn btn-primary">Xem sản phẩm</a>
+                                class="btn btn-primary">{{__('sentence.see_details')}}</a>
                         </div>
                     </div>
                     @endforeach
@@ -136,7 +135,7 @@
                         <div class="new-product-button">
                             @php $slug_npd = \Illuminate\Support\Str::slug($new_pd->name_product,'-') @endphp
                             <a href="{{route('shoes.shoes.product',['slug'=>$slug_npd,'id'=>$new_pd->id_product] )}}"
-                                class="btn btn-primary">Xem sản phẩm</a>
+                                class="btn btn-primary">{{__('sentence.see_details')}}</a>
                         </div>
                     </div>
                     @endforeach
@@ -148,7 +147,7 @@
     {{--sản phẩm giảm giá--}}
     <div class=" margin-top">
         <div class="accessories">
-            <h3>Sản phẩm giảm giá</h3>
+            <h3>{{__('sentence.sale_products')}}</h3>
         </div>
         @if(!empty($arIndex['sale']))
         <div class="product-new row">
@@ -173,22 +172,21 @@
                     <p>{{number_format($price_sale)}} đ</p>
                 </div>
                 <div class="new-product-button">
-                    <a href="{{route('shoes.shoes.product',$item_sale->slug_product)}}" class="btn btn-primary">Xem sản
-                        phẩm</a>
+                    <a href="{{route('shoes.shoes.product',$item_sale->slug_product)}}" class="btn btn-primary">{{__('sentence.see_details')}}</a>
                 </div>
             </div>
             @endforeach
             {{--read more--}}
         </div>
         <div class="row button-read-mode">
-            <a href="{{route('shoes.shopping.sale')}}" class="btn btn-primary button-hover">Xem tất cả</a>
+            <a href="{{route('shoes.shopping.sale')}}" class="btn btn-primary button-hover">{{__('sentence.see_all')}}</a>
         </div>
         @endif
     </div>
     {{--sản phẩm mới--}}
     <div class=" margin-top">
         <div class="accessories">
-            <h3>Sản phẩm mới</h3>
+            <h3>{{__('sentence.new_products')}}</h3>
         </div>
         @if(!empty($arIndex['new_produts']))
         <div class="product-new row">
@@ -213,15 +211,14 @@
                     <p>{{number_format($price_sale)}} đ</p>
                 </div>
                 <div class="new-product-button">
-                    <a href="{{route('shoes.shoes.product', $item_sale->slug_product)}}" class="btn btn-primary">Xem sản
-                        phẩm</a>
+                    <a href="{{route('shoes.shoes.product', $item_sale->slug_product)}}" class="btn btn-primary">{{__('sentence.see_details')}}</a>
                 </div>
             </div>
             @endforeach
             {{--read more--}}
         </div>
         <div class="row button-read-mode">
-            <a href="{{route('shoes.shopping.list')}}" class="btn btn-primary button-hover">Xem tất cả</a>
+            <a href="{{route('shoes.shopping.list')}}" class="btn btn-primary button-hover">{{__('sentence.see_all')}}</a>
         </div>
         @endif
     </div>

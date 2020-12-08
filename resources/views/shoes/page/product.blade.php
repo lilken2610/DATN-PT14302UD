@@ -51,7 +51,7 @@
                             <input type="text" value="1" name="qty" class="value-qty" maxlength="2" max="10" size="1" id="number">
                             <input type="button" value="+" class="quantity-buff" onclick="incrementValue()">
                         </div>
-                        <input  type="submit" style="margin-top: 20px" class="btn btn-primary product-button" value="Thêm vào giỏ hàng" />
+                        <input  type="submit" style="margin-top: 20px" class="btn btn-primary product-button" value="{{__('sentence.add_to_cart')}}" />
                     </form>
                 </div>
             </div>
@@ -60,8 +60,8 @@
     </div>
     <div class="container information-product margin-top">
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'infor-product')" id="defaultOpen">Thông tin bổ sung</button>
-            <button class="tablinks" onclick="openCity(event, 'vote')">Đánh giá ({{$rating->count()}})</button>
+            <button class="tablinks" onclick="openCity(event, 'infor-product')" id="defaultOpen">{{__('sentence.additional_infomation')}}</button>
+            <button class="tablinks" onclick="openCity(event, 'vote')">{{__('sentence.evaluate')}} ({{$rating->count()}})</button>
         </div>
 
         <div id="infor-product" class="tabcontent">
@@ -120,7 +120,7 @@
 
     {{--san pham noi bat--}}
     <div class="container detail-product margin-top">
-        <h3>Sản phẩm tương tự</h3>
+        <h3>{{__('sentence.similar_products')}}</h3>
         <div class="margin-top">
             @foreach($proSameType as $item)
                 <div class="col-sm-3">
@@ -136,7 +136,7 @@
                             <div class="container-product-content-text">
                                 <p>{{$item->name_product}}</p>
                                 <p>{{number_format($item->price)}} VNĐ</p>
-                                <a href="{{route('shoes.shoes.product',$item->slug_product)}}" class="btn btn-primary new-product-button" style="opacity: 1">Chi tiết</a>
+                                <a href="{{route('shoes.shoes.product',$item->slug_product)}}" class="btn btn-primary new-product-button" style="opacity: 1">{{__('sentence.see_details')}}</a>
                             </div>
                         </div>
                     </div>
