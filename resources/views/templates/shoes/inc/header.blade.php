@@ -54,26 +54,7 @@
             <div id="navbar">
                 <div class="header-scroll">
                     <div class="header-menu-logo container">
-                        <div class="bar-header account-user">
-                            @if ( Auth::check() )
-                            <div class="dropdown">
-                                <a href="" data-toggle="dropdown"
-                                    class="dropdown-toggle">{{ Auth::user()->fullname }}</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{route('shoes.auth.info')}}">Tài khoản</a></li>
-                                    <li><a href="{{route('shoes.auth.logoutUser')}}">Đăng xuất</a></li>
-                                </ul>
-                            </div>
-                            @else
-                            <a href="{{route('shoes.auth.getLoginUser')}}">Đăng nhập</a>/
-                            <a href="{{route('shoes.auth.signUp')}}">Đăng ký</a>
-                            @endif
-                        </div>
-                        <div class="bar-header-logo">
-                            <a href="{{route('shoes.shoes.index')}}">
-                                <img id="nav-logo-img" style="height: 40%; width: 40%" src="{{asset('images/logo.png')}}" alt="">
-                            </a>
-                        </div>
+
                         <form action="/tim-kiem" method="GET">
                             <div class="bar-header">
                                 <div class="searchbar">
@@ -114,6 +95,27 @@
                                     @endforeach
                                 </ul>
                             </div>
+                            @endif
+                        </div>
+                        <div class="bar-header-logo">
+                            <a href="{{route('shoes.shoes.index')}}">
+                                <img id="nav-logo-img" style="height: 40%; width: 40%" src="{{asset('images/logo.png')}}" alt="">
+                            </a>
+                        </div>
+
+                        <div class="bar-header account-user">
+                            @if ( Auth::check() )
+                            <div class="dropdown">
+                                <a href="" data-toggle="dropdown"
+                                    class="dropdown-toggle">Xin chào: {{ Auth::user()->fullname }}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{route('shoes.auth.info')}}">Tài khoản</a></li>
+                                    <li><a href="{{route('shoes.auth.logoutUser')}}">Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                            @else
+                            <a href="{{route('shoes.auth.getLoginUser')}}">Đăng nhập</a>/
+                            <a href="{{route('shoes.auth.signUp')}}">Đăng ký</a>
                             @endif
                         </div>
                         <div class="menu-mobile">
@@ -208,6 +210,8 @@
                                     <a href="{{route('shoes.shoes.news')}}">Tin Tức</a>
                                 </li>
                                 <li><a href="{{route('shoes.shoes.contact')}}">Liên Hệ</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://cdn.countryflags.com/thumbs/vietnam/flag-400.png" style="max-width: 30px; max-height: 20px" alt=""> Tiếng Việt</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" style="max-width: 30px; max-height: 20px" alt=""> English</a></li>
                             </ul>
                         </div>
                     </nav>

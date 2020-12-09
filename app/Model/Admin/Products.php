@@ -48,6 +48,18 @@ class Products extends Model
 
     public function list(Request $request)
     {
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
         $products = DB::table('products as pd');
 
         if ($request->options == null || $request->options == 1) {
@@ -62,12 +74,28 @@ class Products extends Model
             $products->orderBy('price', 'DESC');
         }
 
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
         return $products
             ->paginate(16);
     }
 
     public function sale(Request $request)
     {
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
         $products = DB::table('products')->where('sale', '!=', 0);
 
         if ($request->options == null || $request->options == 1) {
@@ -82,13 +110,29 @@ class Products extends Model
             $products->orderBy('price', 'DESC');
         }
 
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
         return $products
             ->paginate(16);
     }
 
     public function search(Request $request)
     {
-        $products = DB::table('products as pd');
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
+        $products = Products::query();
 
         if ($request->keyword) {
             $products->where('name_product', 'like', '%' . $request->keyword . '%');
@@ -112,6 +156,10 @@ class Products extends Model
 
         if ($request->options == 3) {
             $products->orderBy('price', 'DESC');
+        }
+
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
         return $products
@@ -220,6 +268,18 @@ class Products extends Model
     }
     public function getProductCat($id, Request $request)
     {
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
         $products = DB::table('products')
             ->where('id_cat', $id);
         if ($request->options == null || $request->options == 1) {
@@ -233,12 +293,29 @@ class Products extends Model
         if ($request->options == 3) {
             $products->orderBy('price', 'DESC');
         }
+
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
         return $products
             ->paginate(12);
     }
 
     public function getProductBrand($id, Request $request)
     {
+        if($request->minPrice){
+            $minPrice = $request->minPrice;
+        }else{
+            $minPrice = 0;
+        }
+
+        if($request->maxPrice){
+            $maxPrice = $request->maxPrice;
+        }else{
+            $maxPrice = 10000000;
+        }
+
         $products = DB::table('products')
             ->where('id_brand', $id);
         if ($request->options == null || $request->options == 1) {
@@ -252,6 +329,11 @@ class Products extends Model
         if ($request->options == 3) {
             $products->orderBy('price', 'DESC');
         }
+
+        if($request->minPrice || $request->maxPrice){
+            $products->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
         return $products
             ->paginate(12);
     }
