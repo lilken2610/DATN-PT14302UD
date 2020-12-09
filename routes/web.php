@@ -327,6 +327,18 @@ Route::group(['namespace' => 'Shoes'], function () {
             'uses' => 'IndexController@postPay',
             'as'   => 'shoes.shoes.postPay'
         ]);
+        Route::get('/vnpay/{id}', [
+            'uses' => 'IndexController@paymentVnpay',
+            'as'   => 'shoes.shoes.paymentVnpay'
+        ]);
+        Route::post('/vnp', [
+            'uses' => 'IndexController@postPayment',
+            'as'   => 'shoes.shoes.postPayment'
+        ]);
+        Route::get('/tc', [
+            'uses' => 'IndexController@xulyVnpay',
+            'as'   => 'shoes.shoes.tc'
+        ]);
         Route::post('/cap-nhap-thong-tin', [
             'uses' => 'IndexController@updateInfo',
             'as'   => 'shoes.shoes.updateInfo'
@@ -336,6 +348,7 @@ Route::group(['namespace' => 'Shoes'], function () {
             'as'   => 'shoes.shoes.giftCode'
         ]);
     });
+    
     Route::get('/lien-he', [
         'uses' => 'IndexController@contact',
         'as'   => 'shoes.shoes.contact'

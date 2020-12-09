@@ -51,6 +51,9 @@
             <li>
                 <a href="{{route('shoes.user.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý người dùng </a>
             </li>
+            <li>
+                <a href="{{route('shoes.payments.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý thanh toán VNPAY </a>
+            </li>
             @if( Auth::user()->username == 'admin' )
             {{-- <li>
                 <a href="{{route('shoes.statistics.index','20'.date('y'))}}"><i class="fa fa-line-chart fa-fw"></i> Doanh Thu </a>

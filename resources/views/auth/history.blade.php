@@ -57,7 +57,7 @@ Lịch sử đặt hàng
                                     <thead>
                                         <tr class="gradeU">
                                             <th class="stt">STT</th>
-                                            <th class="fullname">Tên khách hàng</th>
+                                            <th class="fullname">Tên s</th>
                                             <th class="email">Email</th>
                                             <th class="detail">Chi tiết</th>
                                             <th class="total">Tổng bill</th>
