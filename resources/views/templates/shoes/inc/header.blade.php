@@ -209,9 +209,15 @@
                                 <li>
                                     <a href="{{route('shoes.shoes.news')}}">{{__('sentence.news')}}</a>
                                 </li>
+<<<<<<< HEAD
                                 <li><a href="{{route('shoes.shoes.contact')}}">{{__('sentence.contact')}}</a></li>
                                 <li><a href="/locale/vi"><img src="https://cdn.countryflags.com/thumbs/vietnam/flag-400.png" style="max-width: 30px; max-height: 20px" alt=""> Tiếng Việt</a></li>
                                 <li><a href="/locale/en"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" style="max-width: 30px; max-height: 20px" alt=""> English</a></li>
+=======
+                                <li><a href="{{route('shoes.shoes.contact')}}">Liên Hệ</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://cdn.countryflags.com/thumbs/vietnam/flag-400.png" style="max-width: 30px; max-height: 20px" alt=""> Tiếng Việt</a></li>
+                                <li><a href="{{route('shoes.shoes.contact')}}"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" style="max-width: 30px; max-height: 20px" alt=""> English</a></li>
+>>>>>>> 7d43d74e8910029dfa39e388fd07d4246c19d7be
                             </ul>
                         </div>
                     </nav>

@@ -117,11 +117,12 @@
 @endphp
 @section('src-public')
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-
+    <link href="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css" rel="stylesheet"/>
+        <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
     <script>
         // Render the PayPal button into #paypal-button-container
+    
         paypal.Buttons({
-
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
