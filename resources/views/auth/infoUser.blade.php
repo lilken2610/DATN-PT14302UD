@@ -19,7 +19,7 @@
                         <img id='output' src="{{asset('images/app/users/notfount.png')}}">
                     @endif
                     <input type='file' name="avatar" accept='image/*' onchange='openFile(event)' style="padding-top: 10px">
-                    <div class="card-text">
+                    <div class="card">
                         <h4><b>{{ Auth::user()->fullname }}</b></h4>
                     </div>
                 </div>
@@ -173,8 +173,8 @@
                                                         headers: {
                                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                         },
-                                                        type: 'POST',
-                                                        url: "{{route('shoes.transaction.viewTransaction')}}",
+                                                        type: 'GET',
+                                                        url: "/viewForUser",
                                                         data: {
                                                             id: id
                                                         },

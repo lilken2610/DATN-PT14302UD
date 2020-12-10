@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Transaction;
+use App\Model\Admin\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -18,10 +19,11 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeLoginController extends Controller
 {
-    public function __construct(User $user, Transaction $transaction)
+    public function __construct(User $user, Transaction $transaction, TransactionDetail $transactionDetail)
     {
         $this->User = $user;
         $this->Transaction = $transaction;
+        $this->TransactionDetail = $transactionDetail;
     }
     //login admin
     public function login()
@@ -294,6 +296,15 @@ class HomeLoginController extends Controller
             return view('auth.history', compact('object', 'record', 'date', 'status'));
         } else {
             return redirect()->back();
+        }
+    }
+
+    public function viewTransaction(){
+        if ( Request()->ajax() ) {
+            $id = Request()->get('id');
+            $object = $this->TransactionDetail->getTransactionDt($id);
+            $html = view('admin.transaction.form',compact('object'));
+            return $html;
         }
     }
     //post update info user public

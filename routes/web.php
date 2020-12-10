@@ -458,6 +458,10 @@ Route::group(['namespace' => 'Auth'], function () {
         'uses' => 'HomeLoginController@history',
         'as'   => 'shoes.auth.history'
     ]);
+    Route::get('/viewForUser', [
+        'uses' => 'HomeLoginController@viewTransaction',
+        'as'   => 'shoes.auth.viewTransactionForUser'
+    ]);
     Route::get('/logOutUser', [
         'uses' => 'HomeLoginController@logoutUser',
         'as'   => 'shoes.auth.logoutUser'
