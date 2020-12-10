@@ -6,4 +6,4 @@ Already: install composer, install xampp with mysql and apache server
 
 3. Start server with command line: php artisan serv
 
-4. Login Admin with url: .../admincp | account: username: admin, password: Lilken2610
+4. Login Admin with url: .../admincp | account: username: admin, password: 1234567890
