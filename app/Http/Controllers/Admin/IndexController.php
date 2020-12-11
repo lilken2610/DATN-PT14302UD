@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Admin\News;
-use App\Model\Admin\Products;
-use App\Model\Admin\Transaction;
+use App\Models\News;
+use App\Models\Products;
+use App\Models\Transaction;
 use App\User;
 
 class IndexController extends Controller

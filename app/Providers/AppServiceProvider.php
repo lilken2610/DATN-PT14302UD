@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Model\Admin\Categories;
-use App\Model\Admin\Brands;
+use App\Models\Categories;
+use App\Models\Brands;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;

@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Http\Requests\Shoes\ActiveRequest;
 use App\Http\Requests\Shoes\SignUpRequest;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Transaction;
-use App\Model\Admin\TransactionDetail;
+use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
-use App\PasswordReset;
+use App\Models\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 
 class HomeLoginController extends Controller

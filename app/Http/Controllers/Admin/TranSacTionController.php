@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Admin\Transaction;
-use App\Model\Admin\TransactionDetail;
+use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddSizeRequest;
-use App\Model\Admin\Size;
+use App\Models\Size;
 use Illuminate\Http\Request;
 
 class SizeController extends Controller
