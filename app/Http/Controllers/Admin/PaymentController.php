@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddBrandRequest;
-use App\Model\Admin\Payments;
+use App\Models\Payments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

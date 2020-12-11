@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddUsersRequest;
-use App\Model\Admin\Level;
+use App\Models\Level;
 use App\User;
 use Illuminate\Http\Request;
 

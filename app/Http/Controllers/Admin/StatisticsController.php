@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Admin\Products;
-use App\Model\Admin\Transaction;
-use App\User;
+use App\Models\Products;
+use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

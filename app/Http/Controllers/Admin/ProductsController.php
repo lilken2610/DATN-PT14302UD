@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddProRequest;
-use App\Model\Admin\Categories;
-use App\Model\Admin\Brands;
-use App\Model\Admin\Products;
-use App\Model\Admin\ProductSize;
-use App\Model\Admin\Size;
+use App\Models\Categories;
+use App\Models\Brands;
+use App\Models\Products;
+use App\Models\ProductSize;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;

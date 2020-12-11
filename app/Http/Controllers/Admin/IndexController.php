@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Admin\News;
-use App\Model\Admin\Products;
-use App\Model\Admin\Transaction;
-use App\User;
+use App\Models\News;
+use App\Models\Products;
+use App\Models\Transaction;
+use App\Models\User;
 
 class IndexController extends Controller
 {

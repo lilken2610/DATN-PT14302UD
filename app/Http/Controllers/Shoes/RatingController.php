@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Shoes;
 
-use App\Model\Admin\Products;
-use App\Model\Admin\Rating;
+use App\Models\Products;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
