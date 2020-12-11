@@ -330,20 +330,8 @@ Route::group(['namespace' => 'Shoes'], function () {
             'as'   => 'shoes.shoes.pay'
         ]);
         Route::post('/', [
-            'uses' => 'IndexController@postPay',
-            'as'   => 'shoes.shoes.postPay'
-        ]);
-        Route::get('/vnpay/{id}', [
-            'uses' => 'IndexController@paymentVnpay',
-            'as'   => 'shoes.shoes.paymentVnpay'
-        ]);
-        Route::post('/vnp', [
             'uses' => 'IndexController@postPayment',
-            'as'   => 'shoes.shoes.postPayment'
-        ]);
-        Route::get('/tc', [
-            'uses' => 'IndexController@xulyVnpay',
-            'as'   => 'shoes.shoes.tc'
+            'as'   => 'shoes.payments.index'
         ]);
         Route::post('/cap-nhap-thong-tin', [
             'uses' => 'IndexController@updateInfo',
