@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mật khẩu</label>
-                                            <input class="form-control" name="pwd" placeholder="Nhập mật khẩu">
+                                            <input type="password" class="form-control" name="pwd" placeholder="Nhập mật khẩu">
                                             <span class="alert-danger">{{$errors->first('pwd')}}</span>
                                         </div>
                                         <div class="form-group">

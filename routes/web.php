@@ -119,7 +119,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa/{id}', [
             'uses' => 'GiftCodeController@del',
             'as'   => 'shoes.gift.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/sua/{id}', [
             'uses' => 'GiftCodeController@edit',
             'as'   => 'shoes.gift.edit'
@@ -146,7 +146,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa-size/{id}', [
             'uses' => 'SizeController@del',
             'as'   => 'shoes.size.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
     });
     /*tin tức*/
     Route::group(['prefix' => 'tin-tuc'], function () {
@@ -165,7 +165,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa-tin/{id}', [
             'uses' => 'NewsController@del',
             'as'   => 'shoes.news.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/sua-tin/{id}', [
             'uses' => 'NewsController@edit',
             'as'   => 'shoes.news.edit'
@@ -192,7 +192,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa-slide/{id}', [
             'uses' => 'SlideController@del',
             'as'   => 'shoes.slide.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/sua-slide/{id}', [
             'uses' => 'SlideController@edit',
             'as'   => 'shoes.slide.edit'
@@ -207,19 +207,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/', [
             'uses' => 'UserController@index',
             'as'   => 'shoes.user.index'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/them-nguoi-dung', [
             'uses' => 'UserController@add',
             'as'   => 'shoes.user.add'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::post('/them-nguoi-dung', [
             'uses' => 'UserController@postAdd',
             'as'   => 'shoes.user.postAdd'
-        ]);
-        Route::get('/xoa-nguoi-dung/', [
+        ])->middleware('role:1')->middleware('role:2');
+        Route::get('/xoa-nguoi-dung', [
             'uses' => 'UserController@del',
             'as'   => 'shoes.user.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/sua-nguoi-dung/{id}', [
             'uses' => 'UserController@edit',
             'as'   => 'shoes.user.edit'
@@ -227,7 +227,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::post('/sua-nguoi-dung/{id}', [
             'uses' => 'UserController@postEdit',
             'as'   => 'shoes.user.postEdit'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
     });
     /*liên hệ*/
     Route::group(['prefix' => 'lien-he'], function () {
@@ -238,7 +238,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa-lien-he/{id}', [
             'uses' => 'ContactController@del',
             'as'   => 'shoes.contact.del'
-        ]);
+        ])->middleware('role:1')->middleware('role:2');
         Route::post('/confilm/{id}', [
             'uses' => 'ContactController@confilm',
             'as'   => 'shoes.contact.confilm'
@@ -261,7 +261,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/xoa/{id}', [
             'uses' => 'TranSacTionController@del',
             'as'   => 'shoes.transaction.del'
-        ])->middleware('role:1');
+        ])->middleware('role:1')->middleware('role:2');
         Route::get('/duyet-don/{id}', [
             'uses' => 'TranSacTionController@approvedBill',
             'as'   => 'shoes.transaction.approvedBill'
@@ -449,6 +449,14 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/viewForUser', [
         'uses' => 'HomeLoginController@viewTransaction',
         'as'   => 'shoes.auth.viewTransactionForUser'
+    ]);
+    Route::get('/cancel-order/{id}', [
+        'uses' => 'HomeLoginController@cancelOrder',
+        'as'   => 'shoes.auth.cancelOrder'
+    ]);
+    Route::get('/success-order/{id}', [
+        'uses' => 'HomeLoginController@successOrder',
+        'as'   => 'shoes.auth.successOrder'
     ]);
     Route::get('/logOutUser', [
         'uses' => 'HomeLoginController@logoutUser',

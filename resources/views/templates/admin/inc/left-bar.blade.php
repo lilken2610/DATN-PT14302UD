@@ -48,9 +48,11 @@
             {{-- <li>
                 <a href="{{route('shoes.contact.index')}}"><i class="fa fa-envelope-o fa-fw"></i> Quản lý liên hệ </a>
             </li> --}}
+            @if (Auth::user()->id_level == 1)
             <li>
                 <a href="{{route('shoes.user.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý người dùng </a>
             </li>
+            @endif
             <li>
                 <a href="{{route('shoes.payments.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý thanh toán VNPAY </a>
             </li>

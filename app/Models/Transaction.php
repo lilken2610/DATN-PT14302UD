@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class Transaction extends Model
@@ -113,7 +113,7 @@ class Transaction extends Model
 
     public function getTransactionForUser(Request $request)
     {
-        $object = Transaction::where('id_user', Auth::id())->with('user')->orderBy('id_transaction', 'DESC');
+        $object = Transaction::query();
 
         if ($request->record) {
             $record = $request->record;
@@ -129,6 +129,6 @@ class Transaction extends Model
             $object = $object->where('status', $request->status);
         }
 
-        return $object->paginate($record);;
+        return $object->where('id_user', Auth::id())->with('user')->orderBy('id_transaction', 'DESC')->paginate($record);;
     }
 }

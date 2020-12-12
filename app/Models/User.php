@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;    
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 
@@ -37,11 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function level(){
+        return $this->belongsTo(Level::class, 'id_level');
+    }
+
     public function getUser() {
-        return DB::table('users')
-            ->join('level','users.id_level','level.id_level')
-            ->select('users.*','level.level')
-            ->get();
+        return User::where('id_level', '!=', '1')->with('level')->orderBy('id', 'DESC')->get();
     }
     public function getId($id) {
         return User::find($id);

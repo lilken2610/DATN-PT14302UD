@@ -69,6 +69,10 @@
                                             <a href="{{route('shoes.transaction.approvedBill',$value->id_transaction)}}" class="btn btn-outline btn-success">Chờ xét duyệt</a>
                                             @elseif( $value->status == 1 )
                                             <a class="btn btn-outline btn-info">Đã duyệt</a>
+                                            @elseif( $value->status == -2 )
+                                            <a class="btn btn-outline btn-info">Đã hủy</a>
+                                            @elseif( $value->status == 2 )
+                                            <a class="btn btn-outline btn-info">Đã giao thành công</a>
                                             @endif
                                         </td>
                                         <td style="text-align: center;">

@@ -85,7 +85,7 @@
             <input type="button" value="{{__('sentence.proceed_with_payment')}}" style="width: 100%" class="button btn btn-primary"
                 onclick="checkLogin();" />
 
-            <script>debugger
+            <script>
                 var user = {!! json_encode(optional(auth()->user())->only('id', 'email', 'email_code')) !!}
                 function checkLogin() {
                     var validator = $( "#formCart" ).validate();

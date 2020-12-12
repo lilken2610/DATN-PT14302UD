@@ -286,16 +286,23 @@ class HomeLoginController extends Controller
             return redirect()->back();
         }
     }
-    public function history(Request $request)
+    public function cancelOrder($id)
     {
-        if (Auth::check()) {
-            $object = $this->Transaction->getTransactionForUser($request);
-            $record = $request->record;
-            $date = $request->date;
-            $status = $request->status;
-            return view('auth.history', compact('object', 'record', 'date', 'status'));
-        } else {
-            return redirect()->back();
+        $transaction = Transaction::where('id_transaction', $id)->get()->first();
+        if($transaction->status == -1){
+            $transaction->status = -2;
+            $transaction->save();
+            return back();
+        }
+    }
+
+    public function successOrder($id)
+    {
+        $transaction = Transaction::where('id_transaction', $id)->get()->first();
+        if($transaction->status == 1){
+            $transaction->status = 2;
+            $transaction->save();
+            return back();
         }
     }
 

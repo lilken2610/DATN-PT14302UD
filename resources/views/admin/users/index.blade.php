@@ -53,12 +53,12 @@
                                             @php $stt++; @endphp
                                             <tr class="gradeU delete-{{$value->id}}">
                                                 <td>{!! $stt !!}</td>
-                                                <td>{!! $value->username !!}</td>
+                                                <td>{{$value->username}}</td>
                                                 <td>{{$value->fullname}}</td>
                                                 <td>{{$value->email}}</td>
                                                 <td>{{$value->address}}</td>
                                                 <td>{{$value->phone}}</td>
-                                                <td>{{$value->level}}</td>
+                                                <td>{{$value['level']->level}}</td>
                                                 <td>
                                                     <a href="{{route('shoes.user.edit',$value->id)}}" class="btn btn-primary">Sửa</a>
                                                     @if( $value->username != 'admin' )

@@ -80,6 +80,8 @@ return [
     'verify_code' => 'Your confirmation code',
     'active_account' => 'Active account',
     'begin_transaction' => 'Being transported',
+    'cancel_order' => 'Cancel order',
     'under_review' => 'Under review',
+    'success_order' => 'Success order',
     'refresh' => 'Refresh'
 ];

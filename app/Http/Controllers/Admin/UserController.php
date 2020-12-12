@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AddUsersRequest;
 use App\Models\Level;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
         return view('admin.users.add',compact('select'));
     }
     public function postAdd(AddUsersRequest $request) {
-        $pwd = bcrypt($request->pwd);
+        $pwd = Hash::make($request->pwd);
         $arAdd = [
             'username'   => $request->username,
             'fullname'   => $request->fullname,
@@ -62,7 +63,7 @@ class UserController extends Controller
     public function postEdit($id,Request $request) {
         $pwd = $this->User->getId($id)->password;
         if ( !empty($request->pwd) ) {
-            $pwd = bcrypt($request->pwd);
+            $pwd = Hash::make($request->pwd);
         }
         $arEdit = [
             'username'   => $request->username,
