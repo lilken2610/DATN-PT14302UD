@@ -81,7 +81,7 @@ return [
     'active_account' => 'Kích hoạt tài khoản',
     'begin_transaction' => 'Đang vận chuyển',
     'under_review' => 'Đang xét duyệt',
-    'cancel_order' => 'Hủy đơn hàng',
+    'cancel_order' => 'Đã hủy',
     'success_order' => 'Đã nhận hàng',
     'refresh' => 'Làm mới'
 ];

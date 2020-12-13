@@ -54,7 +54,7 @@
             </li>
             @endif
             <li>
-                <a href="{{route('shoes.payments.index')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý thanh toán VNPAY </a>
+                <a href="{{route('shoes.shoes.pay')}}"><i class="fa fa-user-md fa-fw"></i> Quản lý thanh toán VNPAY </a>
             </li>
             @if( Auth::user()->username == 'admin' )
             {{-- <li>
