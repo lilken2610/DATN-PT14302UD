@@ -95,7 +95,7 @@
                             <div id="form-pay">
                             @foreach( $order_pays as $itemPay )
                                 <div class="radio">
-                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{__('sentence.payment_on_delivery')}}</label>
+                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{$itemPay->pay}}</label>
                                 </div>
                             @endforeach
                             </div>
@@ -121,7 +121,7 @@
         <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
     <script>
         // Render the PayPal button into #paypal-button-container
-    
+
         paypal.Buttons({
             // Set up the transaction
             createOrder: function(data, actions) {
