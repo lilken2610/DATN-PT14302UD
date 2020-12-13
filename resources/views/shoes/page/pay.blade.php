@@ -63,10 +63,10 @@
                             <td><strong>{{ Cart::initial(0) }} đ</strong></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: 700" scope="row">{{__('sentence.tax')}} (2%)</td>
+                            <td style="font-weight: 700" scope="row">{{__('sentence.tax')}} (20%)</td>
                             <td>{{ Cart::tax(0) }} đ</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td style="font-weight: 700" scope="row">{{__('sentence.gift_code')}} (%)</td>
                             <td>
                                 <form class="form-group" id="gift-code" action="">
@@ -82,7 +82,7 @@
                         <tr>
                             <th scope="row">{{__('sentence.sale')}}</th>
                             <td><span id="discount-pay">{{Cart::discount(0)}}</span> đ</td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <th scope="row">{{__('sentence.total')}}</th>
                             <td><strong><span id="total-pay">{{ Cart::total(0) }}</span> đ</strong></td>

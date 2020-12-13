@@ -28,7 +28,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" action="{{route('shoes.categories.postAdd')}}" method="post">
+                                    <form role="form" action="{{route('shoes.categories.postAdd')}}" method="post" id="formAddCategory">
                                         @csrf
                                         <div class="form-group">
                                             <label>Tên danh mục</label>

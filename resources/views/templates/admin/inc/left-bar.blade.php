@@ -36,9 +36,9 @@
             <li>
                 <a href="{{route('shoes.transaction.index')}}"><i class="fa fa-cart-arrow-down fa-fw"></i> Quản lý đơn hàng</a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{route('shoes.gift.index')}}"><i class="fa fa-gift fa-fw"></i> Quản lý mã giảm giá </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('shoes.news.index')}}"><i class="fa fa-table fa-fw"></i> Quản lý bài viết</a>
             </li>
