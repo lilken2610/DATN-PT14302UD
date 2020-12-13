@@ -25,20 +25,14 @@
             </div>
             <div class="profile">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                            role="tab" aria-controls="home" aria-selected="true"><i style="color:blue"
-                                class="fa fa-user"></i>{{__('sentence.profile')}}</a></li>
+                    <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i style="color:blue" class="fa fa-user"></i>{{__('sentence.profile')}}</a></li>
                     @if (Auth::user()->email_code)
-                    <li><a href="{{route( 'shoes.auth.activeAc',Auth::id() )}}"><i style="color: green"
-                                class="fa fa-file-text-o"></i> {{__('sentence.active_account')}} </a></li>
+                    <li><a href="{{route( 'shoes.auth.activeAc',Auth::id() )}}"><i style="color: green" class="fa fa-file-text-o"></i> {{__('sentence.active_account')}} </a></li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab"
-                            aria-controls="history" aria-selected="false"><i style="color: red"
-                                class="fa fa-file-text-o"></i> {{__('sentence.purchase history')}}</a>
+                        <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false"><i style="color: red" class="fa fa-file-text-o"></i> {{__('sentence.purchase history')}}</a>
                     </li>
-                    <li><a href="{{route('shoes.auth.logoutUser')}}"><i class="fa fa-sign-in"
-                                aria-hidden="true"></i>{{__('sentence.logout')}}</a></li>
+                    <li><a href="{{route('shoes.auth.logoutUser')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>{{__('sentence.logout')}}</a></li>
                 </ul>
             </div>
         </div>
@@ -47,17 +41,14 @@
                 <div class="form-group ">
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.user_name')}}:</label>
-                        <input type="text" class="form-control" id="pwd" name="username"
-                            value="{{ Auth::user()->username }}">
+                        <input type="text" class="form-control" id="pwd" name="username" value="{{ Auth::user()->username }}">
                     </div>
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.password')}}:</label>
-                        <input type="password" class="form-control" id="pwd" name="pwd"
-                            value="{{ Auth::user()->password }}">
+                        <input type="password" class="form-control" id="pwd" name="pwd" value="{{ Auth::user()->password }}">
                     </div>
                     <label for="email">{{__('sentence.full_name')}}:</label>
-                    <input type="text" class="form-control" id="email" name="fullname"
-                        value="{{ Auth::user()->fullname }}">
+                    <input type="text" class="form-control" id="email" name="fullname" value="{{ Auth::user()->fullname }}">
                 </div>
                 <div class="form-group">
                     <label for="pwd">{{__('sentence.address')}}:</label>
@@ -77,8 +68,7 @@
     <div id="history" class="tab-pane fade in active">
         <form action="{{route('shoes.auth.postInfo')}}">
             <div class="col-sm-3">
-                <input id="date" class="form-control" value="{{$date}}" type="date" name="date"
-                    onchange="this.form.submit()">
+                <input id="date" class="form-control" value="{{$date}}" type="date" name="date" onchange="this.form.submit()">
             </div>
             <div class="col-sm-2">
                 <select id="status" name="status" class="form-control" onchange="this.form.submit()">
@@ -91,14 +81,12 @@
             </div>
             <div class="col-sm-2">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary"
-                        onclick="refreshSearchHistory(); this.form.submit();">{{__('sentence.refresh')}}</button>
+                    <button type="button" class="btn btn-primary" onclick="refreshSearchHistory(); this.form.submit();">{{__('sentence.refresh')}}</button>
                 </div>
             </div>
             <div class="col-sm-2">
 
-                <div class="dataTables_length" id="dataTables-example_length"> <select name="record"
-                        class="form-control" onchange="this.form.submit()">
+                <div class="dataTables_length" id="dataTables-example_length"> <select name="record" class="form-control" onchange="this.form.submit()">
                         @foreach ($arr=[5, 10, 15, 20] as $item)
                         <option value="{{$item}}" {{$record == $item ? 'selected':''}}>{{$item}}</option>
                         @endforeach
@@ -140,8 +128,7 @@
                                     <td>{!! $value->id_transaction !!}</td>
                                     <td>{!! $value['user']->first()->fullname !!}</td>
                                     <td>
-                                        <p>Tổng tiền sản phẩm: <br /><span
-                                                style="padding-left:10px">{{number_format($value->totalPrice)}}</span> đ
+                                        <p>Tổng tiền sản phẩm: <br /><span style="padding-left:10px">{{number_format($value->totalPrice)}}</span> đ
                                         </p>
                                         <p>Thuế VAT: {{number_format($value->tax)}} đ</p>
                                         <p>Giảm giá: {{number_format($value->discount)}} đ</p>
@@ -155,17 +142,20 @@
                                         @if( $value->status == 1 )
                                         <a id="{{$value->id_transaction}}" onclick="successOrder(event);" class="btn btn-outline btn-success">{{__('sentence.begin_transaction')}}</a>
                                         @elseif( $value->status == -1 )
-                                        <a id="{{$value->id_transaction}}" onclick="cancelOrder(event);"
-                                            class="btn btn-outline btn-info">{{__('sentence.under_review')}}</a>
-                                            @elseif( $value->status == -2 )
-                                            <a class="btn btn-outline btn-success">{{__('sentence.cancel_order')}}</a>
-                                            @elseif( $value->status == 2 )
-                                            <a class="btn btn-outline btn-success">{{__('sentence.success_order')}}</a>  
+                                        <a id="{{$value->id_transaction}}" onclick="cancelOrder(event);" class="btn btn-outline btn-info">{{__('sentence.under_review')}}</a>
+                                        @elseif( $value->status == -2 )
+                                        <a class="btn btn-outline btn-success">{{__('sentence.cancel_order')}}</a>
+                                        @elseif( $value->status == 2 )
+                                        <a class="btn btn-outline btn-success">{{__('sentence.success_order')}}</a> 
+                                        @endif
+                                        <br>
+                                        <br>
+                                        @if( $value->status == -1  && $value->id_pay == 2)
+                                        <a href="{{route('shoes.shoes.paymentVnpay',$value->id_transaction)}}"  class="btn btn-outline btn-success">Chưa thanh toán</a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;">
-                                        <a data-id="{{$value->id_transaction}}"
-                                            class="view_transaction btn btn-info">{{__('sentence.see_details')}}</a>
+                                        <a data-id="{{$value->id_transaction}}" class="view_transaction btn btn-info">{{__('sentence.see_details')}}</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -183,8 +173,7 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Đóng</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                                         </div>
                                     </div>
 
@@ -192,8 +181,8 @@
                             </div>
 
                             <script>
-                                $(document).ready(function () {
-                                    $('.view_transaction').click(function () {
+                                $(document).ready(function() {
+                                    $('.view_transaction').click(function() {
                                         const id = $(this).data('id');
                                         $.ajax({
                                             headers: {
@@ -205,14 +194,13 @@
                                             data: {
                                                 id: id
                                             },
-                                            success: function (data) {
+                                            success: function(data) {
                                                 $('#modalDetail').modal('show');
                                                 $('.modal-body').html('').append(data);
                                             }
                                         });
                                     });
                                 });
-
                             </script>
                             @endif
                         </table>
@@ -228,11 +216,11 @@
 </div>
 </div>
 <script>
-    var openFile = function (event) {
+    var openFile = function(event) {
         var input = event.target;
 
         var reader = new FileReader();
-        reader.onload = function () {
+        reader.onload = function() {
             var dataURL = reader.result;
             var output = document.getElementById('output');
             output.src = dataURL;
@@ -255,10 +243,10 @@
             if (result.isConfirmed) {
                 Swal.fire(
                     'Thành công!',
-      'Hủy đơn hàng thành công.',
-      'success'
-).then((result)=>{
-                    window.location.href = "/cancel-order/"+ id;
+                    'Hủy đơn hàng thành công.',
+                    'success'
+                ).then((result) => {
+                    window.location.href = "/cancel-order/" + id;
                 })
             }
         })
@@ -278,14 +266,13 @@
             if (result.isConfirmed) {
                 Swal.fire(
                     'Thành công!',
-      'Xác nhận thành công, cảm ơn bạn đã mua hàng.',
-      'success'
-).then((result)=>{
-                    window.location.href = "/success-order/"+ id;
+                    'Xác nhận thành công, cảm ơn bạn đã mua hàng.',
+                    'success'
+                ).then((result) => {
+                    window.location.href = "/success-order/" + id;
                 })
             }
         })
     }
-
 </script>
 @endsection

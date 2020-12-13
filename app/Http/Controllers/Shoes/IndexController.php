@@ -169,20 +169,20 @@ class IndexController extends Controller
     public function postPay() {
         if ( Request()->ajax() ) {
             $id_pay = Request()->get('id_pay');
-
             $arrTotal = explode(',', Cart::initial(0) );
             $total = implode($arrTotal);
             $arTax  = explode(',', Cart::tax(0));
             $tax = implode($arTax);
             $arDiscount = explode(',', Cart::discount(0) );
             $discount = implode($arDiscount);
-
+            $status = -1;
             $arTransaction = [
                 'totalPrice'     => $total,
                 'tax'       => $tax,
                 'discount'  => $discount,
                 'id_pay'    => $id_pay,
-                'id_user'   => Auth::id()
+                'id_user'   => Auth::id(),
+                'status'   => $status
             ];
             $id_transaction = $this->Transaction->add($arTransaction);
             if ( isset($id_transaction) ) {
@@ -203,7 +203,112 @@ class IndexController extends Controller
             }
         }
     }
-    
+    public function postPayment(Request $request)
+    {
+            
+            // session(['url_prev' => url()->previous()]);
+            $vnp_TmnCode = "F60Y3QL1"; //Mã website tại VNPAY 
+            $vnp_HashSecret = "EMGPMTWACHBWVNFOXETDSXIAAZWQSOWL"; //Chuỗi bí mật
+            $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            $vnp_Returnurl = "http://shopshoe.com:8000/thanh-toan/tc";
+            $vnp_TxnRef = $request->order_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            $vnp_OrderInfo = $request->order_desc;
+            $vnp_Amount = str_replace(',', '', $request->amount) * 100;
+            $vnp_Locale = $request->language;
+            $vnp_BankCode = $request->bank_code;
+
+            $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+            $inputData = array(
+                "vnp_Version" => "2.0.0",
+                "vnp_TmnCode" => $vnp_TmnCode,
+                "vnp_Amount" => $vnp_Amount,
+                "vnp_Command" => "pay",
+                "vnp_CreateDate" => date('YmdHis'),
+                "vnp_CurrCode" => "VND",
+                "vnp_IpAddr" => $vnp_IpAddr,
+                "vnp_Locale" => $vnp_Locale,
+                "vnp_OrderInfo" => $vnp_OrderInfo,
+                "vnp_ReturnUrl" =>  $vnp_Returnurl,
+                "vnp_TxnRef" => $vnp_TxnRef,
+            );
+            if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
+            ksort($inputData);
+            $query = "";
+            $i = 0;
+            $hashdata = "";
+            foreach ($inputData as $key => $value) {
+                if ($i == 1) {
+                    $hashdata .= '&' . $key . "=" . $value;
+                } else {
+                    $hashdata .= $key . "=" . $value;
+                    $i = 1;
+                }
+                $query .= urlencode($key) . "=" . urlencode($value) . '&';
+            }
+
+            $vnp_Url = $vnp_Url . "?" . $query;
+            if (isset($vnp_HashSecret)) {
+                // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
+                $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
+                $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+            }
+            return redirect($vnp_Url);
+    }
+    public function xulyVnpay(Request $request)
+    {
+        $vnp_ResponseCode = $request->vnp_ResponseCode;
+        return view('shoes.page.vnpay_return', compact('request'));
+    }
+
+
+    public function paymentVnpay($id)
+    {
+        $object = $this->Transaction->getBill($id)->first();
+        if($object->status ==1) {
+            return redirect()->route('shoes.shoes.index');
+        }
+        return view('shoes.page.payment', compact('object'));
+    }
+    public function postPayVnPay()
+    {
+        if (Request()->ajax()) {
+            $id_pay = Request()->get('id_pay');
+            $arrTotal = explode(',', Cart::initial(0));
+            $total = implode($arrTotal);
+            $arTax  = explode(',', Cart::tax(0));
+            $tax = implode($arTax);
+            $arDiscount = explode(',', Cart::discount(0));
+            $discount = implode($arDiscount);
+            $status = -1;
+            $arTransaction = [
+                'totalPrice'     => $total,
+                'tax'       => $tax,
+                'discount'  => $discount,
+                'id_pay'    => $id_pay,
+                'id_user'   => Auth::id(),
+                'status' => $status
+            ];
+            $id_transaction = $this->Transaction->add($arTransaction);
+            if (isset($id_transaction)) {
+                foreach (Cart::content() as $key => $item) {
+                    $arPrice = explode(',', $item->priceTotal);
+                    $priceTotal = implode($arPrice);
+
+                    $arTrDetail[$key]['qty'] = $item->qty;
+                    $arTrDetail[$key]['size'] = $item->options->size;
+                    $arTrDetail[$key]['totalproduct'] = $priceTotal;
+                    $arTrDetail[$key]['id_transaction'] = $id_transaction;
+                    $arTrDetail[$key]['id_product'] = $item->id;
+
+                    $this->TransactionDetail->add($arTrDetail[$key]);
+                }
+                Cart::destroy();
+            }
+            return $id_transaction;
+        }
+    }
     public function giftCode() {
         if ( Request()->ajax() ) {
             $gift = Request()->get('gift');

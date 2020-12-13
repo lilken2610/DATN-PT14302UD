@@ -89,7 +89,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <form action="{{route('shoes.payments.postPay')}}" method="post" id="order-pay">
+                    <form action="{{route('shoes.shoes.postPay')}}" method="post" id="order-pay">
                         @csrf
                         @if( isset($order_pays) )
                             <div id="form-pay">

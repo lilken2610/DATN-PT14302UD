@@ -27,7 +27,7 @@ class Transaction extends Model
         $object->discount   = $arAdd['discount'];
         $object->id_pay   = $arAdd['id_pay'];
         $object->id_user = $arAdd['id_user'];
-        $object->status  = -1;
+        $object->status  = $arAdd['status'];
         $object->save();
         return $object->id_transaction;
     }

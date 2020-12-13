@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2020 lúc 03:05 PM
--- Phiên bản máy phục vụ: 10.4.14-MariaDB
--- Phiên bản PHP: 7.4.11
+-- Thời gian đã tạo: Th12 13, 2020 lúc 02:44 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -213,7 +214,43 @@ CREATE TABLE `pay` (
 --
 
 INSERT INTO `pay` (`id_pay`, `pay`) VALUES
-(1, 'Thanh Toán Khi Nhận Hàng');
+(1, 'Thanh Toán Khi Nhận Hàng'),
+(2, 'Thanh toán qua Ví điện tử VNPAY');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `order_id` varchar(255) NOT NULL,
+  `thanh_vien` varchar(100) NOT NULL COMMENT 'thành viên thanh toán',
+  `money` float NOT NULL COMMENT 'số tiền thanh toán',
+  `note` varchar(255) DEFAULT NULL COMMENT 'ghi chú thanh toán',
+  `vnp_response_code` varchar(255) NOT NULL COMMENT 'mã phản hồi',
+  `code_vnpay` varchar(255) NOT NULL COMMENT 'mã giao dịch vnpay',
+  `code_bank` varchar(255) NOT NULL COMMENT 'mã ngân hàng',
+  `time` datetime NOT NULL COMMENT 'thời gian chuyển khoản'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `payments`
+--
+
+INSERT INTO `payments` (`id`, `order_id`, `thanh_vien`, `money`, `note`, `vnp_response_code`, `code_vnpay`, `code_bank`, `time`) VALUES
+(1, '742874161', 'abc', 100000, 'chinh chuyển khoản', '00', '13401455', 'NCB', '2020-10-10 01:00:00'),
+(2, '608324672', 'abc', 1000000, 'test chuyển khoản', '00', '13401811', 'NCB', '2020-10-11 21:00:00'),
+(3, '1134065293', 'CT2', 150000, 'học phí', '00', '13407163', 'NCB', '2020-10-22 23:00:00'),
+(4, '596509313', 'CT2', 5000000, 'học phí', '00', '13407176', 'NCB', '2020-10-23 00:00:00'),
+(5, '70267166', 'CT2', 5000000, 'học phí', '00', '13407178', 'NCB', '2020-10-23 00:00:00'),
+(6, '1672349048', 'CT1', 150000, 'học phí', '00', '13407729', 'NCB', '2020-10-23 21:00:00'),
+(7, '80', '111', 260000, 'Thanh toán hóa đơn mua hàng tại shopshoe.com', '00', '13434362', 'NCB', '2020-12-12 17:00:00'),
+(8, '82', '111', 1624000, 'Thanh toán hóa đơn mua hàng tại shopshoe.com', '00', '13434397', 'NCB', '2020-12-12 19:00:00'),
+(9, '83', '111', 300000, 'Thanh toán hóa đơn mua hàng tại shopshoe.com', '00', '13434490', 'NCB', '2020-12-13 18:00:00'),
+(10, '84', '111', 338000, 'Thanh toán hóa đơn mua hàng tại shopshoe.com', '00', '13434494', 'NCB', '2020-12-13 18:00:00'),
+(11, '85', '29', 1624000, 'Thanh toán hóa đơn mua hàng tại shopshoe.com', '00', '13434496', 'NCB', '2020-12-13 18:00:00');
 
 -- --------------------------------------------------------
 
@@ -273,7 +310,7 @@ INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `pr
 (105, 'Jordan 1 Low - Core black', 'jordan-1-low-core-black-1607074237', 0, 624000, 0, 'Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00Jordan 1 Low - Core black - Giá 624,00', '<p>Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00Jordan 1 Low - Core black - Gi&aacute; 624,00</p>', '[\"B4NDI1ZfS1r51L8y1607074235.jpg\",\"U9Vut53QD8UqswxS1607074236.jpg\",\"OkWqKhAYR4sPHKSb1607074236.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 09:30:37', '2020-12-04 09:30:37'),
 (106, 'Jordan 1 Low - Cream', 'jordan-1-low-cream-1607074539', 1, 624000, 0, 'Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000Jordan 1 Low - Cream - Giá 624,000', '<p>Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000Jordan 1 Low - Cream - Gi&aacute; 624,000</p>', '[\"rnDuFySm8V7N5g0u1607074537.jpg\",\"hDfK0nBnwGhRK6OK1607074538.jpg\",\"6Kg94mO1UfPY27mo1607074539.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 09:35:39', '2020-12-04 09:35:39'),
 (107, 'Jordan 1 Low - Multicolor', 'jordan-1-low-multicolor-1607076416', 1, 624000, 0, 'Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000Jordan 1 Low - Multicolor- giá 624,000', '<p>Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000Jordan 1 Low - Multicolor- gi&aacute; 624,000</p>', '[\"k67JzbXDRAVWbvYX1607076411.jpg\",\"Jlie9vB00Bsocuad1607076413.jpg\",\"dfDI4KPaWn2ikLF51607076414.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:06:56', '2020-12-04 10:06:56'),
-(108, 'Jordan 1 Low - White Core Navy', 'jordan-1-low-white-core-navy-1607076508', 1, 624000, 0, 'Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000', '<p>Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000</p>', '[\"673bOP0ntMwZk7OL1607076505.jpg\",\"kwlZ29OjfmSwQJsJ1607076506.jpg\",\"gCXENVl9U2iVkj9T1607076507.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:28', '2020-12-04 10:08:28'),
+(108, 'Jordan 1 Low - White Core Navy', 'jordan-1-low-white-core-navy-1607076508', -2, 624000, 0, 'Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000Jordan 1 Low - White Core Navy- Giá 624,000', '<p>Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000Jordan 1 Low - White Core Navy- Gi&aacute; 624,000</p>', '[\"673bOP0ntMwZk7OL1607076505.jpg\",\"kwlZ29OjfmSwQJsJ1607076506.jpg\",\"gCXENVl9U2iVkj9T1607076507.jpg\"]', 132, 8, NULL, NULL, '2020-12-12 07:41:10', '2020-12-12 07:41:10'),
 (109, 'Jordan 1 Low - White Core Red', 'jordan-1-low-white-core-red-1607076518', 1, 624000, 0, 'Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000Jordan 1 Low - White Core Red-Giá 624,000', '<p>Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000Jordan 1 Low - White Core Red-Gi&aacute; 624,000</p>', '[\"tEGUruTRnXx8hvpU1607076514.jpg\",\"NFEuYEPJZdEA1Tkc1607076515.jpg\",\"TVz9VJHOrc763ClC1607076517.jpg\"]', 132, 8, NULL, NULL, '2020-12-04 10:08:38', '2020-12-04 10:08:38'),
 (110, 'Nike Jordan 1 - Galaxy Blue', 'nike-jordan-1-galaxy-blue-1607076525', 1, 1624000, 0, 'Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000Nike Jordan 1 - Galaxy Blue - Giá 624,000', '<p>Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000Nike Jordan 1 - Galaxy Blue - Gi&aacute; 624,000</p>', '[\"sPJDGuSV92DSXRJQ1607076522.jpg\",\"d9IM2zycshuujYxo1607076523.jpg\",\"wdfutpZL6jMazN491607076524.jpg\"]', 132, 8, NULL, 2, '2020-12-05 06:21:08', '2020-12-05 06:21:08'),
 (111, 'NB80 - Be Nâu', 'nb80-be-nau-1607076545', 1, 330000, 0, 'NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000NB80 - Be Nâu- Giá 330,000', '<p>NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000NB80 - Be N&acirc;u- Gi&aacute; 330,000</p>', '[\"8ahiSXKayDoMY33i1607076543.jpg\",\"NgAXc3TeARap6Lzq1607076544.jpg\",\"lxrBlI4AaZt8Ekrp1607076545.jpg\"]', 133, 9, NULL, NULL, '2020-12-04 10:09:05', '2020-12-04 10:09:05'),
@@ -289,7 +326,7 @@ INSERT INTO `products` (`id_product`, `name_product`, `slug_product`, `qty`, `pr
 (121, 'Old Skool REP 1;1 -REd Stripe', 'old-skool-rep-11-red-stripe-1607076677', 1, 408000, 0, 'Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000Old Skool REP 1;1 -REd Stripe -giá 408,000', '<p>Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000Old Skool REP 1;1 -REd Stripe -gi&aacute; 408,000</p>', '[\"bn7yBOnA3vkCPp1C1607076676.jpg\",\"UCRTI6jIMqAWGMF31607076676.jpg\",\"i9iUp1pG6jALsO7p1607076676.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:17', '2020-12-04 10:11:17'),
 (122, 'Old Skool REP 11 - Black Stripe', 'old-skool-rep-11-black-stripe-1607076684', 1, 408000, 0, 'Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000Old Skool REP 11 - Black Stripe - Giá 408,000', '<p>Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000Old Skool REP 11 - Black Stripe - Gi&aacute; 408,000</p>', '[\"9s20iZyGI998jntv1607076683.jpg\",\"5GpxoOdgaiVKRIiU1607076684.jpg\",\"grnn0NmKy4Z5lArW1607076684.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:24', '2020-12-04 10:11:24'),
 (123, 'SLIP ON HULK REPLICA NAM, NỮ', 'slip-on-hulk-replica-nam-nu-1607076691', 1, 425000, 0, 'SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000SLIP ON HULK REPLICA NAM, NỮ-Giá 425,000', '<p>SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000SLIP ON HULK REPLICA NAM, NỮ-Gi&aacute; 425,000</p>', '[\"X285snvgVzESOj6x1607076691.jpg\"]', 134, 10, NULL, NULL, '2020-12-04 10:11:31', '2020-12-04 10:11:31'),
-(127, 'ADIDAS giay the thao', 'adidas-giay-the-thao-1607155893', 2, 624, 5, 'DạASSSSSSHDHJDJXVCDSFAKSFADSVDSA VSAFSJF', '<p>Q&Ecirc;WGCSXACDSCHNFDBVSDFBVFB</p>', '[\"2M5m7yKI2gONAkDg1607155893.jpeg\"]', 132, 5, NULL, NULL, '2020-12-05 08:11:33', '2020-12-05 08:11:33');
+(127, 'ADIDAS giay the thao', 'adidas-giay-the-thao-1607155893', 1, 624, 5, 'DạASSSSSSHDHJDJXVCDSFAKSFADSVDSA VSAFSJF', '<p>Q&Ecirc;WGCSXACDSCHNFDBVSDFBVFB</p>', '[\"2M5m7yKI2gONAkDg1607155893.jpeg\"]', 132, 5, NULL, NULL, '2020-12-13 12:24:53', '2020-12-13 12:24:53');
 
 -- --------------------------------------------------------
 
@@ -375,7 +412,7 @@ INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
 (96, 105, 1, 0),
 (97, 106, 1, 1),
 (98, 107, 1, 1),
-(99, 108, 1, 1),
+(99, 108, 1, -2),
 (100, 109, 1, 1),
 (101, 110, 1, 1),
 (102, 111, 1, 1),
@@ -391,7 +428,7 @@ INSERT INTO `product_size` (`id`, `id_product`, `id_size`, `qty`) VALUES
 (112, 121, 1, 1),
 (113, 122, 2, 1),
 (114, 123, 1, 1),
-(122, 127, 1, 2);
+(122, 127, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -479,11 +516,24 @@ INSERT INTO `transaction` (`id_transaction`, `totalPrice`, `tax`, `discount`, `i
 (65, 2067200, 434112, 0, 1, 1, -1, '2020-12-01 16:14:59', '2020-12-01 16:14:59'),
 (66, 608000, 127680, 0, 1, 1, -1, '2020-12-02 12:10:27', '2020-12-02 12:10:27'),
 (67, 624000, 131040, 0, 1, 1, 1, '2020-12-02 12:11:07', '2020-12-02 14:40:25'),
-(68, 1872000, 393120, 0, 1, 1, -1, '2020-12-02 12:19:39', '2020-12-02 12:19:39'),
+(68, 1872000, 393120, 0, 1, 1, 1, '2020-12-02 12:19:39', '2020-12-12 07:41:17'),
 (69, 1216000, 255360, 0, 1, 1, 1, '2020-12-02 12:20:58', '2020-12-02 14:49:50'),
 (70, 2176000, 456960, 0, 1, 1, 1, '2020-12-02 12:24:15', '2020-12-02 14:42:53'),
 (71, 2440000, 512400, 0, 1, 25, 1, '2020-12-02 14:41:31', '2020-12-02 14:43:04'),
-(72, 3648000, 766080, 0, 1, 28, 1, '2020-12-05 08:06:09', '2020-12-05 08:07:31');
+(72, 3648000, 766080, 0, 1, 28, 1, '2020-12-05 08:06:09', '2020-12-05 08:07:31'),
+(73, 1186, 249, 0, 1, 29, -1, '2020-12-12 07:51:19', '2020-12-12 07:51:19'),
+(74, 353637, 74264, 0, 1, 29, -1, '2020-12-12 10:12:49', '2020-12-12 10:12:49'),
+(75, 544000, 114240, 0, 2, 29, -1, '2020-12-12 10:19:35', '2020-12-12 10:19:35'),
+(76, 300000, 63000, 0, 2, 29, -1, '2020-12-12 10:21:48', '2020-12-12 10:21:48'),
+(77, 593, 124, 0, 2, 29, -1, '2020-12-12 10:29:22', '2020-12-12 10:29:22'),
+(78, 338000, 70980, 0, 2, 29, -1, '2020-12-12 10:32:36', '2020-12-12 10:32:36'),
+(79, 593, 124, 0, 2, 29, -1, '2020-12-12 10:35:25', '2020-12-12 10:35:25'),
+(80, 260000, 54600, 0, 2, 29, 1, '2020-12-12 10:36:05', '2020-12-12 10:36:05'),
+(81, 593, 124, 0, 2, 29, 1, '2020-12-12 12:43:50', '2020-12-13 12:24:58'),
+(82, 1624000, 341040, 0, 2, 29, 1, '2020-12-12 12:44:45', '2020-12-12 12:44:45'),
+(83, 300000, 63000, 0, 2, 29, 1, '2020-12-13 11:15:24', '2020-12-13 11:15:24'),
+(84, 338000, 70980, 0, 2, 29, 1, '2020-12-13 11:24:34', '2020-12-13 11:24:34'),
+(85, 1624000, 341040, 0, 2, 29, 1, '2020-12-13 11:46:22', '2020-12-13 11:46:22');
 
 -- --------------------------------------------------------
 
@@ -516,7 +566,20 @@ INSERT INTO `transaction_detail` (`id_transaction_dt`, `id_product`, `qty`, `siz
 (69, 117, 4, 1, 1352000, 71, '2020-12-02 14:41:31', '2020-12-02 14:41:31'),
 (70, 81, 2, 1, 1088000, 71, '2020-12-02 14:41:31', '2020-12-02 14:41:31'),
 (71, 78, 2, 1, 1216000, 72, '2020-12-05 08:06:09', '2020-12-05 08:06:09'),
-(72, 80, 4, 2, 2432000, 72, '2020-12-05 08:06:09', '2020-12-05 08:06:09');
+(72, 80, 4, 2, 2432000, 72, '2020-12-05 08:06:09', '2020-12-05 08:06:09'),
+(73, 127, 2, 1, 1186, 73, '2020-12-12 07:51:19', '2020-12-12 07:51:19'),
+(74, 95, 1, 1, 353637, 74, '2020-12-12 10:12:49', '2020-12-12 10:12:49'),
+(75, 79, 1, 1, 544000, 75, '2020-12-12 10:19:35', '2020-12-12 10:19:35'),
+(76, 115, 1, 1, 300000, 76, '2020-12-12 10:21:48', '2020-12-12 10:21:48'),
+(77, 127, 1, 1, 593, 77, '2020-12-12 10:29:22', '2020-12-12 10:29:22'),
+(78, 117, 1, 1, 338000, 78, '2020-12-12 10:32:36', '2020-12-12 10:32:36'),
+(79, 127, 1, 1, 593, 79, '2020-12-12 10:35:25', '2020-12-12 10:35:25'),
+(80, 116, 1, 1, 260000, 80, '2020-12-12 10:36:05', '2020-12-12 10:36:05'),
+(81, 127, 1, 1, 593, 81, '2020-12-12 12:43:50', '2020-12-12 12:43:50'),
+(82, 110, 1, 1, 1624000, 82, '2020-12-12 12:44:45', '2020-12-12 12:44:45'),
+(83, 115, 1, 1, 300000, 83, '2020-12-13 11:15:24', '2020-12-13 11:15:24'),
+(84, 117, 1, 1, 338000, 84, '2020-12-13 11:24:34', '2020-12-13 11:24:34'),
+(85, 110, 1, 1, 1624000, 85, '2020-12-13 11:46:22', '2020-12-13 11:46:22');
 
 -- --------------------------------------------------------
 
@@ -553,7 +616,8 @@ INSERT INTO `users` (`id`, `username`, `fullname`, `email`, `password`, `remembe
 (8, 'user003', 'Tôi là user003', 'lynguyen.pna@gmail.com', '$2y$10$BJ3AxseCgliexDAK8r9b1OHf9Gy8.PNy0D3DcmtVCiVlZ1G3JFmty', NULL, 'ẤCDSA', '123132', 3, 'etr0Bo5KWKIo7cUNUgYn6fllBM0NWt1F8iJ8E8Mk.jpeg', 7, 1, '', '2020-02-20 13:53:33', '2020-03-10 20:57:26'),
 (9, 'user004', 'Tôi là user004', 'user004@gmail.com', '$2y$10$XWHs5F7WOMn7KvhFrSQwi.hcVZsUujiZ.IafMXkr2VHPYLNytsWP6', NULL, 'ádasdasdasdsa', '123132', 3, NULL, 7, 1, '', '2020-02-20 13:54:18', '2020-02-20 13:54:18'),
 (19, 'vanchieu77', 'Đào Văn Chiểu', 'daovanchieu77@gmail.com', '$2y$10$yAuKpnTklU3kNbQMwQTJme5L8lGOpMVftXCbJen580t2I1VmaPaQ6', NULL, 'avc', '123123123', 3, NULL, 0, 1, '158391233515e68958fa3691', '2020-03-11 00:38:55', '2020-03-11 00:39:15'),
-(28, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$4OSkxyngt.7FcVQAcg2JU.3H1MDIVYMOUBK6wQHmysq24phgvdSd6', NULL, 'duy thanh', '0336751070', 3, 'user2020-1607155137.jpg', NULL, 1, '', '2020-12-05 07:57:10', '2020-12-05 08:00:50');
+(28, 'user2020', 'Lê Trung Thịnh', 'lilken2610@gmail.com', '$2y$10$4OSkxyngt.7FcVQAcg2JU.3H1MDIVYMOUBK6wQHmysq24phgvdSd6', NULL, 'duy thanh', '0336751070', 3, 'user2020-1607155137.jpg', NULL, 1, '', '2020-12-05 07:57:10', '2020-12-05 08:00:50'),
+(29, 'chauquangtam', 'Châu Quang Tâm', 'chauquangtam2000@gmail.com', '$2y$10$b2cp.LzzGD2Jb5Dq9MbepOtxkrE9xXkeAg97w435SJQQ1LMIREpfq', NULL, '286 Trần Cao Vân - Phường Tam Thuận -  Quận Thanh Khê - Đà Nẵng', '0377898307', 1, NULL, NULL, 1, '', '2020-12-12 04:35:00', '2020-12-12 04:35:17');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -606,6 +670,12 @@ ALTER TABLE `news`
 --
 ALTER TABLE `pay`
   ADD PRIMARY KEY (`id_pay`);
+
+--
+-- Chỉ mục cho bảng `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `products`
@@ -708,6 +778,12 @@ ALTER TABLE `pay`
   MODIFY `id_pay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
@@ -741,19 +817,19 @@ ALTER TABLE `slide`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT cho bảng `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
-  MODIFY `id_transaction_dt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_transaction_dt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
