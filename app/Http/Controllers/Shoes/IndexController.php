@@ -255,11 +255,6 @@ class IndexController extends Controller
                 $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
             }
             return redirect($vnp_Url);
-            // $vnp_TxnRef = Request()->get('order_id'); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-            // $vnp_OrderInfo = Request()->get('order_desc');
-            // $vnp_Amount = str_replace(',', '', Request()->get('amount')) * 100;
-            // $vnp_Locale = Request()->get('language');
-            // $vnp_BankCode = Request()->get('bank_code');
     }
     public function xulyVnpay(Request $request)
     {
@@ -271,6 +266,9 @@ class IndexController extends Controller
     public function paymentVnpay($id)
     {
         $object = $this->Transaction->getBill($id)->first();
+        if($object->status ==1) {
+            return redirect()->route('shoes.shoes.index');
+        }
         return view('shoes.page.payment', compact('object'));
     }
     public function postPayVnPay()

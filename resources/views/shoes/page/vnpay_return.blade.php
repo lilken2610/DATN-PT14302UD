@@ -112,7 +112,7 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
                                     $sql = "SELECT * FROM payments WHERE order_id = '$order_id'";
                                     $query = mysqli_query($conn, $sql);
                                     $row = mysqli_num_rows($query);
-                                    $taikhoan = "111";
+                                    $taikhoan = Auth::id();
                                     if ($row > 0) {
                                         $sql = "UPDATE payments SET order_id = '$order_id', money = '$money', note = '$note', vnp_response_code = '$vnp_response_code', code_vnpay = '$code_vnpay', code_bank = '$code_bank' WHERE order_id = '$order_id'";
 
@@ -120,7 +120,7 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
                                     } else {
                                         $sql = "INSERT INTO payments(order_id, thanh_vien, money, note, vnp_response_code, code_vnpay, code_bank, time) VALUES ('$order_id', '$taikhoan', '$money', '$note', '$vnp_response_code', '$code_vnpay', '$code_bank','$date_time')";
                                         mysqli_query($conn, $sql);
-                                        $sql = "UPDATE transaction SET payment_status = '1', status = '1'  WHERE id_transaction = '$order_id'";
+                                        $sql = "UPDATE transaction SET status = '1'  WHERE id_transaction = '$order_id'";
                                         mysqli_query($conn, $sql);
                                     }
 
