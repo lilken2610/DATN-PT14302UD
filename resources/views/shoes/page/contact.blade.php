@@ -26,7 +26,7 @@
                   })();</script><a href="https://1map.com/map-embed">1 Map</a></div>
             </div>
             <div class="col-sm-6 contact-right">
-                <form action="{{route('shoes.shoes.postContact')}}" method="post">
+                <form action="{{route('shoes.shoes.postContact')}}" method="post" id="formContact">
                     @csrf
                     <div class="form-group col-sm-6 form-left" >
                         <input type="text" class="form-control" name="fullname" placeholder="Họ tên" >

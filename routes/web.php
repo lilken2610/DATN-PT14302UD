@@ -330,8 +330,8 @@ Route::group(['namespace' => 'Shoes'], function () {
             'as'   => 'shoes.shoes.pay'
         ]);
         Route::post('/', [
-            'uses' => 'IndexController@postPayment',
-            'as'   => 'shoes.payments.index'
+            'uses' => 'IndexController@postPay',
+            'as'   => 'shoes.payments.postPay'
         ]);
         Route::post('/cap-nhap-thong-tin', [
             'uses' => 'IndexController@updateInfo',
@@ -349,7 +349,7 @@ Route::group(['namespace' => 'Shoes'], function () {
     ]);
     Route::post('/lien-he', [
         'uses' => 'IndexController@postContact',
-        'as'   => 'shoes.shoes.postContact'
+    'as'   => 'shoes.shoes.postContact'
     ]);
     Route::group(['prefix' => 'gio-hang'], function () {
         Route::get('/', [
