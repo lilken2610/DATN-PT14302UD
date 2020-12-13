@@ -60,7 +60,7 @@ class Products extends Model
             $maxPrice = 10000000;
         }
 
-        $products = DB::table('products as pd');
+        $products = Products::query();
 
         if ($request->options == null || $request->options == 1) {
             $products->orderBy('id_product', 'DESC');

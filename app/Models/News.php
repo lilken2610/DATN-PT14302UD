@@ -43,14 +43,12 @@ class News extends Model
         return News::all();
     }
     public function hotNews() {
-        return DB::table('news')
-            ->orderBy('id_new')
+        return News::orderBy('id_new')
             ->limit(5)
             ->get();
     }
     public function newsOk($id) {
-        return DB::table('news')
-            ->where('id_new','!=',$id)
+        return News::where('id_new','!=',$id)
             ->limit(5)
             ->get();
     }
