@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount" name="amount" type="text" value="{{$object->totalPrice}}" readonly />
+                        <input class="form-control" id="amount" name="amount" type="text" value="{{$object->totalPrice+$object->tax}}" readonly />
                     </div>
                     <div class="form-group">
                         <label for="order_desc">Nội dung thanh toán</label>
