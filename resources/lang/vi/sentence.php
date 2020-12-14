@@ -30,6 +30,7 @@ return [
     'apply' => 'Áp dụng',
     'category' => 'Loại sản phẩm',
     'payment_on_delivery' => 'Thanh toán khi nhận hàng',
+    'payment_on_vnpay' => 'Thanh toán qua VNPAY',
     'brand' => 'Thương hiệu',
     'order' => 'Đặt hàng',
     'news' => 'Tin tức',

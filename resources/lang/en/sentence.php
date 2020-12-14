@@ -30,6 +30,7 @@ return [
     'apply' => 'Apply',
     'category' => 'Category',
     'payment_on_delivery' => 'Payment on delivery',
+    'payment_on_vnpay' => 'Payment on VNPAY',
     'brand' => 'Brand',
     'order' => 'Order',
     'news' => 'News',
