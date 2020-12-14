@@ -95,9 +95,10 @@
                             <div id="form-pay">
                             @foreach( $order_pays as $itemPay )
                                 <div class="radio">
-                                @if( $value->status == 1 )
-                                    <label><input type="radio" value="{{$itemPay->pay}}" class="idpay" name="orderpay" required>{{__('sentence.payment_on_delivery')}}</label>
+                                @if( $itemPay->id_pay == 1 )
+                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{__('sentence.payment_on_delivery')}}</label>
                                     @elseif( $itemPay->id_pay == 2 )
+                                    <label><input type="radio" value="{{$itemPay->id_pay}}" class="idpay" name="orderpay" required>{{__('sentence.payment_on_vnpay')}}</label>
                                     @endif
                                 </div>
                             @endforeach

@@ -169,8 +169,9 @@ class IndexController extends Controller
             if (Auth::user()->email_code) {
                 return '<script>alert("Tài khoản của bạn chưa được kích hoạt, vui lòng kích hoạt để sử dụng chức năng này");window.location.href="/kich-hoat-tai-khoan/' . Auth::id() . '"</script>';
             } else {
-                echo 1;
+
                 $order_pays = $this->Pay->getPay();
+
                 return view('shoes.page.pay', compact('order_pays'));
             }
         } else {
@@ -270,6 +271,14 @@ class IndexController extends Controller
     }
     public function xulyVnpay(Request $request)
     {
+        $object = $this->Transaction->getBill($request->vnp_TxnRef)->first();
+        if (
+            !isset($object->id_transaction) || $object->id_user != Auth::id() || $object->status == 1
+            || $object->id_transaction != $request->vnp_TxnRef
+            || $object->id_transaction == null
+        ) {
+            return redirect()->route('shoes.shoes.index');
+        }
         $request = $request;
         $request['vnp_HashSecret'] = env('vnp_HashSecret');
         return view('shoes.page.vnpay_return', compact('request'));
@@ -279,7 +288,12 @@ class IndexController extends Controller
     public function paymentVnpay($id)
     {
         $object = $this->Transaction->getBill($id)->first();
-        if ($object->status == 1) {
+        
+        if (
+            !isset($object->id_transaction) || $object->id_user != Auth::id() || $object->status == 1
+            || $object->id_transaction != $id
+            || $object->id_transaction == null
+        ) {
             return redirect()->route('shoes.shoes.index');
         }
         return view('shoes.page.payment', compact('object'));

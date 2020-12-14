@@ -11,12 +11,9 @@ session_start();
 </script>
 @else
 <?php
-$vnp_SecureHash = $_GET['vnp_SecureHash'];
+$vnp_SecureHash =$request->vnp_SecureHash;
 $inputData = array();
-$vnp_TmnCode = "F60Y3QL1"; //Mã website tại VNPAY 
-$vnp_HashSecret = "EMGPMTWACHBWVNFOXETDSXIAAZWQSOWL"; //Chuỗi bí mật
-$vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = "http://shopshoe.com:8000/thanh-toan/tc";
+$vnp_HashSecret = $request->vnp_HashSecret; //Chuỗi bí mật
 foreach ($_GET as $key => $value) {
     if (substr($key, 0, 4) == "vnp_") {
         $inputData[$key] = $value;
@@ -50,7 +47,7 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã đơn hàng:</label>
                     <div class="col-sm-3">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_TxnRef'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_TxnRef}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -62,31 +59,31 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nội dung thanh toán:</label>
                     <div class="col-sm-6">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_OrderInfo'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_OrderInfo}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã phản hồi:</label>
                     <div class="col-sm-3">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_ResponseCode'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_ResponseCode}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã GD Tại VNPAY:</label>
                     <div class="col-sm-3">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_TransactionNo'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_TransactionNo}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã Ngân Hàng:</label>
                     <div class="col-sm-3">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_BankCode'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_BankCode}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Thời gian thanh toán:</label>
                     <div class="col-sm-3">
-                        <label for="colFormLabelSm" id="order_desc" name="order_desc"><?php echo $_GET['vnp_PayDate'] ?></label>
+                        <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_PayDate}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -95,14 +92,14 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">
                             <?php
                             if ($secureHash == $vnp_SecureHash) {
-                                if ($_GET['vnp_ResponseCode'] == '00') {
-                                    $order_id = $_GET['vnp_TxnRef'];
-                                    $money = $_GET['vnp_Amount'] / 100;
-                                    $note = $_GET['vnp_OrderInfo'];
-                                    $vnp_response_code = $_GET['vnp_ResponseCode'];
-                                    $code_vnpay = $_GET['vnp_TransactionNo'];
-                                    $code_bank = $_GET['vnp_BankCode'];
-                                    $time = $_GET['vnp_PayDate'];
+                                if ($request->vnp_ResponseCode == '00') {
+                                    $order_id =$request->vnp_TxnRef;
+                                    $money =$request->vnp_Amount / 100;
+                                    $note =$request->vnp_OrderInfo;
+                                    $vnp_response_code =$request->vnp_ResponseCode;
+                                    $code_vnpay =$request->vnp_TransactionNo;
+                                    $code_bank =$request->vnp_BankCode;
+                                    $time =$request->vnp_PayDate ;
                                     $date_time = substr($time, 0, 4) . '-' . substr($time, 4, 2) . '-' . substr($time, 6, 2) . ' ' . substr($time, 8, 2) . ' ' . substr($time, 10, 2) . ' ' . substr($time, 12, 2);
                                     $servername = 'localhost';
                                     $username = 'root';
@@ -142,7 +139,6 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
     @endsection
     @section('src-public')
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-
     <script src="{{asset('shoes/js/ajax/gift.code.order.js')}}"></script>
     <script src="{{asset('shoes/js/ajax/order.pay.js')}}"></script>
     @endsection
