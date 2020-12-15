@@ -11,28 +11,28 @@
     <div class="container margin-res-top" style="margin-top: 150px;">
         <div class="col-sm-6" style="left: 25%">
             <div class="header clearfix ">
-                <h3 class="text-muted text-center">THANH TOÁN TRỰC TUYẾN THÔNG QUA VNPAY</h3>
+                <h3 class="text-muted text-center">{{__('sentence.payment_vnpay')}}</h3>
             </div>
             <div class="table">
 
                 <form id="payment-vnpay" action="{{route('shoes.shoes.postPayment')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="order_id">Mã hóa đơn</label>
+                        <label for="order_id">{{__('sentence.code_bill')}}</label>
                         <input class="form-control" id="order_id" name="order_id" type="text" value="{{$object->id_transaction}}" readonly />
                     </div>
                     <div class="form-group">
-                        <label for="amount">Số tiền</label>
+                        <label for="amount">{{__('sentence.amount_of_money')}}</label>
                         <input class="form-control" id="amount" name="amount" type="text" value="{{$object->totalPrice+$object->tax}}" readonly />
                     </div>
                     <div class="form-group">
-                        <label for="order_desc">Nội dung thanh toán</label>
+                        <label for="order_desc">{{__('sentence.content_billing')}}</label>
                         <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2" readonly>Thanh toán hóa đơn mua hàng tại shopshoe.com</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="bank_code">Ngân hàng</label>
+                        <label for="bank_code">{{__('sentence.bank')}}</label>
                         <select name="bank_code" id="bank_code" class="form-control">
-                            <option value="">Không chọn</option>
+                            <option value="">{{__('sentence.not_selected')}}</option>
                             <option value="NCB"> Ngan hang NCB</option>
                             <option value="AGRIBANK"> Ngan hang Agribank</option>
                             <option value="SCB"> Ngan hang SCB</option>
@@ -54,11 +54,11 @@
                             <option value="ACB"> Ngan hang ACB</option>
                             <option value="OCB"> Ngan hang OCB</option>
                             <option value="IVB"> Ngan hang IVB</option>
-                            <option value="VISA"> Thanh toan qua VISA/MASTER</option>
+                            <option value="VISA"> {{__('sentence.payment_through')}} VISA/MASTER</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="language">Ngôn ngữ</label>
+                        <label for="language">{{__('sentence.language')}}</label>
                         <select name="language" id="language" class="form-control">
                             <option value="vn">Tiếng Việt</option>
                             <option value="en">English</option>
@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button> -->
-                    <button type="submit" class="btn btn-default">Thanh toán Redirect</button>
+                    <button type="submit" class="btn btn-default">{{__('sentence.pay')}} Redirect</button>
 
                 </form>
             </div>

@@ -4,7 +4,7 @@
 @stop
 @section('content')
 <div class="container" style="margin-top: 150px; width: 80%">
-    <form action="{{route('shoes.auth.postInfo')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('shoes.auth.postInfo')}}" method="post" enctype="multipart/form-data" id="form_infor" >
         <div class="col-sm-3">
             <div class="card">
                 @csrf
@@ -41,26 +41,26 @@
                 <div class="form-group ">
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.user_name')}}:</label>
-                        <input type="text" class="form-control" id="pwd" name="username" value="{{ Auth::user()->username }}">
+                        <input type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->username }}">
                     </div>
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.password')}}:</label>
                         <input type="password" class="form-control" id="pwd" name="pwd" value="{{ Auth::user()->password }}">
                     </div>
                     <label for="email">{{__('sentence.full_name')}}:</label>
-                    <input type="text" class="form-control" id="email" name="fullname" value="{{ Auth::user()->fullname }}">
+                    <input type="text" class="form-control" id="fullname" name="fullname" value="{{ Auth::user()->fullname }}">
                 </div>
                 <div class="form-group">
                     <label for="pwd">{{__('sentence.address')}}:</label>
-                    <input type="text" class="form-control" id="pwd" name="address" value="{{ Auth::user()->address }}">
+                    <input type="text" class="form-control" id="address" name="address" value="{{ Auth::user()->address }}">
                 </div>
                 <div class="form-group">
                     <label for="pwd">{{__('sentence.number_phone')}}:</label>
-                    <input type="text" class="form-control" id="pwd" name="phone" value="{{ Auth::user()->phone }}">
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ Auth::user()->phone }}">
                 </div>
                 <div class="form-group">
                     <label for="pwd">{{__('sentence.email')}}:</label>
-                    <input type="text" class="form-control" id="pwd" name="email" value="{{ Auth::user()->email }}">
+                    <input type="text" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}">
                 </div>
                 <input type="submit" class="button btn btn-primary" value="Lưu" />
             </div>

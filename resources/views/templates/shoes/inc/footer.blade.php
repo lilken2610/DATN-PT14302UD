@@ -3,19 +3,19 @@
         <div class="container">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Giới thiệu</h5>
+                    <h5>{{__('sentence.introduce')}}</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="javascript:void();">Chào mừng bạn đến với F Luxury! Tại đây, mỗi sản phẩm chúng tôi mang đến đều chất lượng bằng tiền các bạn bỏ ra. </a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Địa chỉ</h5>
+                    <h5>{{__('sentence.address')}}</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="javascript:void();">137 Nguyễn Thị Thập, Thanh Khê Tây, Liên Chiểu, Đà Nẵng</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Liên hệ</h5>
+                    <h5>{{__('sentence.contact')}}</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="javascript:void();">0336751070</a></li>
                         <li><a href="javascript:void();">thinhltpd02874@fpt.edu.vn</a></li>
