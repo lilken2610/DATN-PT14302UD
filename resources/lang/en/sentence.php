@@ -84,5 +84,36 @@ return [
     'cancel_order' => 'Cancel order',
     'under_review' => 'Under review',
     'success_order' => 'Success order',
-    'refresh' => 'Refresh'
+    'refresh' => 'Refresh',
+    'introduce' => 'INTRODUCE',
+    'address' => 'ADDRESS',
+    'contact' => 'CONTACT',
+    'contact_information' => 'CONTACT INFORMATION',
+    'send' => 'Send',
+    'positive_writing' => 'POSITIVE WRITING',
+    'payment_vnpay' => 'ONLINE PAYMENT VIA VNPAY',
+    'code_bill' => 'Code bill',
+    'amount_of_money' => 'Amount of money',
+    'content_billing' => 'Content billing',
+    'bank' => 'Bank',
+    'language' => 'Language',
+    'not_selected' => 'Not selected',
+    'payment_through' => 'Payment through',
+    'information_line' => 'Information line',
+    'order_code' => 'Code order',
+    'response_code' => 'Response code',
+    'transaction_code_at ' => 'Transaction code at ',
+    'code_bank' => 'Code bank',
+    'payment_time' => 'Payment time',
+    'result' => 'Result',
+
+
+
+
+
+    
+
+    
+    
+    
 ];

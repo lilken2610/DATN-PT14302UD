@@ -4,7 +4,7 @@
     <div class="contact">
         <div class="container margin-res-top" style="margin-top: 150px">
             <div class="col-sm-6 contact-left">
-                <h3>Thông tin liên hệ</h3>
+                <h3>{{__('sentence.contact_information')}}</h3>
                 <p><i class="fa fa-map-marker" aria-hidden="true"></i> 137 Nguyễn Thị Thập, Thanh Khê Tây, Liên Chiểu, Đà Nẵng </p>
                 <p><i class="fa fa-phone" aria-hidden="true"></i> 0336751070 </p>
                 <p><i class="fa fa-envelope" aria-hidden="true"></i> trungthinh2610@gmail.com</p>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <textarea name="content" id="" cols="5" rows="5" class="form-control" placeholder="Lời nhắn"></textarea>
                     </div>
-                    <input type="submit" class="button btn btn-primary" value="Gởi">
+                    <input type="submit" class="button btn btn-primary" value="{{__('sentence.send')}}">
                 </form>
             </div>
         </div>

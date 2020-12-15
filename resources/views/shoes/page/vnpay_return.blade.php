@@ -41,53 +41,53 @@ $secureHash = hash('sha256', $vnp_HashSecret . $hashData);
     <div class="container margin-res-top" style="margin-top: 150px;">
         <div class="col-sm-9" style="left: 30%">
             <div class="header clearfix ">
-                <h3 class=" text-left">Thông tin đơn hàng</h3>
+                <h3 class=" text-left">{{__('sentence.information_line')}}</h3>
             </div>
             <div class="table">
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã đơn hàng:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.order_code')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_TxnRef}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Số tiền:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.amount_of_money')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc"><?= number_format($_GET['vnp_Amount'] / 100) ?> VNĐ</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nội dung thanh toán:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.content_billing')}}:</label>
                     <div class="col-sm-6">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_OrderInfo}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã phản hồi:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.response_code')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_ResponseCode}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã GD Tại VNPAY:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.transaction_code_at')}} VNPAY:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_TransactionNo}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mã Ngân Hàng:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.code_bank')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_BankCode}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Thời gian thanh toán:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.payment_time')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">{{$request->vnp_PayDate}}</label>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Kết quả:</label>
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">{{__('sentence.result')}}:</label>
                     <div class="col-sm-3">
                         <label for="colFormLabelSm" id="order_desc" name="order_desc">
                             <?php

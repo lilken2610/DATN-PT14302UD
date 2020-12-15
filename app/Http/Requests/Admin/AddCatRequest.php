@@ -24,13 +24,14 @@ class AddCatRequest extends FormRequest
     public function rules()
     {
         return [
-            'namecat' => 'required'
+            'namecat' => 'required',
+
         ];
     }
     public function messages()
     {
         return [
-            'namecat.required' => 'Bạn chưa nhập tên danh mục'
+            'namecat.required' => 'Bạn chưa nhập tên danh mục',           
         ];
     }
 }

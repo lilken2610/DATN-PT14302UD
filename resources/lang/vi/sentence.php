@@ -84,5 +84,28 @@ return [
     'under_review' => 'Đang xét duyệt',
     'cancel_order' => 'Đã hủy',
     'success_order' => 'Đã nhận hàng',
-    'refresh' => 'Làm mới'
+    'introduce' => 'GIỚI THIỆU',
+    'address' => 'ĐỊA CHỈ',
+    'contact' => 'LIÊN HỆ',
+    'contact_information' => 'THÔNG TIN LIÊN HỆ',
+    'send' => 'Gửi',
+    'positive_writing' => 'BÀI VIẾT NỔI BẬT',
+    'payment_vnpay' => 'THANH TOÁN TRỰC TUYẾN THÔNG QUA VNPAY',
+    'code_bill' => 'Mã hóa đơn',
+    'amount_of_money' => 'Số tiền',
+    'content_billing' => 'Nội dung thanh toán',
+    'bank' => 'Ngân hàng',
+    'language' => 'Ngôn ngữ',
+    'not_selected' => 'Không chọn',
+    'payment_through' => 'Thanh toán qua',
+    'information_line' => 'Thông tin đơn hàng',
+    'order_code' => 'Mã đơn hàng',
+    'response_code' => 'Mã phản hồi',
+    'transaction_code_at ' => 'Mã giao dịch tại',
+    'code_bank' => 'Mã ngân hàng',
+    'payment_time' => 'Thời gian thanh toán',
+    'result' => 'Kết quả',
+
+
+    
 ];

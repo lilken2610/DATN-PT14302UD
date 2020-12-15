@@ -30,7 +30,7 @@
         </div>
         <div class="col-sm-3" >
             <div class="categories-bar-left">
-                <h3>Bài viết nổi bật</h3>
+                <h3>{{__('sentence.positive_writing')}}</h3>
                 <div class="categories-bar-left-container">
                     <ul>
                         <li>
