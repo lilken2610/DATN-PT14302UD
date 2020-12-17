@@ -84,5 +84,6 @@ return [
     'cancel_order' => 'Cancel order',
     'under_review' => 'Under review',
     'success_order' => 'Success order',
+    'unpaid_order' => 'Unpaid order',
     'refresh' => 'Refresh'
 ];

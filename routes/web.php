@@ -267,6 +267,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
             'as'   => 'shoes.transaction.approvedBill'
         ]);
     });
+     /*Thanh toán VNPAY*/
+    Route::group(['prefix' => 'thanh-toan-vnpay'], function () {
+        Route::get('/', [
+            'uses' => 'PaymentController@index',
+            'as'   => 'shoes.payments.index'
+        ]);
+       
+    });
     /*Doanh thu*/
     Route::group(['prefix' => 'doanh-thu:{id}'], function () {
         Route::get('/', [

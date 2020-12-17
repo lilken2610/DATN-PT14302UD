@@ -336,6 +336,7 @@ class IndexController extends Controller
             return $id_transaction;
         }
     }
+   
     public function giftCode()
     {
         if (Request()->ajax()) {

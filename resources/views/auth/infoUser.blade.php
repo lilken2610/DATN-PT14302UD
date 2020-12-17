@@ -151,7 +151,7 @@
                                         <br>
                                         <br>
                                         @if( $value->status == -1  && $value->id_pay == 2)
-                                        <a href="{{route('shoes.shoes.paymentVnpay',$value->id_transaction)}}"  class="btn btn-outline btn-success">Chưa thanh toán</a>
+                                        <a href="{{route('shoes.shoes.paymentVnpay',$value->id_transaction)}}"  class="btn btn-outline btn-success">{{__('sentence.unpaid_order')}}</a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;">

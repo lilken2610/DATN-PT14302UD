@@ -16,7 +16,7 @@ $(document).ready(function () {
                     if (data == 1) {
                         Swal.fire(
                             'Thống báo!',
-                            'Đặt hàng thành công22!',
+                            'Đặt hàng thành công!',
                             'success'
                         ).then((result) => {
                             if (result.isConfirmed) {

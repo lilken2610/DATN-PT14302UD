@@ -84,5 +84,6 @@ return [
     'under_review' => 'Đang xét duyệt',
     'cancel_order' => 'Hủy đơn hàng',
     'success_order' => 'Đã nhận hàng',
+    'unpaid_order' => 'Chưa thanh toán',
     'refresh' => 'Làm mới'
 ];
