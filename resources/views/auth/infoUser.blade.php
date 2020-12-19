@@ -146,7 +146,7 @@
                                         @elseif( $value->status == -2 )
                                         <a class="btn btn-outline btn-success">{{__('sentence.cancel_order')}}</a>
                                         @elseif( $value->status == 2 )
-                                        <a class="btn btn-outline btn-success">{{__('sentence.success_order')}}</a> 
+                                        <a class="btn btn-outline btn-success">{{__('sentence.success_order')}}</a>
                                         @endif
                                         <br>
                                         <br>

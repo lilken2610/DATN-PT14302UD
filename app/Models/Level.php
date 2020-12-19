@@ -12,7 +12,7 @@ class Level extends Model
     public $timestamps = false;
 
     public function getAll() {
-        return GiftCode::orderBy('id_level','ASC')
+        return DB::table('level')->orderBy('id_level','ASC')
             ->get();
     }
 }
