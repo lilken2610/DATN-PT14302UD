@@ -17,7 +17,7 @@
         </div>
         <div class="col-sm-6">
             <div class="product-right">
-                <a href="{{route('shoes.shoes.index')}}">Trang chủ</a>/
+                <a href="{{route('shoes.shoes.index')}}">{{__('sentence.home_page')}}</a>/
                 <a href="">{{$object->name_product}}</a>
                 <h3>{{$object->name_product}}</h3>
                 <div>
@@ -74,7 +74,7 @@
                     <h4>Đánh giá</h4>
                     <form action="" class="form-group" id="form-rating">
                         <h5>Hãy gởi phản hồi của bạn về sản phẩm giày này !</h5>
-                        <div style="padding: 10px">
+                        {{-- <div style="padding: 10px">
                             <h6>Đánh giá sao</h6>
                             <span style="margin: 0 15px;" class="list_start">
                             @for($i = 1; $i <= 5; $i++)
@@ -83,7 +83,7 @@
                             </span>
                             <span class="list_text"></span>
                             <input type="hidden" value="" class="number_rating">
-                        </div>
+                        </div> --}}
                         <div style="clear: both"></div>
                         <div class="form-group">
                             <label for="">Nhận xét của bạn</label>
@@ -102,11 +102,11 @@
                             <h5>{{$itemR->username}}</h5>
                             <div style="padding: 10px">
                                 <p>{{ $itemR->comment }}</p>
-                                <span class="pro-rating">
+                                {{-- <span class="pro-rating">
                                 @for($i = 1; $i <= 5 ; $i++)
                                         <i class="fa fa-star {{ $i<=$itemR->rating ? 'active' : '' }}"></i>
                                     @endfor
-                                </span>
+                                </span> --}}
                                 <p><i class="fa fa-clock-o" style="padding-right: 5px"></i>{{$itemR->created_at}}</p>
                             </div>
                         </div>
@@ -203,29 +203,29 @@
             });
             $('#form-rating').submit(function (e) {
                 e.preventDefault();
-                let rating = $('.number_rating').val();
+                // let rating = $('.number_rating').val();
                 let content = $('#rating-content').val();
-                if( rating>0 ) {
+                // if( rating>0 ) {
                     $.ajax({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                         type:'POST',
                         url:'/rating/{{$object->id_product}}',
-                        data:{rating:rating, content:content},
+                        data:{rating:5, content:content},
                         success:function(data){
                             if( data!=0 ) {
                                 alert('Cảm ơn bạn đã góp ý về sản phẩm !');
-                                $('#content-rating').hide();
+                                 $('textarea#content-rating').val();
                                 $('#result-rating').html(data);
                             }else {
 
                             }
                         }
                     });
-                }else {
-                    alert('Vui lòng đánh giá sao !');
-                }
+                // }else {
+                //     alert('Vui lòng đánh giá sao !');
+                // }
             });
         });
 
