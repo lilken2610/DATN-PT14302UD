@@ -89,14 +89,14 @@
                                         <td>{{$arProducts->perPage()*($arProducts->currentPage()-1)+$count}}</td>
                                         <td>
                                             {!! $value->name_product !!}
-                                            <div>
+                                            {{-- <div>
                                                 <span class="pro-rating">
                                                     @for($i = 1; $i <= 5 ; $i++) <i
                                                         class="fa fa-star {{ $i<=$value->pro_rating ? 'active' : '' }}">
                                                         </i>
                                                         @endfor
                                                 </span>
-                                            </div>
+                                            </div> --}}
                                         </td>
                                         <td>{!! $value['category']->name_cat !!}</td>
                                         <td>{!! $value['brand']->name_brand !!}</td>
@@ -141,7 +141,7 @@
                                                     </p>
                                                     <p><strong>Thương hiệu</strong>: {!! $value['brand']->name_brand !!}
                                                     </p>
-                                                    <p>
+                                                    {{-- <p>
                                                         <strong>Lượt đánh giá</strong>:
                                                         <div>
                                                             <span class="pro-rating">
@@ -151,8 +151,8 @@
                                                                     @endfor
                                                             </span>
                                                         </div>
-                                                    </p>
-                                                    <p><strong>Số lượng</strong>: {!! $value->qty !!}</p>
+                                                    </p> --}}
+                                                    {{-- <p><strong>Số lượng</strong>: {!! $value->qty !!}</p> --}}
                                                     {{-- <div style="padding: 15px">
                                                                 @foreach($value->size as $item)
                                                                     <p>Size {{$item->size}}: {{$item->qty}} đôi</p>

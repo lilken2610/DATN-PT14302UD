@@ -40,7 +40,7 @@
                                                 @foreach($activeSize as $item)
                                                     <div class="checkbox form-inline">
                                                         <label>{{$item->size}}</label>
-                                                        <input style="width: 150px" type="number" name="qty{{$item->id_size}}" value="{{$item->qty}}" placeholder="Nhập số lượng"  class="form-control ">
+                                                        {{-- <input style="width: 150px" type="number" name="qty{{$item->id_size}}" value="{{$item->qty}}" placeholder="Nhập số lượng"  class="form-control "> --}}
                                                     </div>
                                                 @endforeach
                                             </div>

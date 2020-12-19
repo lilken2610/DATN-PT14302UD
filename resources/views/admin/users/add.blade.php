@@ -33,35 +33,35 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label>Tên đăng nhập</label>
-                                                <input class="form-control" name="username" placeholder="Nhập tên đăng nhập">
+                                                <input class="form-control" value="{{ old('username') }}" name="username" placeholder="Nhập tên đăng nhập">
                                                 <span class="alert-danger">{{$errors->first('username')}}</span>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Họ tên</label>
-                                                <input class="form-control" name="fullname" placeholder="Nhập họ tên">
+                                                <input class="form-control" value="{{ old('fullname') }}" name="fullname" placeholder="Nhập họ tên">
                                                 <span class="alert-danger">{{$errors->first('fullname')}}</span>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label>Email</label>
-                                                <input type="email" class="form-control" name="email" placeholder="Nhập Email">
+                                                <input type="email" value="{{ old('email') }}" class="form-control" name="email" placeholder="Nhập Email">
                                                 <span class="alert-danger">{{$errors->first('email')}}</span>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Số điện thoại</label>
-                                                <input class="form-control" name="phone" placeholder="Nhập số điện thoại">
+                                                <input class="form-control" value="{{ old('phone') }}" name="phone" placeholder="Nhập số điện thoại">
                                                 <span class="alert-danger">{{$errors->first('phone')}}</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Mật khẩu</label>
-                                            <input type="password" class="form-control" name="pwd" placeholder="Nhập mật khẩu">
+                                            <input type="password" value="{{ old('pwd') }}" class="form-control" name="pwd" placeholder="Nhập mật khẩu">
                                             <span class="alert-danger">{{$errors->first('pwd')}}</span>
                                         </div>
                                         <div class="form-group">
                                             <label>Địa chỉ</label>
-                                            <input class="form-control" name="address" placeholder="Nhập địa chỉ">
+                                            <input class="form-control" value="{{ old('address') }}" name="address" placeholder="Nhập địa chỉ">
                                             <span class="alert-danger">{{$errors->first('address')}}</span>
                                         </div>
                                         @if(isset($select))
@@ -70,7 +70,7 @@
                                                 <select name="level" id="" class="form-control">
                                                     <option value="">--Chọn--</option>
                                                     @foreach($select as $value)
-                                                        <option value="{{$value->id_level}}">{{$value->level}}</option>
+                                                        <option value="{{$value->id_level}}" {{old('level') == $value->id_level ? 'selected':''}}>{{$value->level}}</option>
                                                     @endforeach
                                                 </select>
                                                 <span class="alert-danger">{{$errors->first('level')}}</span>

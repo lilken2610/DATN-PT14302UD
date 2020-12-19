@@ -77,7 +77,7 @@
                                                 </select>
                                             </div>
                                         @endif
-                                        <input type="submit" class="btn btn-primary" value="Thêm">
+                                        <input type="submit" class="btn btn-primary" value="Sửa">
                                         <a href="{{route('shoes.size.index')}}" class="btn btn-success">Quay lại</a>
                                     </form>
                                 </div>

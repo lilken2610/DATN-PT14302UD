@@ -74,16 +74,6 @@
                     <h4>Đánh giá</h4>
                     <form action="" class="form-group" id="form-rating">
                         <h5>Hãy gởi phản hồi của bạn về sản phẩm giày này !</h5>
-                        {{-- <div style="padding: 10px">
-                            <h6>Đánh giá sao</h6>
-                            <span style="margin: 0 15px;" class="list_start">
-                            @for($i = 1; $i <= 5; $i++)
-                                    <i class="fa fa-star" id="ra_content" data-key="{{ $i }}"></i>
-                                @endfor
-                            </span>
-                            <span class="list_text"></span>
-                            <input type="hidden" value="" class="number_rating">
-                        </div> --}}
                         <div style="clear: both"></div>
                         <div class="form-group">
                             <label for="">Nhận xét của bạn</label>
@@ -102,11 +92,6 @@
                             <h5>{{$itemR->username}}</h5>
                             <div style="padding: 10px">
                                 <p>{{ $itemR->comment }}</p>
-                                {{-- <span class="pro-rating">
-                                @for($i = 1; $i <= 5 ; $i++)
-                                        <i class="fa fa-star {{ $i<=$itemR->rating ? 'active' : '' }}"></i>
-                                    @endfor
-                                </span> --}}
                                 <p><i class="fa fa-clock-o" style="padding-right: 5px"></i>{{$itemR->created_at}}</p>
                             </div>
                         </div>
@@ -178,29 +163,7 @@
 
         };
         $(document).ready(function () {
-            let listStart = $(".list_start .fa");
-            var listRatingText = {
-                1 : 'Không thích',
-                2 : 'Tạm được',
-                3 : 'Bình thường',
-                4 : 'Rất tốt',
-                5 : 'Tuyệt vời quá',
-            };
-            listStart.mouseover( function () {
-                let $this = $(this);
-                let number = $this.attr('data-key');
-                listStart.removeClass('rating_active');//rơ đánh giá sao
-
-                $(".number_rating").val(number);
-                $.each(listStart , function (key,value) {//foreach
-                    if(key + 1 <= number)//vì key đì từ 0,=> listRatingText 1 -> 5
-                    {
-                        $(this).addClass('rating_active');//hover khi click vào
-                    }
-                });
-
-                $(".list_text").text('').text(listRatingText[number]).show();//show ra
-            });
+            
             $('#form-rating').submit(function (e) {
                 e.preventDefault();
                 // let rating = $('.number_rating').val();
