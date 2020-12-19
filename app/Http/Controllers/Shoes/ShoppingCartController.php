@@ -30,7 +30,7 @@ class ShoppingCartController extends Controller
                 'qty'   => $request->qty,
                 'price' => $price,
                 'weight'=> 0,
-                'tax'   => 2,
+           
                 'options' => [
                     'image'     => reset($images),
                     'price_old' => $objectProduct->price,
