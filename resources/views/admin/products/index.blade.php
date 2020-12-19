@@ -176,7 +176,7 @@
                                                 <p><strong>Mô tả:</strong></p>
                                                 <p>{!! $value->preview !!}</p>
                                                 <p><strong>Chi tiết:</strong></p>
-                                                <p>{!! $value->description !!}</p>
+                                                <p>{!! Str::limit($value->description, 200) !!}</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default"
