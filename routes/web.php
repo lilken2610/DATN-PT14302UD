@@ -258,6 +258,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
             'uses' => 'TranSacTionController@bill',
             'as'   => 'shoes.transaction.bill'
         ]);
+        Route::post('/check-success-order', [
+            'uses' => 'TranSacTionController@checksuccessOrder',
+            'as'   => 'shoes.transaction.checksuccessOrder'
+        ]);
         Route::get('/xoa/{id}', [
             'uses' => 'TranSacTionController@del',
             'as'   => 'shoes.transaction.del'
@@ -265,6 +269,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admincp', 'middleware' => 'ad
         Route::get('/duyet-don/{id}', [
             'uses' => 'TranSacTionController@approvedBill',
             'as'   => 'shoes.transaction.approvedBill'
+        ]);
+        Route::post('/check-duyet-don', [
+            'uses' => 'TranSacTionController@checkApprovedBill',
+            'as'   => 'shoes.transaction.checkApprovedBill'
         ]);
     });
      /*Thanh toán VNPAY*/

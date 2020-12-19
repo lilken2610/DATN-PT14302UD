@@ -66,13 +66,16 @@
                                         <td>{{ date( "m/d/Y", strtotime($value->created_at)) }}</td>
                                         <td style="text-align: center">
                                             @if( $value->status == -1 )
-                                            <a href="{{route('shoes.transaction.approvedBill',$value->id_transaction)}}" class="btn btn-outline btn-success">Chờ xét duyệt</a>
+                                            <a id="{{$value->id_transaction}}" onclick="orderTransaction(event);" class="btn btn-outline btn-success">Chờ xét duyệt</a>
                                             @elseif( $value->status == 1 )
                                             <a class="btn btn-outline btn-info">Đã duyệt</a>
                                             @elseif( $value->status == -2 )
                                             <a class="btn btn-outline btn-info">Đã hủy</a>
                                             @elseif( $value->status == 2 )
                                             <a class="btn btn-outline btn-info">Đã giao thành công</a>
+                                            @endif
+                                            @if( $value->status == -1 && $value->id_pay == 2)
+                                            <a class="btn btn-outline btn-info">Chưa thanh toán Online</a>
                                             @endif
                                         </td>
                                         <td style="text-align: center;">
@@ -118,6 +121,81 @@
 
     </div>
 </div>
+<script>
+    function orderTransaction(event) {
+
+        var id = event.target.id
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'POST',
+            url: "{{route('shoes.transaction.checkApprovedBill')}}",
+            data: {
+                id: id
+            },
+            success: function(data) {
+                if (data == 2) {
+                    Swal.fire({
+                        title: 'Thông báo ?',
+                        text: "Người mua chưa thanh toán hóa đơn bạn có muốn hoàn tất thanh toán không!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Có, tôi chắc chắn!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                type: 'POST',
+                                url: "{{route('shoes.transaction.checksuccessOrder')}}",
+                                data: {
+                                    id: id
+                                },
+                                success: function(data) {
+                                    Swal.fire(
+                                        'Thành công!',
+                                        'Đã xác nhận đơn hàng thành công.',
+                                        'success'
+                                    ).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = "don-hang" ;
+                                        }
+                                        window.location.href = "don-hang" ;
+                                    })
+                                }
+                            })
+                        }
+                    })
+                } else if (data == 1) {
+                    Swal.fire({
+                        title: 'Bạn có chắc?',
+                        text: "Muốn hủy đơn đặt hàng!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Có, tôi chắc chắn!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                                'Thành công!',
+                                'Hủy đơn hàng thành công.',
+                                'success'
+                            ).then((result) => {
+                                window.location.href = "/cancel-order/" + id;
+                            })
+                        }
+                    })
+                }
+            }
+        });
+
+    }
+</script>
 @endsection
 {{--src-footer--}}
 @section('src-footer-admin')
@@ -143,6 +221,8 @@
                 }
             });
         });
+
+
         $('#dataTables-example').DataTable({
             responsive: true,
             "lengthMenu": [

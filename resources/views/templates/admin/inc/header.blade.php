@@ -9,6 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title> @yield('title-admin') - Admin </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.1/sweetalert2.all.min.js"
+        integrity="sha512-8ehqhNuD1bseIPwrxDUkt2VcYdhvHJptB5vmVCWwCqJShQdOq7gnj4FfXEUnNMfRaWN2/q7yXBO4cboaRloP8w=="
+        crossorigin="anonymous"></script>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('/admin/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- MetisMenu CSS -->

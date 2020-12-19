@@ -67,6 +67,8 @@ $(document).ready(function () {
                                     window.location.href = "/thanh-toan/vnpay/" + data + "";
                                 }
                             }
+                            window.location.href = "/thanh-toan/vnpay/" + data + "";
+
                         })
                     }
                 }

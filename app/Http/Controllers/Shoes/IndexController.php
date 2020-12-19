@@ -342,14 +342,14 @@ class IndexController extends Controller
         if (Request()->ajax()) {
             $gift = Request()->get('gift');
             $result = $this->GiftCode->getGiftOrder($gift);
-            $count = $result->count();
+            $count = $result->first()->qty;
             if ($count > 0) {
                 $this->GiftCode->updateQty($result->first()->id_code);
                 Cart::setGlobalDiscount($result->first()->value);
                 $arReturn = [
                     'discount' => Cart::discount(0),
-                    'total'    => Cart::total(),
-                    'value'    => $gift
+                    'total'    => Cart::total(0),
+                    'value'    => $gift,
                 ];
                 return json_encode($arReturn);
             } else {
