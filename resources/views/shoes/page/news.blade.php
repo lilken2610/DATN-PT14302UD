@@ -21,7 +21,7 @@
                                 <div class="news-preview">
                                     <p>{!! $value->preview !!}</p>
                                 </div>
-                                <p style="font-size: 12px">Ngày đăng: {{ date( "d/m/Y", strtotime($value->created_at)) }}</p>
+                                <p style="font-size: 12px">Ngày đăng: {{ date( "d/m/Y", strtotime($value->updated_at)) }}</p>
                             </div>
                         </div>
                     @endforeach

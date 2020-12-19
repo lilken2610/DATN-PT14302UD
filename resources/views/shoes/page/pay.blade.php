@@ -63,7 +63,7 @@
                             <td><strong>{{ Cart::initial(0) }} đ</strong></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: 700" scope="row">{{__('sentence.tax')}} (20%)</td>
+                            <td style="font-weight: 700" scope="row">{{__('sentence.tax')}} (0%)</td>
                             <td>{{ Cart::tax(0) }} đ</td>
                         </tr>
                         {{-- <tr>

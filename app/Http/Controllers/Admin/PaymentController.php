@@ -14,7 +14,8 @@ class PaymentController extends Controller
         $this->Payments = $payments;
     }
     public  function index() {
-        $allPayment = $this->Payments->getAll();
+        $allPayment = $this->Payments->getPayAll();
+        // echo $allPayment;
         return view('admin.payments.index',compact('allPayment'));
     }
 

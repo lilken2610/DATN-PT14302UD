@@ -107,5 +107,7 @@ return [
     'result' => 'Kết quả',
 
 
-    
+
+    'unpaid_order' => 'Chưa thanh toán',
+    'refresh' => 'Làm mới'
 ];

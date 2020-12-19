@@ -111,9 +111,11 @@ return [
 
 
 
-    
 
-    
-    
-    
+
+
+
+
+    'unpaid_order' => 'Unpaid order',
+    'refresh' => 'Refresh'
 ];

@@ -16,6 +16,16 @@ class Payments extends Model
     public function getPay() {
         return Payments::all();
     }
+    public function getPayAll()
+    {
+        $object = DB::table('payments')
+            ->join('users', 'users.id', 'payments.thanh_vien')
+           -> orderBy('payments.id', 'DESC')
+            ->select('payments.*','users.fullname as username')
+            ->get();
+
+        return $object;
+    }
     public function getAll() {
         return Payments::orderBy('id', 'DESC')->get();
     }

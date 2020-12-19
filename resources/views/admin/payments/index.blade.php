@@ -40,7 +40,7 @@
                                     <tr>
                                         <th>STT</th>
                                         <th>Tên thương hiệu</th>
-                                        <th>Chức Năng</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -55,7 +55,9 @@
                                             <td style="text-align: center;">
                                                 <a href="{{route('shoes.shoes.pay',$value->id_brand)}}" class="btn btn-primary">Sửa</a>
                                                 <a href="{{route('shoes.shoes.pay',$value->id_brand)}}" onclick="return xacnhaxoa('Bạn có chắc muốn xóa !')" class="btn btn-danger">Xóa</a>
-                                            </td> 
+                                            </td>
+
+
                                         </tr>
                                     @endforeach
                                     </tbody>

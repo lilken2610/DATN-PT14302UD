@@ -22,8 +22,8 @@
                         <input class="form-control" id="order_id" name="order_id" type="text" value="{{$object->id_transaction}}" readonly />
                     </div>
                     <div class="form-group">
-                        <label for="amount">{{__('sentence.amount_of_money')}}</label>
-                        <input class="form-control" id="amount" name="amount" type="text" value="{{$object->totalPrice+$object->tax}}" readonly />
+                        <label for="amount">Số tiền</label>
+                        <input class="form-control" id="amount" name="amount" type="text" value="{{$object->totalPrice + $object->tax - $object->discount}}" readonly />
                     </div>
                     <div class="form-group">
                         <label for="order_desc">{{__('sentence.content_billing')}}</label>
@@ -139,7 +139,7 @@
         </select>
     </div>
 
-     <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button> 
+     <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button>
 <button type="submit" class="btn btn-default">Thanh toán Redirect</button>
 
 </form> -->
