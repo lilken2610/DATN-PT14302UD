@@ -45,6 +45,7 @@
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <script src="{{asset('admin/js/customjs/login.js')}}"></script>
         <script src="{{asset('admin/js/customjs/auth.js')}}"></script>
+        <script src="{{asset('shoes/js/customjs/customer.js')}}"></script>
         <link rel="stylesheet" href="{{asset('admin/css/customcss/admin.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>

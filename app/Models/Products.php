@@ -31,17 +31,8 @@ class Products extends Model
     public function getAll(Request $request)
     {
         $products = Products::query();
-        if ($request->keyword) {
-            $products->where('name_product', 'like', '%' . $request->keyword . '%');
-        }
-
-        if ($request->category) {
-            $products->where('id_cat', $request->category);
-        }
-
-        if ($request->brand) {
-            $products->where('id_brand', $request->brand);
-        }
+            $products->where('name_product', 'like', '%' . $request->keyword . '%')->orWhere('id_cat', $request->category)
+            ->orWhere('id_brand', $request->brand);
 
         return $products->orderBy('id_product', 'DESC')->paginate(10);
     }

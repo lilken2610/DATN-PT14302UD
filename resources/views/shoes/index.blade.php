@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="info">
-                    <p>{{$item_sale->name_product}}</p>
+                    {{-- <p>{{$item_sale->name_product}}</p> --}}
                     <del>{{number_format($item_sale->price)}} đ</del>
                     @php $price_sale = $item_sale->price - $item_sale->price*$item_sale->sale/100 @endphp
                     <p>{{number_format($price_sale)}} đ</p>
@@ -205,7 +205,7 @@
                     </div>
                 </div>
                 <div class="info">
-                    <p>{{$item_sale->name_product}}</p>
+                    {{-- <p>{{$item_sale->name_product}}</p> --}}
                     <del>{{number_format($item_sale->price)}} đ</del>
                     @php $price_sale = $item_sale->price - $item_sale->price*$item_sale->sale/100 @endphp
                     <p>{{number_format($price_sale)}} đ</p>

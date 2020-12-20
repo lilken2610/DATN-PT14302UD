@@ -73,7 +73,7 @@
                         <td><span id="price_total">{{ Cart::priceTotal(0) }}</span> đ</td>
                     </tr>
                     <tr>
-                        <th scope="row">{{__('sentence.tax')}}(20%)</th>
+                        <th scope="row">{{__('sentence.tax')}}(0%)</th>
                         <td><span id="tax">{{Cart::tax() }}</span> đ</td>
                     </tr>
                     <tr>

@@ -220,7 +220,7 @@ class IndexController extends Controller
     {
 
         // session(['url_prev' => url()->previous()]);
-        $vnp_TmnCode = env('vnp_TmnCode'); //Mã website tại VNPAY 
+        $vnp_TmnCode = env('vnp_TmnCode'); //Mã website tại VNPAY
         $vnp_HashSecret = env('vnp_HashSecret'); //Chuỗi bí mật
         $vnp_Url = env('vnp_Url');
         $vnp_Returnurl = env('vnp_Returnurl');
@@ -288,7 +288,7 @@ class IndexController extends Controller
     public function paymentVnpay($id)
     {
         $object = $this->Transaction->getBill($id)->first();
-        
+
         if (
             !isset($object->id_transaction) || $object->id_user != Auth::id() || $object->status == 1
             || $object->id_transaction != $id
@@ -336,7 +336,7 @@ class IndexController extends Controller
             return $id_transaction;
         }
     }
-   
+
     public function giftCode()
     {
         if (Request()->ajax()) {

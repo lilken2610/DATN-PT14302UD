@@ -16,27 +16,23 @@
                         <span class="alert-danger">{{Session::get('error')}}</span>
                     @endif
                 </div>
-                <form action="{{route('shoes.shoes.updateInfo')}}" method="post">
+                <form action="{{route('shoes.shoes.updateInfo')}}" method="post" id="formUpdateInfoPayment">
                     @csrf
                     <div class="form-group" >
                         <label for="email">{{__('sentence.full_name')}}:</label>
-                        <input type="text" class="form-control" id="email" name="fullname" value="{{ Auth::user()->fullname }}">
+                        <input type="text" class="form-control" id="fullname" name="fullname" value="{{ Auth::user()->fullname }}">
                     </div>
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.address')}}:</label>
-                        <input type="text" class="form-control" id="pwd" name="address" value="{{ Auth::user()->address }}">
+                        <input type="text" class="form-control" id="address" name="address" value="{{ Auth::user()->address }}">
                     </div>
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.number_phone')}}:</label>
-                        <input type="text" class="form-control" id="pwd" name="phone" value="{{ Auth::user()->phone }}">
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{ Auth::user()->phone }}">
                     </div>
                     <div class="form-group">
                         <label for="pwd">{{__('sentence.email')}}:</label>
-                        <input type="text" class="form-control" id="pwd" name="email" value="{{ Auth::user()->email }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">{{__('sentence.note')}}:</label>
-                        <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}">
                     </div>
                     <button type="submit" class="bt-pay-update button btn btn-primary">{{__('sentence.update')}}</button>
                 </form>
